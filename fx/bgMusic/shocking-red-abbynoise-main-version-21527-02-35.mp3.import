@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/shocking-red-abbynoise-main-version-21527-02-35.mp3-36660d3b1d7cdf3c33ae32553de978a9.mp3str"
+
+[deps]
+
+source_file="res://fx/bgMusic/shocking-red-abbynoise-main-version-21527-02-35.mp3"
+dest_files=[ "res://.import/shocking-red-abbynoise-main-version-21527-02-35.mp3-36660d3b1d7cdf3c33ae32553de978a9.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

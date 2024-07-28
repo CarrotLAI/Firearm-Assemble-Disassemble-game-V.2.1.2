@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://fonts/Gugi-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Script/description/Description.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 1 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -7.0
+margin_top = 78.0
+margin_right = 962.0
+margin_bottom = 464.0
+color = Color( 0, 0, 0, 0.298039 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 47.0
+margin_top = 116.0
+margin_right = 651.0
+margin_bottom = 433.0
+theme = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[i] Glock 17 [i]
+[color=#88ffff22] Place origin: Austalia [/color] 
+Designed: 1979 -1982
+Designer: Ganston Glock
+Produced: 1982 - Present
+IN present: 1982-Present
+Barrel lenght:  186 mm
+Cartridge: 9×19 mm parabellum
+"
+text = " Glock 17 
+ Place origin: Austalia  
+Designed: 1979 -1982
+Designer: Ganston Glock
+Produced: 1982 - Present
+IN present: 1982-Present
+Barrel lenght:  186 mm
+Cartridge: 9×19 mm parabellum
+"
+scroll_active = false
+scroll_following = true

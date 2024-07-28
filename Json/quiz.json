@@ -1,0 +1,27 @@
+[
+    {
+        "question": "What type of ammunition does the glock 17 use?",
+        "options": ["9×19m", "10mm"],
+        "correctAnswerIndex": 0
+    },
+    {
+        "question": "Who designed the Glock 17",
+        "options": ["River Glock", "Gaston Glock"],
+        "correctAnswerIndex": 1
+    },
+    {
+        "question": "When did the Glock 17 designed ",
+        "options": ["1979-1982", "1978-1980"],
+        "correctAnswerIndex": 0
+    },
+    {
+        "question": "What is the weight of Glock 17 without magazine",
+        "options": ["635g", "625g"],
+        "correctAnswerIndex": 1
+    },
+    {
+        "question" : "What place the Glock 17 origin?",
+        "options" : ["USA", "Australia"],
+        "correctAnswerIndex" : 1
+    }
+]

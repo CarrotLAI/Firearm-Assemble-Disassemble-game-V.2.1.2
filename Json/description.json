@@ -1,0 +1,24 @@
+[
+    {
+        "Category": "Pistol",
+        "Brand": "Glock-17",
+        "Place origin": "Austalia",
+        "Designed": "1979-1982",
+        "Designer": "Ganston Glock",
+        "Produced": "1982-Present",
+        "In present": "1982-Present",
+        "Barrel lenght": "186 mm",
+        "Cartridge": "9×19 mm parabellum"
+    },
+    {
+        "Category": "Pistol",
+        "Brand": "Calibre 45 1911",
+        "Place origin": "United States",
+        "Designed": "1910-present",
+        "Designer": "John Moses Browning",
+        "Produced": "1911-present",
+        "In Service": "1911-present",
+        "Barrel lenght": "officer model(89mm)",
+        "Cartridge": "45.ACP"
+    }
+]

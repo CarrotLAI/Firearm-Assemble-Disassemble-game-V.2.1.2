@@ -1,0 +1,289 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Script/UI/game_menu.gd" type="Script" id=1]
+[ext_resource path="res://fonts/Gugi-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Script/difficulty.gd" type="Script" id=3]
+[ext_resource path="res://Script/modes.gd" type="Script" id=4]
+[ext_resource path="res://Script/StartMenu.gd" type="Script" id=5]
+[ext_resource path="res://Script/UI/menu_buttons.gd" type="Script" id=6]
+[ext_resource path="res://Script/UI/Category.gd" type="Script" id=7]
+[ext_resource path="res://Scene/UI/Description.tscn" type="PackedScene" id=8]
+
+[sub_resource type="DynamicFont" id=4]
+size = 50
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 50
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 50
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 50
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 50
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 50
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 50
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 50
+font_data = ExtResource( 2 )
+
+[node name="game_interface" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -2.0
+margin_top = 2.0
+margin_right = -2.0
+margin_bottom = 2.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 750.0 ],
+"_edit_vertical_guides_": [ 474.0 ]
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_top = -4.0
+margin_right = 959.0
+margin_bottom = 1277.0
+
+[node name="menu_buttons" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 6 )
+
+[node name="guns" type="Node2D" parent="menu_buttons"]
+position = Vector2( 700, 0 )
+script = ExtResource( 3 )
+
+[node name="vbox" type="VBoxContainer" parent="menu_buttons/guns"]
+margin_left = 290.0
+margin_top = 420.0
+margin_right = 654.0
+margin_bottom = 951.0
+rect_min_size = Vector2( 0, 531 )
+alignment = 1
+
+[node name="glock" type="Button" parent="menu_buttons/guns/vbox"]
+margin_top = 176.0
+margin_right = 364.0
+margin_bottom = 233.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.921569, 0.521569, 0.0941176, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Glock"
+flat = true
+
+[node name="calibre45" type="Button" parent="menu_buttons/guns/vbox"]
+margin_top = 237.0
+margin_right = 364.0
+margin_bottom = 294.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.921569, 0.521569, 0.0941176, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "Calibre 45"
+flat = true
+
+[node name="m16_rifle" type="Button" parent="menu_buttons/guns/vbox"]
+visible = false
+margin_top = 267.0
+margin_right = 364.0
+margin_bottom = 324.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "M16 Rifle"
+flat = true
+
+[node name="back" type="Button" parent="menu_buttons/guns/vbox"]
+margin_top = 298.0
+margin_right = 364.0
+margin_bottom = 355.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.913725, 0.0588235, 0.0588235, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "Back"
+flat = true
+
+[node name="move_tween" type="Tween" parent="menu_buttons/guns"]
+
+[node name="start" type="Node2D" parent="menu_buttons"]
+script = ExtResource( 5 )
+
+[node name="vbox" type="VBoxContainer" parent="menu_buttons/start"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 325.0
+margin_top = 555.0
+margin_right = 621.0
+margin_bottom = 797.0
+alignment = 1
+
+[node name="start" type="Button" parent="menu_buttons/start/vbox"]
+margin_top = 62.0
+margin_right = 296.0
+margin_bottom = 119.0
+focus_mode = 0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.921569, 0.521569, 0.0941176, 1 )
+custom_fonts/font = SubResource( 1 )
+enabled_focus_mode = 0
+text = "Start Game"
+flat = true
+
+[node name="quit" type="Button" parent="menu_buttons/start/vbox"]
+margin_top = 123.0
+margin_right = 296.0
+margin_bottom = 180.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.913725, 0.0588235, 0.0588235, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Quit"
+flat = true
+
+[node name="move_tween" type="Tween" parent="menu_buttons/start"]
+
+[node name="modes" type="Node2D" parent="menu_buttons"]
+position = Vector2( 700, 0 )
+script = ExtResource( 4 )
+
+[node name="vbox" type="VBoxContainer" parent="menu_buttons/modes"]
+margin_left = 308.0
+margin_top = 429.0
+margin_right = 638.0
+margin_bottom = 1014.0
+alignment = 1
+
+[node name="video tutorial" type="Button" parent="menu_buttons/modes/vbox"]
+margin_top = 172.0
+margin_right = 344.0
+margin_bottom = 229.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.313726, 0.858824, 0.141176, 1 )
+custom_colors/font_color_pressed = Color( 0.211765, 0.101961, 0.839216, 1 )
+custom_fonts/font = SubResource( 7 )
+text = "Video Tutorial"
+flat = true
+
+[node name="disassemble" type="Button" parent="menu_buttons/modes/vbox"]
+margin_top = 233.0
+margin_right = 344.0
+margin_bottom = 290.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.921569, 0.521569, 0.0941176, 1 )
+custom_fonts/font = SubResource( 7 )
+text = "Disassemble"
+flat = true
+
+[node name="assemble" type="Button" parent="menu_buttons/modes/vbox"]
+margin_top = 294.0
+margin_right = 344.0
+margin_bottom = 351.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.921569, 0.521569, 0.0941176, 1 )
+custom_fonts/font = SubResource( 8 )
+text = "Assemble"
+flat = true
+
+[node name="back_to_difficulty" type="Button" parent="menu_buttons/modes/vbox"]
+margin_top = 355.0
+margin_right = 344.0
+margin_bottom = 412.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.913725, 0.0588235, 0.0588235, 1 )
+custom_fonts/font = SubResource( 8 )
+text = "Back"
+flat = true
+
+[node name="move_tween" type="Tween" parent="menu_buttons/modes"]
+
+[node name="Category" type="Node2D" parent="menu_buttons"]
+position = Vector2( 700, 0 )
+script = ExtResource( 7 )
+
+[node name="VBox" type="VBoxContainer" parent="menu_buttons/Category"]
+margin_left = 359.0
+margin_top = 526.0
+margin_right = 592.0
+margin_bottom = 890.0
+alignment = 1
+
+[node name="Pistol" type="Button" parent="menu_buttons/Category/VBox"]
+margin_top = 92.0
+margin_right = 233.0
+margin_bottom = 149.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.921569, 0.521569, 0.0941176, 1 )
+custom_fonts/font = SubResource( 9 )
+text = "Pistol"
+flat = true
+
+[node name="Rifle" type="Button" parent="menu_buttons/Category/VBox"]
+margin_top = 153.0
+margin_right = 233.0
+margin_bottom = 210.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.921569, 0.521569, 0.0941176, 1 )
+custom_fonts/font = SubResource( 10 )
+text = "Rifle"
+flat = true
+
+[node name="Back" type="Button" parent="menu_buttons/Category/VBox"]
+margin_top = 214.0
+margin_right = 233.0
+margin_bottom = 271.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.913725, 0.0588235, 0.0588235, 1 )
+custom_fonts/font = SubResource( 10 )
+text = "Back"
+flat = true
+
+[node name="move_tween" type="Tween" parent="menu_buttons/Category"]
+
+[node name="Control" parent="." instance=ExtResource( 8 )]
+visible = false
+
+[node name="ColorRect" parent="Control" index="0"]
+visible = false
+
+[node name="RichTextLabel" parent="Control" index="1"]
+visible = false
+
+[connection signal="button_down" from="menu_buttons/guns/vbox/glock" to="." method="_on_glock_button_down"]
+[connection signal="button_up" from="menu_buttons/guns/vbox/glock" to="." method="_on_glock_button_up"]
+[connection signal="mouse_entered" from="menu_buttons/guns/vbox/glock" to="." method="_on_glock_mouse_entered"]
+[connection signal="mouse_exited" from="menu_buttons/guns/vbox/glock" to="." method="_on_glock_mouse_exited"]
+[connection signal="pressed" from="menu_buttons/guns/vbox/glock" to="." method="_on_glock_pressed"]
+[connection signal="pressed" from="menu_buttons/guns/vbox/glock" to="menu_buttons" method="_on_glock_pressed"]
+[connection signal="pressed" from="menu_buttons/guns/vbox/back" to="menu_buttons" method="_on_back_pressed"]
+[connection signal="pressed" from="menu_buttons/start/vbox/start" to="menu_buttons" method="_on_start_pressed"]
+[connection signal="pressed" from="menu_buttons/start/vbox/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="menu_buttons/modes/vbox/video tutorial" to="menu_buttons" method="_on_video_tutorial_pressed"]
+[connection signal="pressed" from="menu_buttons/modes/vbox/disassemble" to="." method="_on_disassemble_pressed"]
+[connection signal="pressed" from="menu_buttons/modes/vbox/disassemble" to="menu_buttons" method="_on_disassemble_pressed"]
+[connection signal="pressed" from="menu_buttons/modes/vbox/assemble" to="." method="_on_assemble_pressed"]
+[connection signal="pressed" from="menu_buttons/modes/vbox/back_to_difficulty" to="menu_buttons" method="_on_back_to_difficulty_pressed"]
+[connection signal="pressed" from="menu_buttons/Category/VBox/Pistol" to="menu_buttons" method="_on_Pistol_pressed"]
+[connection signal="pressed" from="menu_buttons/Category/VBox/Back" to="menu_buttons" method="_on_Back_pressed"]
+
+[editable path="Control"]
