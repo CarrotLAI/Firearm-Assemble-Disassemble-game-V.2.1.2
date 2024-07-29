@@ -1,9 +1,10 @@
 extends Node
 
+signal LoginUser(user, password)
+signal CreateUser(user, password)
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+@Export var CreateUserWindow : PackedScene
+
 var username = ""
 var password
 var profile
@@ -26,6 +27,8 @@ onready var create_password_confirm = $TabContainer/Signup/password_confirm
 #	$VBoxContainer/username.rect_size(653, 25)
 #	$VBoxContainer/password.rect_size(653, 25)
 	
+
+#login user Script
 func _on_submit_pressed():
 	if !created:
 		username = node_username.text
@@ -40,8 +43,13 @@ func _on_submit_pressed():
 			node_username.text = ""
 			node_password.text = ""
 			print("login failed")
+	#Added from Tutorial
+	
+	LoginUser.emit($username, $password)
 
 
+
+#Create user Script
 func _on_create_pressed():
 	if create_password == create_password_confirm:
 		profile = {
@@ -51,3 +59,11 @@ func _on_create_pressed():
 		print(profile)
 	else:
 		print("password doesn't match")
+	#added from Tutorial
+	var createUserWindow = CreateUserWindow.instantiate()
+	add_child(createUserWindow)
+	createUserWindow.CreateUser.connect()
+
+#added from Tutorial
+func createUser(name, password):
+	CreateUser.emit(name, password)
