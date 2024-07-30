@@ -1,5 +1,6 @@
 extends Spatial
 
+
 onready var take_quiz = preload("res://Scene/QUIZ/quiz.tscn")
 onready var back_start = preload("res://Scene/UI/game_index.tscn")
 onready var congratulations = $"."
