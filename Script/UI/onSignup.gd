@@ -22,24 +22,29 @@ func _on_create_pressed():
 	var username = $username.text
 	var password = $password.text.strip_edges()
 	var confirm = $password_confirm.text.strip_edges()
-	var label = $Label.text
-	print(password, confirm)
+	var label = get_node("Label")
+#	print(password, confirm)
 	
 	if password == confirm:
 		var query = "INSERT INTO PlayerInfo (Username, Password) VALUES ('%s', '%s')" % [username, password]
 		db.query(query)
-		username = ""
-		password = ""
-		confirm = ""
-		label = "Account Created"
+		username.text = ""
+		password.text = ""
+		confirm.text = ""
+		if label.text == "":
+			print("Account Created")
+			label.text = "Account Created"
+			label.set("custom_colors/font_color", Color(1, 1, 1))
+		else:
+			print("label is null")
 		
-		var selQuery = "SELECT * FROM PlayerInfo WHERE username = '%s' AND password = '%s'" % [username, password]
-		db.query(selQuery)
-		if db.query_result.size() > 0:
-			for i in range(0, db.query_result.size()):
-				print("Username: ", db.query_result[i]["Username"])
-			var last_id = db.query_result[db.query_result.size() - 1]["id"]
-			print("Last ID: ", last_id)
+#		var selQuery = "SELECT * FROM PlayerInfo WHERE username = '%s' AND password = '%s'" % [username, password]
+#		db.query(selQuery)
+#		if db.query_result.size() > 0:
+#			for i in range(0, db.query_result.size()):
+#				print("Username: ", db.query_result[i]["Username"])
+#			var last_id = db.query_result[db.query_result.size() - 1]["id"]
+#			print("Last ID: ", last_id)
 #		var result = db.execute("SELECT last_insert_rowid()", [])
 #		var last_insert_id = result[0][0]
 #		print("Last inserted ID: ", last_insert_id)
@@ -50,4 +55,6 @@ func _on_create_pressed():
 #			print("Failed to create an account")
 	else:
 		print("password did not match")
+		label.text = "password did not match"
+		label.set("custom_colors/font_color", Color(1, 0, 0))
 		

@@ -29,8 +29,8 @@ margin_right = 651.0
 margin_bottom = 433.0
 theme = SubResource( 2 )
 bbcode_enabled = true
-bbcode_text = "[i] Glock 17 [i]
-[color=#88ffff22] Place origin: Austalia [/color] 
+bbcode_text = "[i]Glock 17 [i]
+[color=#88ffff22]Place origin: Austalia [/color] 
 Designed: 1979 -1982
 Designer: Ganston Glock
 Produced: 1982 - Present
@@ -38,8 +38,8 @@ IN present: 1982-Present
 Barrel lenght:  186 mm
 Cartridge: 9×19 mm parabellum
 "
-text = " Glock 17 
- Place origin: Austalia  
+text = "Glock 17 
+Place origin: Austalia  
 Designed: 1979 -1982
 Designer: Ganston Glock
 Produced: 1982 - Present
@@ -49,3 +49,63 @@ Cartridge: 9×19 mm parabellum
 "
 scroll_active = false
 scroll_following = true
+
+[node name="Calibre" type="RichTextLabel" parent="."]
+visible = false
+margin_left = 47.0
+margin_top = 116.0
+margin_right = 651.0
+margin_bottom = 433.0
+theme = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[i] Colt M1911 [i]
+[color=#88ffff22] Place origin: United States [/color]
+Designed: 1904-1911
+Designer: John Browning
+Produced: 1911 - Present
+In present: 1911 - Present
+Barrel length: 127 mm
+Cartridge: .45 ACP"
+text = " Colt M1911 
+ Place origin: United States 
+Designed: 1904-1911
+Designer: John Browning
+Produced: 1911 - Present
+In present: 1911 - Present
+Barrel length: 127 mm
+Cartridge: .45 ACP"
+scroll_active = false
+scroll_following = true
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="M-16" type="RichTextLabel" parent="."]
+visible = false
+margin_left = 47.0
+margin_top = 116.0
+margin_right = 651.0
+margin_bottom = 433.0
+theme = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[i] M16 Rifle [i]
+[color=#88ffff22] Place origin: United States [/color]
+Designed: 1956-1960
+Designer: Eugene Stoner
+Produced: 1960 - Present
+In present: 1960 - Present
+Barrel length: 508 mm (20 in)
+Cartridge: 5.56×45 mm NATO"
+text = " M16 Rifle 
+ Place origin: United States 
+Designed: 1956-1960
+Designer: Eugene Stoner
+Produced: 1960 - Present
+In present: 1960 - Present
+Barrel length: 508 mm (20 in)
+Cartridge: 5.56×45 mm NATO"
+scroll_active = false
+scroll_following = true
+__meta__ = {
+"_editor_description_": ""
+}

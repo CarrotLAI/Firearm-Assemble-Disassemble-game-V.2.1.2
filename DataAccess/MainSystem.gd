@@ -40,7 +40,7 @@ func readFromDB():
 	var tableName = "PlayerInfo"
 	db.query("SELECT * FROM " + tableName + ";")
 	for i in range(0, db.query_result.size()):
-		print_debug(db.query_result[i]["Username"], db.query_result[i]["Password"])
+		print(db.query_result[i]["Username"], db.query_result[i]["Password"])
 		
 	
 #adding user

@@ -19,10 +19,15 @@ func _on_back_pressed():
 	
 #func _on_disassemble_pressed():
 #	get_node("modes").move(Vector2())
-
-func _on_glock_pressed():
+func proceed_glock(e):
+	print("true")
+	
+func _on_game_interface_proceed_glock(val):
 	get_node("guns").move(Vector2(700,0))
 	get_node("modes").move(Vector2(0,0))
+	
+#func _on_glock_pressed():
+	
 
 
 func _on_back_to_difficulty_pressed():
@@ -42,3 +47,4 @@ func _on_Back_pressed():
 
 func _on_video_tutorial_pressed():
 	pass # Replace with function body.
+

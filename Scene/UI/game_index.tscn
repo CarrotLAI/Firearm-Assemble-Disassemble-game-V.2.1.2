@@ -261,7 +261,7 @@ flat = true
 [node name="move_tween" type="Tween" parent="menu_buttons/Category"]
 
 [node name="Control" parent="." instance=ExtResource( 8 )]
-visible = false
+margin_bottom = -813.0
 
 [node name="ColorRect" parent="Control" index="0"]
 visible = false
@@ -269,12 +269,26 @@ visible = false
 [node name="RichTextLabel" parent="Control" index="1"]
 visible = false
 
-[connection signal="button_down" from="menu_buttons/guns/vbox/glock" to="." method="_on_glock_button_down"]
-[connection signal="button_up" from="menu_buttons/guns/vbox/glock" to="." method="_on_glock_button_up"]
-[connection signal="mouse_entered" from="menu_buttons/guns/vbox/glock" to="." method="_on_glock_mouse_entered"]
-[connection signal="mouse_exited" from="menu_buttons/guns/vbox/glock" to="." method="_on_glock_mouse_exited"]
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control"]
+visible = false
+margin_left = 47.0
+margin_top = 116.0
+margin_right = 586.0
+margin_bottom = 381.0
+text = "[i] Colt M1911 [i]
+[color=#88ffff22] Place origin: United States [/color]
+Designed: 1904-1911
+Designer: John Browning
+Produced: 1911 - Present
+In present: 1911 - Present
+Barrel length: 127 mm
+Cartridge: .45 ACP"
+
+[connection signal="proceed_glock" from="." to="menu_buttons" method="_on_game_interface_proceed_glock"]
+[connection signal="gui_input" from="menu_buttons/guns/vbox/glock" to="." method="_on_glock_gui_input"]
+[connection signal="gui_input" from="menu_buttons/guns/vbox/glock" to="menu_buttons" method="_on_glock_gui_input"]
 [connection signal="pressed" from="menu_buttons/guns/vbox/glock" to="." method="_on_glock_pressed"]
-[connection signal="pressed" from="menu_buttons/guns/vbox/glock" to="menu_buttons" method="_on_glock_pressed"]
+[connection signal="pressed" from="menu_buttons/guns/vbox/calibre45" to="." method="_on_calibre45_pressed"]
 [connection signal="pressed" from="menu_buttons/guns/vbox/back" to="menu_buttons" method="_on_back_pressed"]
 [connection signal="pressed" from="menu_buttons/start/vbox/start" to="menu_buttons" method="_on_start_pressed"]
 [connection signal="pressed" from="menu_buttons/start/vbox/quit" to="." method="_on_quit_pressed"]
