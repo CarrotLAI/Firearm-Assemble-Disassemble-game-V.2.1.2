@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Script/UI/game_menu.gd" type="Script" id=1]
 [ext_resource path="res://fonts/Gugi-Regular.ttf" type="DynamicFontData" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Script/UI/menu_buttons.gd" type="Script" id=6]
 [ext_resource path="res://Script/UI/Category.gd" type="Script" id=7]
 [ext_resource path="res://Scene/UI/Description.tscn" type="PackedScene" id=8]
+[ext_resource path="res://fonts/comingsoon.tres" type="Theme" id=9]
 
 [sub_resource type="DynamicFont" id=4]
 size = 50
@@ -215,6 +216,104 @@ custom_fonts/font = SubResource( 8 )
 text = "Back"
 flat = true
 
+[node name="vbox_calibre" type="VBoxContainer" parent="menu_buttons/modes"]
+visible = false
+margin_left = 308.0
+margin_top = 429.0
+margin_right = 638.0
+margin_bottom = 1014.0
+alignment = 1
+
+[node name="video tutorial" type="Button" parent="menu_buttons/modes/vbox_calibre"]
+margin_top = 172.0
+margin_right = 344.0
+margin_bottom = 229.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.313726, 0.858824, 0.141176, 1 )
+custom_colors/font_color_pressed = Color( 0.211765, 0.101961, 0.839216, 1 )
+custom_fonts/font = SubResource( 7 )
+text = "Video Tutorial"
+flat = true
+
+[node name="disassemble" type="Button" parent="menu_buttons/modes/vbox_calibre"]
+margin_top = 233.0
+margin_right = 344.0
+margin_bottom = 290.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.921569, 0.521569, 0.0941176, 1 )
+custom_fonts/font = SubResource( 7 )
+text = "Disassemble"
+flat = true
+
+[node name="assemble" type="Button" parent="menu_buttons/modes/vbox_calibre"]
+margin_top = 294.0
+margin_right = 344.0
+margin_bottom = 351.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.921569, 0.521569, 0.0941176, 1 )
+custom_fonts/font = SubResource( 8 )
+text = "Assemble"
+flat = true
+
+[node name="back_to_difficulty" type="Button" parent="menu_buttons/modes/vbox_calibre"]
+margin_top = 355.0
+margin_right = 344.0
+margin_bottom = 412.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.913725, 0.0588235, 0.0588235, 1 )
+custom_fonts/font = SubResource( 8 )
+text = "Back"
+flat = true
+
+[node name="vbox_M16" type="VBoxContainer" parent="menu_buttons/modes"]
+visible = false
+margin_left = 308.0
+margin_top = 429.0
+margin_right = 638.0
+margin_bottom = 1014.0
+alignment = 1
+
+[node name="video tutorial" type="Button" parent="menu_buttons/modes/vbox_M16"]
+margin_top = 172.0
+margin_right = 344.0
+margin_bottom = 229.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.313726, 0.858824, 0.141176, 1 )
+custom_colors/font_color_pressed = Color( 0.211765, 0.101961, 0.839216, 1 )
+custom_fonts/font = SubResource( 7 )
+text = "Video Tutorial"
+flat = true
+
+[node name="disassemble" type="Button" parent="menu_buttons/modes/vbox_M16"]
+margin_top = 233.0
+margin_right = 344.0
+margin_bottom = 290.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.921569, 0.521569, 0.0941176, 1 )
+custom_fonts/font = SubResource( 7 )
+text = "Disassemble"
+flat = true
+
+[node name="assemble" type="Button" parent="menu_buttons/modes/vbox_M16"]
+margin_top = 294.0
+margin_right = 344.0
+margin_bottom = 351.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.921569, 0.521569, 0.0941176, 1 )
+custom_fonts/font = SubResource( 8 )
+text = "Assemble"
+flat = true
+
+[node name="back_to_difficulty" type="Button" parent="menu_buttons/modes/vbox_M16"]
+margin_top = 355.0
+margin_right = 344.0
+margin_bottom = 412.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.913725, 0.0588235, 0.0588235, 1 )
+custom_fonts/font = SubResource( 8 )
+text = "Back"
+flat = true
+
 [node name="move_tween" type="Tween" parent="menu_buttons/modes"]
 
 [node name="Category" type="Node2D" parent="menu_buttons"]
@@ -260,7 +359,36 @@ flat = true
 
 [node name="move_tween" type="Tween" parent="menu_buttons/Category"]
 
+[node name="notify" type="Control" parent="menu_buttons"]
+anchor_top = 6.15
+anchor_right = 24.1
+anchor_bottom = 19.9
+margin_bottom = -6.10352e-05
+
+[node name="ColorRect" type="ColorRect" parent="menu_buttons/notify"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.368627, 0.133333, 0.133333, 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="menu_buttons/notify"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="menu_buttons/notify/VBoxContainer"]
+anchor_top = 0.281
+anchor_bottom = 0.446
+margin_right = 964.0
+margin_bottom = 91.0
+theme = ExtResource( 9 )
+text = "Coming Soon"
+align = 1
+valign = 1
+__meta__ = {
+"_editor_description_": ""
+}
+
 [node name="Control" parent="." instance=ExtResource( 8 )]
+visible = false
 margin_bottom = -813.0
 
 [node name="ColorRect" parent="Control" index="0"]
@@ -284,6 +412,7 @@ In present: 1911 - Present
 Barrel length: 127 mm
 Cartridge: .45 ACP"
 
+[connection signal="proceed_calibre" from="." to="menu_buttons" method="_on_game_interface_proceed_calibre"]
 [connection signal="proceed_glock" from="." to="menu_buttons" method="_on_game_interface_proceed_glock"]
 [connection signal="gui_input" from="menu_buttons/guns/vbox/glock" to="." method="_on_glock_gui_input"]
 [connection signal="gui_input" from="menu_buttons/guns/vbox/glock" to="menu_buttons" method="_on_glock_gui_input"]
@@ -297,6 +426,8 @@ Cartridge: .45 ACP"
 [connection signal="pressed" from="menu_buttons/modes/vbox/disassemble" to="menu_buttons" method="_on_disassemble_pressed"]
 [connection signal="pressed" from="menu_buttons/modes/vbox/assemble" to="." method="_on_assemble_pressed"]
 [connection signal="pressed" from="menu_buttons/modes/vbox/back_to_difficulty" to="menu_buttons" method="_on_back_to_difficulty_pressed"]
+[connection signal="pressed" from="menu_buttons/modes/vbox_calibre/back_to_difficulty" to="menu_buttons" method="_on_back_to_difficulty_pressed"]
+[connection signal="pressed" from="menu_buttons/modes/vbox_M16/back_to_difficulty" to="menu_buttons" method="_on_back_to_difficulty_pressed"]
 [connection signal="pressed" from="menu_buttons/Category/VBox/Pistol" to="menu_buttons" method="_on_Pistol_pressed"]
 [connection signal="pressed" from="menu_buttons/Category/VBox/Back" to="menu_buttons" method="_on_Back_pressed"]
 
