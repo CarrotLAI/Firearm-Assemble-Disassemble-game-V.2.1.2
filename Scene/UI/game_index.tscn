@@ -360,12 +360,14 @@ flat = true
 [node name="move_tween" type="Tween" parent="menu_buttons/Category"]
 
 [node name="notify" type="Control" parent="menu_buttons"]
+visible = false
 anchor_top = 6.15
 anchor_right = 24.1
 anchor_bottom = 19.9
 margin_bottom = -6.10352e-05
 
 [node name="ColorRect" type="ColorRect" parent="menu_buttons/notify"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.368627, 0.133333, 0.133333, 1 )
@@ -373,11 +375,12 @@ color = Color( 0.368627, 0.133333, 0.133333, 1 )
 [node name="VBoxContainer" type="VBoxContainer" parent="menu_buttons/notify"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = 162.0
+margin_right = -5.0
+margin_bottom = -284.0
 
 [node name="Label" type="Label" parent="menu_buttons/notify/VBoxContainer"]
-anchor_top = 0.281
-anchor_bottom = 0.446
-margin_right = 964.0
+margin_right = 959.0
 margin_bottom = 91.0
 theme = ExtResource( 9 )
 text = "Coming Soon"
@@ -386,6 +389,16 @@ valign = 1
 __meta__ = {
 "_editor_description_": ""
 }
+
+[node name="back_to_mode" type="Button" parent="menu_buttons/notify/VBoxContainer"]
+margin_top = 95.0
+margin_right = 959.0
+margin_bottom = 152.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.913725, 0.0588235, 0.0588235, 1 )
+custom_fonts/font = SubResource( 10 )
+text = "Back"
+flat = true
 
 [node name="Control" parent="." instance=ExtResource( 8 )]
 visible = false
@@ -430,5 +443,6 @@ Cartridge: .45 ACP"
 [connection signal="pressed" from="menu_buttons/modes/vbox_M16/back_to_difficulty" to="menu_buttons" method="_on_back_to_difficulty_pressed"]
 [connection signal="pressed" from="menu_buttons/Category/VBox/Pistol" to="menu_buttons" method="_on_Pistol_pressed"]
 [connection signal="pressed" from="menu_buttons/Category/VBox/Back" to="menu_buttons" method="_on_Back_pressed"]
+[connection signal="pressed" from="menu_buttons/notify/VBoxContainer/back_to_mode" to="menu_buttons" method="_on_back_to_mode_pressed"]
 
 [editable path="Control"]

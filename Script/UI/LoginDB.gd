@@ -99,3 +99,7 @@ func _on_create_pressed():
 
 
 
+
+
+func _on_Login_as_guest_pressed():
+	pass # Replace with function body.

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Script/UI/LoginDB.gd" type="Script" id=1]
 [ext_resource path="res://fonts/Gugi-Regular.ttf" type="DynamicFontData" id=2]
@@ -11,6 +11,10 @@ font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 24
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 18
 font_data = ExtResource( 2 )
 
 [node name="Control" type="Control"]
@@ -70,6 +74,16 @@ custom_fonts/font = SubResource( 2 )
 align = 1
 valign = 1
 
+[node name="Login as guest" type="Button" parent="TabContainer/Login"]
+margin_left = 242.0
+margin_top = 366.0
+margin_right = 404.0
+margin_bottom = 393.0
+custom_fonts/font = SubResource( 3 )
+text = "Login as Guest"
+flat = true
+icon_align = 1
+
 [node name="Signup" type="Control" parent="TabContainer"]
 visible = false
 anchor_right = 1.0
@@ -121,7 +135,7 @@ custom_fonts/font = SubResource( 2 )
 align = 1
 valign = 1
 
-[connection signal="pressed" from="TabContainer/Login/Login" to="." method="_on_Login_pressed"]
 [connection signal="pressed" from="TabContainer/Login/Login" to="TabContainer/Login" method="_on_Login_pressed"]
+[connection signal="pressed" from="TabContainer/Login/Login as guest" to="TabContainer/Login" method="_on_Login_as_guest_pressed"]
 [connection signal="pressed" from="TabContainer/Signup/create" to="." method="_on_create_pressed"]
 [connection signal="pressed" from="TabContainer/Signup/create" to="TabContainer/Signup" method="_on_create_pressed"]
