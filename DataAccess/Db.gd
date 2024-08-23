@@ -6,8 +6,27 @@ var db = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	db = SQLIte.new()
+	db.set_path(db_path)
+	if not db.open_db():
+		_log_message("Failed to open Database")
+		return
+	_create_tables()
 
+########
+# table functions
+#######
+
+func _create_tables():
+	_execute_query()
+
+
+
+
+
+########
+# table functions
+#######
 
 
 ########
@@ -41,6 +60,14 @@ func _get_record(query: String, params: Array, error_message: String) -> Diction
 		
 func _update_record(query: String, params: Array, error_message: String) -> bool:
 	if not db.query_with_bindings(query, params):
+		_log_message(error_message + ": " + db.get_error_message())
+		return false
+	return true
+		
+func _delete_record(query: String, params: Array, error_message: String):
+	if not db.query_with_bindings(query, params):
+		_log_message(error_message + ": " + db.get_error_message())		
+		
 		
 #####
 # Helper function
