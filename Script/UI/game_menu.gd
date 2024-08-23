@@ -39,15 +39,16 @@ func _ready():
 		return
 	else:
 		print("successfully connected to database")
+		
 	# Create the PlayerInfo table if it doesn't exist
-	db.query("SELECT * FROM PlayerAchievements")
-	if db.query_result.size() > 0:
-#		print(db.query_result[0][0])
-		var column_count = db.get_column_count()
-		for i in range(column_count):
-			var column_name = db.get_column_name(i)
-			var column_value = db.get_column_data_as_string(i)
-			print(column_name, ": ", column_value)
+#	db.query("SELECT * FROM PlayerAchievements")
+#	if db.query_result.size() > 0:
+##		print(db.query_result[0][0])
+#		var column_count = db.get_column_count()
+#		for i in range(column_count):
+#			var column_name = db.get_column_name(i)
+#			var column_value = db.get_column_data_as_string(i)
+#			print(column_name, ": ", column_value)
 #		for i in range(db.query_result.size()):
 #			PlayerAchievements.append("Glock-D: ", db.query_result[i]["Glock-D"])
 #			if db.fetch_row():
@@ -86,7 +87,7 @@ func _on_glock_gui_input(event):
 
 func _on_calibre45_pressed():
 #	set_on_glock_pressed(false)
-	calibreCount += calibreCount
+	calibreCount = calibreCount + 1
 	glockCount = 0
 #	if calibreCount < 1:
 #		control.set_visible(false)
@@ -97,7 +98,7 @@ func _on_calibre45_pressed():
 	control.set_visible(true)
 	control.get_node("ColorRect").set_visible(true)
 	control.get_node("Calibre").set_visible(true)
-	if glockCount == 2:
+	if calibreCount == 2:
 		emit_signal("proceed_calibre", true)
 		control.set_visible(false)
 		control.get_node("ColorRect").set_visible(false)

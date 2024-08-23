@@ -57,3 +57,5 @@ func _on_PasswordLineEdit_text_changed(new_text):
 	pass
 
 
+func _on_Login_as_guest_pressed():
+	get_tree().change_scene("res://Scene/UI/game_index.tscn")
