@@ -111,6 +111,3 @@ func _on_barel_area_area_exited(area):
 			set_process(true)
 			print(condition_to_win)
 	
-
-
-
