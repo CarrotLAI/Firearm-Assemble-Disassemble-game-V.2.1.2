@@ -86,8 +86,9 @@ func pass_time_result():
 	
 
 func _on_magazine_area_area_exited(area):
+	print(area)
 	if condition_to_win.mag_area != 1:
-		if area.name == "magazine_area":
+		if area.name == "mag_area":
 			condition_to_win.mag_area = 1
 			print(condition_to_win.mag_area)
 
