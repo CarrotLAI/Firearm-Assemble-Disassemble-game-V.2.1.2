@@ -7,7 +7,7 @@
 [ext_resource path="res://assets/Material_017.material" type="Material" id=5]
 [ext_resource path="res://assets/Material_013.material" type="Material" id=6]
 
-[sub_resource type="ArrayMesh" id=7]
+[sub_resource type="ArrayMesh" id=26]
 resource_name = "glock_Cube010"
 surfaces/0 = {
 "aabb": AABB( -3.88956, -10.8425, -1.06097, 8.17383, 14.179, 1.9949 ),
@@ -129,7 +129,7 @@ surfaces/0 = {
 "vertex_count": 26656
 }
 
-[sub_resource type="ArrayMesh" id=2]
+[sub_resource type="ArrayMesh" id=27]
 resource_name = "glock_Cube008"
 surfaces/0 = {
 "aabb": AABB( -3.42313, -3.40306, -1.00001, 7.0112, 6.22938, 2.00001 ),
@@ -171,7 +171,7 @@ transform = Transform( -4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4
 [node name="trigger" type="MeshInstance" parent="Spatial"]
 unique_name_in_owner = true
 transform = Transform( 0.0654226, -0.0512778, -0.0018815, 0.0511319, 0.0654041, -0.00457264, 0.00430012, 0.00244091, 0.0829978, 0.00287075, 1.29812, 0.00886402 )
-mesh = SubResource( 7 )
+mesh = SubResource( 26 )
 
 [node name="trigger" type="StaticBody" parent="Spatial/trigger"]
 
@@ -208,7 +208,7 @@ mesh = SubResource( 14 )
 
 [node name="body_of_gun" type="MeshInstance" parent="Spatial"]
 transform = Transform( 0.696326, 0.274072, -2.11758e-22, -0.274072, 0.696326, 0, 0, 0, 0.413144, 0.0706836, 0.642717, 4.93262e-06 )
-mesh = SubResource( 2 )
+mesh = SubResource( 27 )
 
 [node name="slide_lock" type="MeshInstance" parent="Spatial"]
 transform = Transform( 0.0431203, 0.0377998, -1.65228e-09, -0.0234272, 0.131329, -3.59206e-09, 1.02404e-09, -3.59206e-09, 0.0491518, 0.924577, 1.47683, -0.4006 )
