@@ -31,24 +31,24 @@ func _on_Draggable_drag_move(node, cast):
 	
 	
 	
-		
+#change it to onclick
 func Drag_outside(node, cast):
 	
 #	var spring_cap = get_node(".")
 	var x = get_node(".").transform.origin.x
 	var y = cast.position.y - 3.2
 	var z = -(cast.position.x)
-	if(z >= 0 && z <= 6.2):
+	if(z >= 0 && z <= 6.4):
 		nextPos = Vector3(0, 0, z)
+		print(z)
 		set_translation(nextPos)
-	if(z == 6):
+	if(z <= 6):
+		print("lock")
 		Default_position(node, cast)
 
 func Default_position(node, cast):
-	var slide_part = get_parent().get_parent().get_node("slide/slide_area")
+#	get_parent().get_parent().get_node("slide/slide_area").set_visible(true)
 	var default_position = Vector3(0,0,-6.2)
 	set_translation(default_position)
-	slide_part.set_visible(true)
-	print(get_node('.'))
 	emit_signal("spring_remove", true)
 	

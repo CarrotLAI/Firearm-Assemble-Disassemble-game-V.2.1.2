@@ -1013,7 +1013,7 @@ skin = SubResource( 28 )
 skeleton = NodePath("../..")
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.987538, 0.157382, 0, -0.157382, 0.987538, 0.114, 4.80244, 13.0721 )
+transform = Transform( 0.999966, 0.00129374, -0.00811796, 0, 0.987538, 0.157382, 0.00822041, -0.157377, 0.987504, -1.886, 4.802, 13.072 )
 current = true
 
 [node name="RayCast" type="RayCast" parent="Camera"]
@@ -1456,6 +1456,7 @@ script = ExtResource( 7 )
 [connection signal="mouse_entered" from="colt_body/slide_lock_spatial/slide_lock/slide_lock" to="colt_body" method="_on_slide_lock_mouse_entered"]
 [connection signal="drag_move" from="colt_slide/slide/slide_area/Draggable" to="colt_slide" method="_on_Draggable_drag_move"]
 [connection signal="drag_stop" from="colt_slide/slide/slide_area/Draggable" to="colt_slide" method="_on_Draggable_drag_stop"]
+[connection signal="spring_remove" from="colt_slide/colt_barrel_cap/spring_cap" to="colt_slide" method="_on_spring_cap_spring_remove"]
 [connection signal="drag_move" from="colt_slide/colt_barrel_cap/spring_cap/spring/Area/Draggable" to="colt_slide/colt_barrel_cap/spring_cap" method="_on_Draggable_drag_move"]
 [connection signal="drag_move" from="colt_slide/colt_barrel_cap/cylinder_cap/mesh_187002/Area/Draggable" to="colt_slide/colt_barrel_cap" method="_on_Draggable_drag_move"]
 [connection signal="drag_move" from="colt_mag/mesh_142001/mag_area/Draggable" to="colt_mag" method="_on_Draggable_drag_move"]
