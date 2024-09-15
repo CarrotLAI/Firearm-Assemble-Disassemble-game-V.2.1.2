@@ -1341,6 +1341,7 @@ mesh = SubResource( 78 )
 [node name="slide" type="MeshInstance" parent="colt_slide"]
 unique_name_in_owner = true
 transform = Transform( 1, 2.13163e-14, 0, 0, 0, -1, -2.13163e-14, 1, 0, 0, 0, 0 )
+visible = false
 mesh = SubResource( 79 )
 
 [node name="slide_area" type="Area" parent="colt_slide/slide"]
@@ -1354,6 +1355,7 @@ script = ExtResource( 7 )
 
 [node name="mesh_134002" type="MeshInstance" parent="colt_slide"]
 transform = Transform( 1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0, 0 )
+visible = false
 mesh = SubResource( 80 )
 
 [node name="mesh_129002" type="MeshInstance" parent="colt_slide"]

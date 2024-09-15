@@ -12,6 +12,7 @@ signal slide_condition(value)
 
 var drag_to_right = true
 var drag_to_left = false
+var remove_to_body = false
 var isSlide = false
 var isSlide_for_lock = false
 # Called when the node enters the scene tree for the first time.
@@ -31,7 +32,9 @@ func _on_Draggable_drag_move(node, cast):
 	
 	if(drag_to_left):
 		Drag_to_left(node, cast)
-#	
+		
+	if(remove_to_body):
+		Remove_from_body(node, cast)
 	
 #	if(isSlide_for_lock):
 #		var position = Vector3(x, 0.5, z)
@@ -52,6 +55,8 @@ func Drag_to_right(node, cast):
 func To_default_position(node, cast):
 #	set_Drag_to_right(false)
 #	if(drag_to_right == false):
+	var defaulPos = Vector3(0, 0.5, 1.2)
+	set_translation(defaulPos)
 	get_node("slide/slide_area").set_visible(false)
 	_on_Draggable_drag_stop(node)
 #		isSlide = false
@@ -64,20 +69,23 @@ func Drag_to_left(node, cast):
 	var y = cast.position.y - 3.5
 	var z = get_node(".").transform.origin.z
 #	var slide = get_node(".")
-	if(x <= 0 && x >= -1):
+	if(x <= 0 && x >= -1.2):
 		var nextPos = Vector3(x, 0.5, z)
 		print(cast.position.x)
+#		print("ready to remove from body")
 		set_translation(nextPos)
-	if(x == -1):
-		pass
-		Remove_from_body(node, cast)
+	if(x <= -1):		
+		drag_to_left = false
+		remove_to_body = true
+		
 #		To_default_position(node, cast)
 
 func Remove_from_body(node, cast):
 	var x = cast.position.x
-	var y = cast.position.y - 3.5
+	var y = cast.position.y - 4
 	var z = get_node(".").transform.origin.z
 	var nextPos = Vector3(x, y, z)
+	print("removing")
 	set_translation(nextPos)
 
 func spring_remove(value):
@@ -89,11 +97,10 @@ func _on_Draggable_drag_stop(node):
 	print_debug(get_node('.'))
 #	var slide = slide
 #	if(isSlide == true):
-	var defaulPos = Vector3(0, 0.5, 1.2)
-	set_translation(defaulPos)
 
 
 func _on_spring_cap_spring_remove(value):
 	get_node("slide/slide_area").set_visible(true)
-	drag_to_left = true;
+	drag_to_left = true
+	drag_to_right = false
 	
