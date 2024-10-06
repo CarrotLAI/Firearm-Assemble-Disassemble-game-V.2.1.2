@@ -35,14 +35,15 @@ func _ready():
 
 func _on_Draggable_drag_move(node, cast):
 	
-	if(drag_to_right):
-		Drag_to_right(node, cast)
-	
-	if(drag_to_left):
-		Drag_to_left(node, cast)
-		
-	if(remove_to_body):
-		Remove_from_body(node, cast)
+#	if(drag_to_right):
+#		Drag_to_right(node, cast)
+#
+#	if(drag_to_left):
+#		Drag_to_left(node, cast)
+#
+#	if(remove_to_body):
+#		Remove_from_body(node, cast)
+	Remove_from_body(node, cast)
 	
 #	if(isSlide_for_lock):
 #		var position = Vector3(x, 0.5, z)
@@ -55,8 +56,7 @@ func Drag_to_right(node, cast):
 #	var slide = get_node(".")
 	if(z <= 1.2 && x >= z):
 		var nextPos = Vector3(0, 0, z)
-		print_debug(nextPos)
-#		print(cast.position)
+#		print_debug(nextPos)
 		set_translation(nextPos)
 		spring_cap.set_translation(nextPos)
 		cylinder_cap.set_translation(nextPos)

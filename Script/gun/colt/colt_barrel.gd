@@ -18,9 +18,10 @@ func _ready():
 
 
 func _on_Draggable_drag_move(node, cast):
-	x = cast.position.x
+	x = get_node(".").transform.origin.z
 	y = cast.position.y - 3.5
-	z = get_node(".").transform.origin.z
-	nextPos = Vector3(x, y, z)
-#	print(cast.position)
+	z = -(cast.position.x)
+	nextPos = Vector3(0, y, z)
+	print_debug(cast.position)
 	set_translation(nextPos)
+	
