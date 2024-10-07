@@ -1,6 +1,6 @@
 [gd_scene load_steps=105 format=2]
 
-[ext_resource path="res://Script/global/global_condition.gd" type="Script" id=1]
+[ext_resource path="res://Script/gun/colt/Global.gd" type="Script" id=1]
 [ext_resource path="res://Scene/gun/colt/asset/mat_9_006.material" type="Material" id=2]
 [ext_resource path="res://fonts/Gugi-Regular.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://assets/icons/menu.png" type="Texture" id=4]
@@ -24,7 +24,7 @@
 [ext_resource path="res://Script/gun/colt/spring_skeleton.gd" type="Script" id=22]
 [ext_resource path="res://Script/gun/colt/colt_barrel.gd" type="Script" id=23]
 
-[sub_resource type="ProceduralSky" id=21]
+[sub_resource type="ProceduralSky" id=83]
 sky_top_color = Color( 0.34902, 0.705882, 0.898039, 1 )
 sky_horizon_color = Color( 0.772549, 0.819608, 0.858824, 1 )
 ground_bottom_color = Color( 0.494118, 0.52549, 0.552941, 1 )
@@ -33,7 +33,7 @@ sun_color = Color( 0.490196, 0.372549, 0.372549, 1 )
 
 [sub_resource type="Environment" id=24]
 background_mode = 2
-background_sky = SubResource( 21 )
+background_sky = SubResource( 83 )
 
 [sub_resource type="BoxShape" id=25]
 extents = Vector3( 16.0937, 1, 12.8978 )
@@ -1043,6 +1043,18 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.105696, 1.96597, -0.345383 )
 [node name="CollisionShape" type="CollisionShape" parent="Global/slide_area"]
 shape = SubResource( 30 )
 
+[node name="spring_area" type="Area" parent="Global"]
+transform = Transform( 3.45252, 0, 0, 0, 1, 0, 0, 0, 1, -3.93079, 1.75837, -0.292246 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Global/spring_area"]
+shape = SubResource( 30 )
+
+[node name="barrel_area" type="Area" parent="Global"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.105696, 1.96597, -0.345383 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Global/barrel_area"]
+shape = SubResource( 30 )
+
 [node name="time" type="Spatial" parent="Global"]
 
 [node name="Timer" type="Timer" parent="Global/time"]
@@ -1411,16 +1423,17 @@ transform = Transform( 1, 3.55271e-15, -1.55294e-22, 0, -4.37114e-08, -1, -3.552
 mesh = SubResource( 72 )
 skeleton = NodePath("../..")
 
-[node name="Area" type="Area" parent="colt_slide_parent/colt_barrel_cap/spring_skeleton/mesh_136001"]
+[node name="spring_skeleton_area" type="Area" parent="colt_slide_parent/colt_barrel_cap/spring_skeleton/mesh_136001"]
 
-[node name="CollisionShape" type="CollisionShape" parent="colt_slide_parent/colt_barrel_cap/spring_skeleton/mesh_136001/Area"]
+[node name="CollisionShape" type="CollisionShape" parent="colt_slide_parent/colt_barrel_cap/spring_skeleton/mesh_136001/spring_skeleton_area"]
 transform = Transform( 1, 3.55271e-15, 0, -3.55271e-15, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 73 )
 
-[node name="Draggable" type="Node" parent="colt_slide_parent/colt_barrel_cap/spring_skeleton/mesh_136001/Area"]
+[node name="Draggable" type="Node" parent="colt_slide_parent/colt_barrel_cap/spring_skeleton/mesh_136001/spring_skeleton_area"]
 script = ExtResource( 7 )
 
 [node name="colt_slide" type="Spatial" parent="colt_slide_parent"]
+unique_name_in_owner = true
 transform = Transform( 1, 3.55271e-15, -1.55294e-22, 0, -4.37114e-08, -1, -3.55271e-15, 1, -4.37114e-08, 0, 0, 0 )
 script = ExtResource( 8 )
 
@@ -1491,6 +1504,8 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0
 
 [connection signal="area_exited" from="Global/magazine_area" to="Global" method="_on_magazine_area_area_exited"]
 [connection signal="area_exited" from="Global/slide_area" to="Global" method="_on_slide_area_area_exited"]
+[connection signal="area_exited" from="Global/spring_area" to="Global" method="_on_spring_area_area_exited"]
+[connection signal="area_exited" from="Global/barrel_area" to="Global" method="_on_barrel_area_area_exited"]
 [connection signal="timeout" from="Global/time/Timer" to="Global" method="_on_Timer_timeout"]
 [connection signal="pressed" from="CanvasLayer/pause/black_overlay/Resume" to="CanvasLayer/pause" method="_on_Resume_pressed"]
 [connection signal="pressed" from="CanvasLayer/pause/black_overlay/Quit" to="CanvasLayer/pause" method="_on_Quit_pressed"]
@@ -1503,7 +1518,7 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0
 [connection signal="drag_stop" from="colt_slide_parent/colt_barrel_cap/spring_cap/spring/Area/Draggable" to="colt_slide_parent/colt_barrel_cap/spring_cap" method="_on_Draggable_drag_stop"]
 [connection signal="drag_move" from="colt_slide_parent/colt_barrel_cap/cylinder_cap/mesh_187002/Area/Draggable" to="colt_slide_parent/colt_barrel_cap" method="_on_Draggable_drag_move"]
 [connection signal="drag_move" from="colt_slide_parent/colt_barrel_cap/cylinder_cap/mesh_187002/Area/Draggable" to="colt_slide_parent/colt_barrel_cap/cylinder_cap" method="_on_Draggable_drag_move"]
-[connection signal="drag_move" from="colt_slide_parent/colt_barrel_cap/spring_skeleton/mesh_136001/Area/Draggable" to="colt_slide_parent/colt_barrel_cap/spring_skeleton" method="_on_Draggable_drag_move"]
+[connection signal="drag_move" from="colt_slide_parent/colt_barrel_cap/spring_skeleton/mesh_136001/spring_skeleton_area/Draggable" to="colt_slide_parent/colt_barrel_cap/spring_skeleton" method="_on_Draggable_drag_move"]
 [connection signal="move_parent" from="colt_slide_parent/colt_slide" to="colt_slide_parent" method="_on_colt_slide_move_parent"]
 [connection signal="drag_move" from="colt_slide_parent/colt_slide/slide/slide_area/Draggable" to="colt_slide_parent/colt_slide" method="_on_Draggable_drag_move"]
 [connection signal="drag_stop" from="colt_slide_parent/colt_slide/slide/slide_area/Draggable" to="colt_slide_parent" method="_on_Draggable_drag_stop"]

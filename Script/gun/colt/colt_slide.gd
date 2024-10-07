@@ -100,7 +100,7 @@ func Drag_to_left(node, cast):
 #		To_default_position(node, cast)
 
 func Remove_from_body(node, cast):
-	print_debug("Remove_from_body")
+#	print_debug("Remove_from_body")
 	var x = cast.position.x
 	var y = cast.position.y - 4
 	var z = get_node(".").transform.origin.z
@@ -111,11 +111,9 @@ func Remove_from_body(node, cast):
 #	cylinder_cap.set_translation(nextPos)
 #	colt_barrel_cap.set_translation(nextPos)
 	
-
 func spring_remove(value):
 	if (value):
 		isSlide_for_lock = value
-	
 	
 func _on_Draggable_drag_stop(node):
 	pass

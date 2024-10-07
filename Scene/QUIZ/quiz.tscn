@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://fonts/Gugi-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Script/Quiz/quiz.gd" type="Script" id=2]
+[ext_resource path="res://assets/image/vintage-military-weapons-seamless-pattern/8.jpg" type="Texture" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 24
@@ -43,6 +44,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
 
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_top = -4.0
+margin_right = 5000.0
+margin_bottom = 4996.0
+texture = ExtResource( 3 )
+
 [node name="CheckBox" type="CheckBox" parent="."]
 visible = false
 margin_right = 24.0
@@ -53,6 +60,7 @@ margin_left = 51.0
 margin_top = 64.0
 margin_right = 913.0
 margin_bottom = 1188.0
+color = Color( 1, 1, 1, 0.470588 )
 
 [node name="questionaire" type="VBoxContainer" parent="."]
 visible = false
