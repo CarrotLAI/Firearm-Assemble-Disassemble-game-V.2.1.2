@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Script/UI/game_menu.gd" type="Script" id=1]
 [ext_resource path="res://fonts/Gugi-Regular.ttf" type="DynamicFontData" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Scene/UI/Description.tscn" type="PackedScene" id=8]
 [ext_resource path="res://fonts/comingsoon.tres" type="Theme" id=9]
 [ext_resource path="res://assets/image/vintage-military-weapons-seamless-pattern/8.jpg" type="Texture" id=10]
+[ext_resource path="res://music/Hitman.mp3" type="AudioStream" id=11]
 
 [sub_resource type="DynamicFont" id=4]
 size = 50
@@ -243,7 +244,7 @@ custom_fonts/font = SubResource( 7 )
 text = "Video Tutorial"
 flat = true
 
-[node name="disassemble" type="Button" parent="menu_buttons/modes/vbox_calibre"]
+[node name="colt_disassemble" type="Button" parent="menu_buttons/modes/vbox_calibre"]
 margin_top = 233.0
 margin_right = 344.0
 margin_bottom = 290.0
@@ -433,6 +434,11 @@ In present: 1911 - Present
 Barrel length: 127 mm
 Cartridge: .45 ACP"
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+volume_db = -1.0
+autoplay = true
+
 [connection signal="proceed_calibre" from="." to="menu_buttons" method="_on_game_interface_proceed_calibre"]
 [connection signal="proceed_glock" from="." to="menu_buttons" method="_on_game_interface_proceed_glock"]
 [connection signal="gui_input" from="menu_buttons/guns/vbox/glock" to="." method="_on_glock_gui_input"]
@@ -447,6 +453,7 @@ Cartridge: .45 ACP"
 [connection signal="pressed" from="menu_buttons/modes/vbox/disassemble" to="menu_buttons" method="_on_disassemble_pressed"]
 [connection signal="pressed" from="menu_buttons/modes/vbox/assemble" to="." method="_on_assemble_pressed"]
 [connection signal="pressed" from="menu_buttons/modes/vbox/back_to_difficulty" to="menu_buttons" method="_on_back_to_difficulty_pressed"]
+[connection signal="pressed" from="menu_buttons/modes/vbox_calibre/colt_disassemble" to="." method="_on_colt_disassemble_pressed"]
 [connection signal="pressed" from="menu_buttons/modes/vbox_calibre/back_to_difficulty" to="menu_buttons" method="_on_back_to_difficulty_pressed"]
 [connection signal="pressed" from="menu_buttons/modes/vbox_M16/back_to_difficulty" to="menu_buttons" method="_on_back_to_difficulty_pressed"]
 [connection signal="pressed" from="menu_buttons/Category/VBox/Pistol" to="menu_buttons" method="_on_Pistol_pressed"]

@@ -8,7 +8,7 @@ onready var condition_to_win = {
 	"spring_area": 0, 
 	"barel_area": 0
 }
-var result_scene = load("res://Scene/result/game_result.tscn")
+var result_scene = load("res://Scene/result/Colt_result.tscn")
 var try_again = load("res://Scene/result/try_again.tscn")
 # Instantiate the scene
 var try_again_scene = try_again.instance()
@@ -103,23 +103,29 @@ func _on_slide_area_area_exited(area):
 			condition_to_win.slide_area = 1
 			print(condition_to_win.slide_area)
 	
-
-func _on_spring_area_area_exited(area):
+func _on_spring_area2_area_exited(area):
 	if condition_to_win.spring_area != 1:
 		if area.name == "spring_skeleton_area":
 			condition_to_win.spring_area = 1
 			print("spring: ",condition_to_win.spring_area)
 			emit_signal("spring_area_val", condition_to_win.spring_area)
-	
-func _on_barel_area_area_exited(area):
+
+
+func _on_barrel_area_area_exited(area):
 	if condition_to_win.barel_area != 1:
-		if area.name == "barrel_area":
+		if area.name == "colt_barrel_area":
 			condition_to_win.barel_area = 1
 			set_process(true)
 			print(condition_to_win)
 			emit_signal("spring_area_val", condition_to_win.barel_area)
-	
 
 
-func _on_barrel_area_area_exited(area):
+func _on_colt_slide_parent_colt_barrel_area(value):
 	pass # Replace with function body.
+
+
+func _on_colt_slide_parent_spring_skeleton_area(value):
+	pass # Replace with function body.
+
+
+

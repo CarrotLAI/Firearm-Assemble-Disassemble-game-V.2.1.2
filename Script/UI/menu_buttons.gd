@@ -45,13 +45,13 @@ func _on_game_interface_proceed_glock(val):
 	
 func _on_game_interface_proceed_calibre(val):
 	vbox_glock.set_visible(false)
-#	label.rect_position = Vector2(100, 200)
-#	vbox_calibre.set_visible(true)
+	label.rect_position = Vector2(100, 200)
+	vbox_calibre.set_visible(true)
 	get_node("guns").move(Vector2(700,0))
 	get_node("modes").move(Vector2(0,0))
 	
 	yield(get_tree().create_timer(1), "timeout")
-	notify.set_visible(true)
+#	notify.set_visible(true)
 
 
 #########################
@@ -81,3 +81,4 @@ func _on_back_to_mode_pressed():
 	notify.set_visible(false)
 	get_node("modes").move(Vector2(700,0))
 	get_node("guns").move(Vector2(0,0))
+

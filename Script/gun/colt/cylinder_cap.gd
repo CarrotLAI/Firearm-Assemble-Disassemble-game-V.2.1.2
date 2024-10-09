@@ -28,7 +28,7 @@ func Default_Pos(node, cast):
 	var nextPos = Vector3(0, 0, 5)
 	set_translation(nextPos)
 	isCast = false
-	colt_barrel.get_node("mesh_158001/Area").set_visible(true)
-	var barr_pos = Vector3(0, -1, 0)
+	colt_barrel.get_node("mesh_158001/colt_barrel_area").set_visible(true)
+	var barr_pos = Vector3(0, -2, -2)
 	colt_barrel.set_translation(barr_pos)
 	colt_barrel.rotation = Vector3(deg2rad(-3), 0, 0)

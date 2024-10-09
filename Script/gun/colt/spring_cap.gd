@@ -29,9 +29,9 @@ func Drag_outside(node, cast):
 	var z = -(cast.position.x)
 #	if(z >= 0 && z <= 6.4):
 	nextPos = Vector3(0, 0, 6)
-	print_debug(z)
+#	print_debug(z)
 	set_translation(nextPos)
-	if(z >= 6):	
+	if(get_node(".").transform.origin.z >= 6):	
 		Default_position(node, cast)
 		drag_to_outside = false
 

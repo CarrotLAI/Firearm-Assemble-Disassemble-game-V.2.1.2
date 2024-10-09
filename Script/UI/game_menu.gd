@@ -19,6 +19,8 @@ onready var game_interface = $"."
 var description = load("res://Scene/UI/Description.tscn")
 var glock_disassemble = load("res://Scene/model_glock/glock_disassemble.tscn")
 var glock_assemble = load("res://Scene/model_glock/glock_assemble.tscn")
+#colt
+var colt_disassamble = load("res://Scene/gun/colt/colt_disassembly.tscn")
 #instance
 var descript_instance = description.instance()
 
@@ -104,3 +106,7 @@ func _on_calibre45_pressed():
 		control.get_node("ColorRect").set_visible(false)
 		control.get_node("Calibre").set_visible(false)
 		calibreCount = 0
+
+
+func _on_colt_disassemble_pressed():
+	get_tree().change_scene_to(colt_disassamble)

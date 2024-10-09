@@ -34,16 +34,16 @@ func _ready():
 
 
 func _on_Draggable_drag_move(node, cast):
-	
-#	if(drag_to_right):
-#		Drag_to_right(node, cast)
-#
-#	if(drag_to_left):
-#		Drag_to_left(node, cast)
-#
-#	if(remove_to_body):
-#		Remove_from_body(node, cast)
-	Remove_from_body(node, cast)
+
+	if(drag_to_right):
+		Drag_to_right(node, cast)
+
+	if(drag_to_left):
+		Drag_to_left(node, cast)
+
+	if(remove_to_body):
+		Remove_from_body(node, cast)
+#	Remove_from_body(node, cast)
 	
 #	if(isSlide_for_lock):
 #		var position = Vector3(x, 0.5, z)
@@ -101,10 +101,10 @@ func Drag_to_left(node, cast):
 
 func Remove_from_body(node, cast):
 #	print_debug("Remove_from_body")
-	var x = cast.position.x
-	var y = cast.position.y - 4
+	var x = cast.position.x + 2
+	var y = cast.position.y - 3.5
 	var z = get_node(".").transform.origin.z
-	var nextPos = Vector3(x, y, z)
+	var nextPos = Vector3(x, y, 0)
 	colt_slide_parent.set_translation(nextPos)
 #	spring_cap.set_translation(nextPos)
 #	colt_barrel.set_translation(nextPos)
