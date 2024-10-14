@@ -254,7 +254,7 @@ custom_fonts/font = SubResource( 7 )
 text = "Disassemble"
 flat = true
 
-[node name="assemble" type="Button" parent="menu_buttons/modes/vbox_calibre"]
+[node name="colt_assemble" type="Button" parent="menu_buttons/modes/vbox_calibre"]
 margin_top = 294.0
 margin_right = 344.0
 margin_bottom = 351.0
@@ -337,19 +337,29 @@ margin_bottom = 890.0
 alignment = 1
 
 [node name="Pistol" type="Button" parent="menu_buttons/Category/VBox"]
-margin_top = 92.0
+margin_top = 62.0
 margin_right = 233.0
-margin_bottom = 149.0
+margin_bottom = 119.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.921569, 0.521569, 0.0941176, 1 )
 custom_fonts/font = SubResource( 9 )
 text = "Pistol"
 flat = true
 
-[node name="Rifle" type="Button" parent="menu_buttons/Category/VBox"]
-margin_top = 153.0
+[node name="smg" type="Button" parent="menu_buttons/Category/VBox"]
+margin_top = 123.0
 margin_right = 233.0
-margin_bottom = 210.0
+margin_bottom = 180.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.921569, 0.521569, 0.0941176, 1 )
+custom_fonts/font = SubResource( 9 )
+text = "SMG"
+flat = true
+
+[node name="Rifle" type="Button" parent="menu_buttons/Category/VBox"]
+margin_top = 184.0
+margin_right = 233.0
+margin_bottom = 241.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.921569, 0.521569, 0.0941176, 1 )
 custom_fonts/font = SubResource( 10 )
@@ -357,9 +367,9 @@ text = "Rifle"
 flat = true
 
 [node name="Back" type="Button" parent="menu_buttons/Category/VBox"]
-margin_top = 214.0
+margin_top = 245.0
 margin_right = 233.0
-margin_bottom = 271.0
+margin_bottom = 302.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.913725, 0.0588235, 0.0588235, 1 )
 custom_fonts/font = SubResource( 10 )
@@ -454,9 +464,11 @@ autoplay = true
 [connection signal="pressed" from="menu_buttons/modes/vbox/assemble" to="." method="_on_assemble_pressed"]
 [connection signal="pressed" from="menu_buttons/modes/vbox/back_to_difficulty" to="menu_buttons" method="_on_back_to_difficulty_pressed"]
 [connection signal="pressed" from="menu_buttons/modes/vbox_calibre/colt_disassemble" to="." method="_on_colt_disassemble_pressed"]
+[connection signal="pressed" from="menu_buttons/modes/vbox_calibre/colt_assemble" to="." method="_on_colt_assemble_pressed"]
 [connection signal="pressed" from="menu_buttons/modes/vbox_calibre/back_to_difficulty" to="menu_buttons" method="_on_back_to_difficulty_pressed"]
 [connection signal="pressed" from="menu_buttons/modes/vbox_M16/back_to_difficulty" to="menu_buttons" method="_on_back_to_difficulty_pressed"]
 [connection signal="pressed" from="menu_buttons/Category/VBox/Pistol" to="menu_buttons" method="_on_Pistol_pressed"]
+[connection signal="pressed" from="menu_buttons/Category/VBox/smg" to="menu_buttons" method="_on_smg_pressed"]
 [connection signal="pressed" from="menu_buttons/Category/VBox/Back" to="menu_buttons" method="_on_Back_pressed"]
 [connection signal="pressed" from="menu_buttons/notify/VBoxContainer/back_to_mode" to="menu_buttons" method="_on_back_to_mode_pressed"]
 

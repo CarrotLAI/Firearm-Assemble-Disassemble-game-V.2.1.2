@@ -82,3 +82,6 @@ func _on_back_to_mode_pressed():
 	get_node("modes").move(Vector2(700,0))
 	get_node("guns").move(Vector2(0,0))
 
+
+func _on_smg_pressed():
+	pass # Replace with function body.

@@ -49,21 +49,21 @@ func _physics_process(delta):
 		obj_position = obj.transform.origin
 		cast_position = Vector3(cast.position.x, obj_position.y, cast.position.z)
 		drag_offset = lerp(obj_position, cast_position, speed * delta)
-		var dict = {
-			"clicked" : is_clicked,
-			"offset" : {
-				"x": drag_offset.x,
-				"y": drag_offset.y,
-				"z": drag_offset.z
-				},
-			"drag_offset": drag_offset,
-			"cast" : cast_position,
-			"obj_position" : {
-				"x" : obj_position.x,
-				"y" : obj_position.y,
-				"z" : obj_position.z
-			}
-		}
+#		var dict = {
+#			"clicked" : is_clicked,
+#			"offset" : {
+#				"x": drag_offset.x,
+#				"y": drag_offset.y,
+#				"z": drag_offset.z
+#				},
+#			"drag_offset": drag_offset,
+#			"cast" : cast_position,
+#			"obj_position" : {
+#				"x" : obj_position.x,
+#				"y" : obj_position.y,
+#				"z" : obj_position.z
+#			}
+#		}
 #		print(drag_offset)
 #		print_debug(cast.position)
 		draging.on_hover(cast)

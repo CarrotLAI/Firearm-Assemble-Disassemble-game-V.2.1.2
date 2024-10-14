@@ -77,10 +77,10 @@ func _process(delta):
 #	total_time = time_passed - time
 	timer_label.text = time_passed
 	
-	if condition_to_win.mag_area == 1: 
-		if condition_to_win.slide_area == 1:
-			if condition_to_win.spring_area == 1:
-				if condition_to_win.barel_area == 1:
+	if condition_to_win.barel_area == 1:
+		if condition_to_win.spring_area == 1:
+			if condition_to_win.slide_area == 1:
+				if condition_to_win.mag_area == 1: 
 					main.add_child(resultUI)
 					pass_time_result()
 					set_process(false)
