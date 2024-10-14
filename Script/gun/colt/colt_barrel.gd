@@ -20,8 +20,8 @@ func _ready():
 func _on_Draggable_drag_move(node, cast):
 	if (isremove_barrel):
 		Remove_barrel(node, cast)
-	if(is_barrel_outside):
-		Barrel_outside(node, cast)
+#	if(is_barrel_outside):
+#		Barrel_outside(node, cast)
 		
 func Remove_barrel(node, cast):
 #	print_debug("click")
@@ -47,8 +47,8 @@ func Remove_barrel(node, cast):
 #		isremove_barrel = false
 #		is_barrel_outside = true
 		
-func Barrel_outside(node, cast):
-	pass
+#func Barrel_outside(node, cast):
+#	pass
 
 
 func _on_colt_slide_parent_colt_barrel_area(value):

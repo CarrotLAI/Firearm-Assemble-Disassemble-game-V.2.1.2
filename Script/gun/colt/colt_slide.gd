@@ -61,7 +61,7 @@ func Drag_to_right(node, cast):
 		spring_cap.set_translation(nextPos)
 		cylinder_cap.set_translation(nextPos)
 	if(z  <= -3.6):
-		print_debug("Drag_to_right")
+#		print_debug("Drag_to_right")
 		To_default_position(node, cast)
 	
 func To_default_position(node, cast):

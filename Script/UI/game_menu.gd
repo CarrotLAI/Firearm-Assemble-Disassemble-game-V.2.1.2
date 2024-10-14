@@ -21,6 +21,7 @@ var glock_disassemble = load("res://Scene/model_glock/glock_disassemble.tscn")
 var glock_assemble = load("res://Scene/model_glock/glock_assemble.tscn")
 #colt
 var colt_disassamble = load("res://Scene/gun/colt/colt_disassembly.tscn")
+var colt_assemble = load("res://Scene/gun/colt/colt_assembly.tscn")
 #instance
 var descript_instance = description.instance()
 
@@ -110,3 +111,7 @@ func _on_calibre45_pressed():
 
 func _on_colt_disassemble_pressed():
 	get_tree().change_scene_to(colt_disassamble)
+
+
+func _on_colt_assemble_pressed():
+	get_tree().change_scene_to(colt_assemble)
