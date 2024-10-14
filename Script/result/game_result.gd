@@ -9,7 +9,7 @@ onready var set_false = set_process(false)
 var value
 
 #for try agai
-var glock_assemble = load("res://Scene/model_glock/glock_assemble.tscn")
+var glock_disassemble = load("res://Scene/model_glock/glock_disassemble.tscn")
 
 
 func _process(delta):
@@ -27,7 +27,7 @@ func _on_take_quiz_pressed():
 
 #for try again menu
 func _on_try_again_pressed():
-	get_tree().change_scene_to(glock_assemble)
+	get_tree().change_scene_to(glock_disassemble)
 
 
 func _on_quit_pressed():

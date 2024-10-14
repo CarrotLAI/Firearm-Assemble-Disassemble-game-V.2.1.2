@@ -9,7 +9,7 @@ onready var condition_to_win = {
 	"barel_area": 0
 }
 var result_scene = load("res://Scene/result/game_result.tscn")
-var try_again = load("res://Scene/result/try_again.tscn")
+var try_again = load("res://Scene/result/try_again_disassemble.tscn")
 # Instantiate the scene
 var try_again_scene = try_again.instance()
 var resultUI = result_scene.instance()
