@@ -1,6 +1,6 @@
 extends Spatial
 
-class_name PlayerDB
+#class_name PlayerDB
 
 const SQLite = preload("res://addons/godot-sqlite/bin/gdsqlite.gdns")
 

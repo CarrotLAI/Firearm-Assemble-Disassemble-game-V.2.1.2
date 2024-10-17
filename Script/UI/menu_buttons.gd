@@ -85,3 +85,14 @@ func _on_back_to_mode_pressed():
 
 func _on_smg_pressed():
 	pass # Replace with function body.
+
+
+func _on_leaderboard_pressed():
+	get_node("board").move(Vector2(0,0))
+	get_node("start").move(Vector2(700,0))
+	
+func _on_ld_back_pressed():
+	get_node("board").move(Vector2(0,-1225))
+	get_node("start").move(Vector2(0,0))
+
+
