@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/scorcher-abbynoise-main-version-21507-02-23.mp3-c5110ea3384b897e0d2ec82f86ffc9eb.mp3str"
+
+[deps]
+
+source_file="res://fx/bgMusic/scorcher-abbynoise-main-version-21507-02-23.mp3"
+dest_files=[ "res://.import/scorcher-abbynoise-main-version-21507-02-23.mp3-c5110ea3384b897e0d2ec82f86ffc9eb.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,21 @@
+<<<<<<< HEAD
+=======
+# Godot 4+ specific ignores
+.godot/
+
+>>>>>>> 6caf830ba1f383f3f76c90e3b160553307d301d3
+# Godot-specific ignores
+.import/
+export.cfg
+export_presets.cfg
+
+# Imported translations (automatically generated from CSV files)
+*.translation
+
+# Mono-specific ignores
+.mono/
+data_*/
+<<<<<<< HEAD
+=======
+mono_crash.*.json
+>>>>>>> 6caf830ba1f383f3f76c90e3b160553307d301d3

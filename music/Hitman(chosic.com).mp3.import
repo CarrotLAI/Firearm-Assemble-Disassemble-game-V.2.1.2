@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Hitman(chosic.com).mp3-7377c4bba48a4cbd72e2bc3434e4d38a.mp3str"
+
+[deps]
+
+source_file="res://musix/Hitman(chosic.com).mp3"
+dest_files=[ "res://.import/Hitman(chosic.com).mp3-7377c4bba48a4cbd72e2bc3434e4d38a.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

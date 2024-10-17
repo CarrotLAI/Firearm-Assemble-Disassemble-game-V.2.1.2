@@ -1,0 +1,27 @@
+[
+    {
+        "question": "What type of ammunition does the Colt .45 1911 use?",
+        "options": [".45 ACP", ".40 S&W"],
+        "correctAnswerIndex": 0
+    },
+    {
+        "question": "Who designed the Colt .45 1911?",
+        "options": ["John Browning", "Samuel Colt"],
+        "correctAnswerIndex": 0
+    },
+    {
+        "question": "When was the Colt .45 1911 first introduced?",
+        "options": ["1911", "1912"],
+        "correctAnswerIndex": 0
+    },
+    {
+        "question": "What is the typical magazine capacity of the Colt .45 1911?",
+        "options": ["7 rounds", "8 rounds"],
+        "correctAnswerIndex": 1
+    },
+    {
+        "question": "What is the primary use of the Colt .45 1911?",
+        "options": ["Self-defense", "Sport shooting"],
+        "correctAnswerIndex": 0
+    }
+]
