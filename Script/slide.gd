@@ -115,7 +115,7 @@ func _on_SpringDrag_drag_move(node, cast):
 
 #	var drag_offset = lerp(offset, cast.position, 25 * 1)	
 	var x = cast.position.x + 1.2
-	var z = cast.position.z + 2.98
+	var z = cast.position.z + 3
 	var nextPos = Vector3(x, offset.y, z)
 	spring.set_translation(nextPos)
 	if nextPos.x < -1.1 or nextPos.x > -0.4:

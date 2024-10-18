@@ -40,9 +40,5 @@ func Default_position(node, cast):
 	print_debug("Default_position")
 	var default_position = Vector3(0,0,6)
 	set_translation(default_position)
-	emit_signal("spring_remove", true)
+#	emit_signal("spring_remove", true)
 	
-
-
-func _on_Draggable_drag_stop(node):
-	pass # Replace with function body.

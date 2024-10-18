@@ -72,9 +72,10 @@ func _on_Back_pressed():
 	get_node("start").move(Vector2(0, 0))
 	get_node("Category").move(Vector2(700,0))
 
-
+#glock
 func _on_video_tutorial_pressed():
-	pass # Replace with function body.
+	var youtube_url = "https://www.youtube.com/watch?v=I5IvD4iwqIE"  # Replace with your URL
+	OS.shell_open(youtube_url)
 
 
 func _on_back_to_mode_pressed():
@@ -96,3 +97,15 @@ func _on_ld_back_pressed():
 	get_node("start").move(Vector2(0,0))
 
 
+func _on_colt_video_tutorial_pressed():
+	var youtube_url = "https://www.youtube.com/watch?v=BP4z0wND66w"  # Replace with your URL
+	OS.shell_open(youtube_url)
+
+#colt
+func _on_colt_Description_pdf_pressed():
+	var pdf_url = "https://npshistory.com/publications/battlefield/hwp/colt-45-handling-2017.pdf"  # Replace with your URL
+	OS.shell_open(pdf_url)
+#glock
+func _on_Description_pdf_pressed():
+	var pdf_url = "https://us.glock.com/-/media/Global/US/old/US-Site/83-Downloadable-Materials/GLOCK-Warranty-Form-8522.ashx"  # Replace with your URL
+	OS.shell_open(pdf_url)

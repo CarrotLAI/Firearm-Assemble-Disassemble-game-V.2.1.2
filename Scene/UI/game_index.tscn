@@ -237,9 +237,9 @@ margin_bottom = 1014.0
 alignment = 1
 
 [node name="video tutorial" type="Button" parent="menu_buttons/modes/vbox"]
-margin_top = 172.0
-margin_right = 344.0
-margin_bottom = 229.0
+margin_top = 142.0
+margin_right = 385.0
+margin_bottom = 199.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.313726, 0.858824, 0.141176, 1 )
 custom_colors/font_color_pressed = Color( 0.211765, 0.101961, 0.839216, 1 )
@@ -247,10 +247,21 @@ custom_fonts/font = SubResource( 7 )
 text = "Video Tutorial"
 flat = true
 
+[node name="Description pdf" type="Button" parent="menu_buttons/modes/vbox"]
+margin_top = 203.0
+margin_right = 385.0
+margin_bottom = 260.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.313726, 0.858824, 0.141176, 1 )
+custom_colors/font_color_pressed = Color( 0.211765, 0.101961, 0.839216, 1 )
+custom_fonts/font = SubResource( 7 )
+text = "Description pdf"
+flat = true
+
 [node name="disassemble" type="Button" parent="menu_buttons/modes/vbox"]
-margin_top = 233.0
-margin_right = 344.0
-margin_bottom = 290.0
+margin_top = 264.0
+margin_right = 385.0
+margin_bottom = 321.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.921569, 0.521569, 0.0941176, 1 )
 custom_fonts/font = SubResource( 7 )
@@ -258,9 +269,9 @@ text = "Disassemble"
 flat = true
 
 [node name="assemble" type="Button" parent="menu_buttons/modes/vbox"]
-margin_top = 294.0
-margin_right = 344.0
-margin_bottom = 351.0
+margin_top = 325.0
+margin_right = 385.0
+margin_bottom = 382.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.921569, 0.521569, 0.0941176, 1 )
 custom_fonts/font = SubResource( 8 )
@@ -268,9 +279,9 @@ text = "Assemble"
 flat = true
 
 [node name="back_to_difficulty" type="Button" parent="menu_buttons/modes/vbox"]
-margin_top = 355.0
-margin_right = 344.0
-margin_bottom = 412.0
+margin_top = 386.0
+margin_right = 385.0
+margin_bottom = 443.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.913725, 0.0588235, 0.0588235, 1 )
 custom_fonts/font = SubResource( 8 )
@@ -285,7 +296,7 @@ margin_right = 638.0
 margin_bottom = 1014.0
 alignment = 1
 
-[node name="video tutorial" type="Button" parent="menu_buttons/modes/vbox_calibre"]
+[node name="colt_video tutorial" type="Button" parent="menu_buttons/modes/vbox_calibre"]
 margin_top = 172.0
 margin_right = 344.0
 margin_bottom = 229.0
@@ -294,6 +305,17 @@ custom_colors/font_color_hover = Color( 0.313726, 0.858824, 0.141176, 1 )
 custom_colors/font_color_pressed = Color( 0.211765, 0.101961, 0.839216, 1 )
 custom_fonts/font = SubResource( 7 )
 text = "Video Tutorial"
+flat = true
+
+[node name="colt_Description pdf" type="Button" parent="menu_buttons/modes/vbox_calibre"]
+margin_top = 375.0
+margin_right = 385.0
+margin_bottom = 432.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.313726, 0.858824, 0.141176, 1 )
+custom_colors/font_color_pressed = Color( 0.211765, 0.101961, 0.839216, 1 )
+custom_fonts/font = SubResource( 7 )
+text = "Description pdf"
 flat = true
 
 [node name="colt_disassemble" type="Button" parent="menu_buttons/modes/vbox_calibre"]
@@ -513,10 +535,13 @@ autoplay = true
 [connection signal="pressed" from="menu_buttons/start/vbox/leaderboard" to="menu_buttons" method="_on_leaderboard_pressed"]
 [connection signal="pressed" from="menu_buttons/start/vbox/quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="menu_buttons/modes/vbox/video tutorial" to="menu_buttons" method="_on_video_tutorial_pressed"]
+[connection signal="pressed" from="menu_buttons/modes/vbox/Description pdf" to="menu_buttons" method="_on_Description_pdf_pressed"]
 [connection signal="pressed" from="menu_buttons/modes/vbox/disassemble" to="." method="_on_disassemble_pressed"]
 [connection signal="pressed" from="menu_buttons/modes/vbox/disassemble" to="menu_buttons" method="_on_disassemble_pressed"]
 [connection signal="pressed" from="menu_buttons/modes/vbox/assemble" to="." method="_on_assemble_pressed"]
 [connection signal="pressed" from="menu_buttons/modes/vbox/back_to_difficulty" to="menu_buttons" method="_on_back_to_difficulty_pressed"]
+[connection signal="pressed" from="menu_buttons/modes/vbox_calibre/colt_video tutorial" to="menu_buttons" method="_on_colt_video_tutorial_pressed"]
+[connection signal="pressed" from="menu_buttons/modes/vbox_calibre/colt_Description pdf" to="menu_buttons" method="_on_colt_Description_pdf_pressed"]
 [connection signal="pressed" from="menu_buttons/modes/vbox_calibre/colt_disassemble" to="." method="_on_colt_disassemble_pressed"]
 [connection signal="pressed" from="menu_buttons/modes/vbox_calibre/colt_assemble" to="." method="_on_colt_assemble_pressed"]
 [connection signal="pressed" from="menu_buttons/modes/vbox_calibre/back_to_difficulty" to="menu_buttons" method="_on_back_to_difficulty_pressed"]

@@ -29,7 +29,8 @@ func readFromDB():
 		
 
 func LeaderboardFormat():
-	leaderboard.rect_position = Vector2(0, 140)
-	leaderboard.rect_size = Vector2(810, 500)
-	
-	ld_back.rect_position = Vector2(0, 800)
+	pass
+#	leaderboard.rect_position = Vector2(0, 140)
+#	leaderboard.rect_size = Vector2(810, 500)
+#
+#	ld_back.rect_position = Vector2(0, 800)

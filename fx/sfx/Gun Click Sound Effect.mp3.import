@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Gun Click Sound Effect.mp3-9643ae3ff087093b124e649f3be5f509.mp3str"
+
+[deps]
+
+source_file="res://fx/sfx/Gun Click Sound Effect.mp3"
+dest_files=[ "res://.import/Gun Click Sound Effect.mp3-9643ae3ff087093b124e649f3be5f509.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -115,3 +115,6 @@ func _on_colt_disassemble_pressed():
 
 func _on_colt_assemble_pressed():
 	get_tree().change_scene_to(colt_assemble)
+
+
+

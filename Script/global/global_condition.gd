@@ -9,7 +9,7 @@ onready var condition_to_win = {
 	"barel_area": 0
 }
 var result_scene = load("res://Scene/result/game_result.tscn")
-var try_again = load("res://Scene/result/try_again_disassemble.tscn")
+var try_again = load("res://Scene/result/try_again.tscn")
 # Instantiate the scene
 var try_again_scene = try_again.instance()
 var resultUI = result_scene.instance()
@@ -33,6 +33,10 @@ var secs
 var mins
 var time_secs
 var time_mins
+
+#sfx
+onready var metal_click = $"%metal_click"
+
 
 
 
@@ -86,9 +90,9 @@ func pass_time_result():
 	
 
 func _on_magazine_area_area_exited(area):
-	print(area)
 	if condition_to_win.mag_area != 1:
 		if area.name == "magazine_area":
+#			metal_click.play()
 			condition_to_win.mag_area = 1
 			print(condition_to_win.mag_area)
 
