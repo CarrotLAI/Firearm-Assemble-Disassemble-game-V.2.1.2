@@ -10,6 +10,8 @@ var y
 var z
 var nextPos = Vector3()
 
+signal send_instruction(val)
+
 onready var slide = $"%slide"
 onready var spring = $"%spring"
 
@@ -28,6 +30,7 @@ func Drag_default(node, cast):
 	set_translation(nextPos)
 	slide.get_node("slide_area").set_visible(true)
 	drag_to_default = false
+	emit_signal("send_instruction", 5)
 #	emit_signal("spring_remove", true)	
 
 

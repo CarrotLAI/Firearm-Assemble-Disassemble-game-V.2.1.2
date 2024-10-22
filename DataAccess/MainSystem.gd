@@ -42,7 +42,13 @@ func readFromDB():
 	for i in range(0, db.query_result.size()):
 		print(db.query_result[i]["Username"], db.query_result[i]["Password"])
 		
-	
+func getPlayerName():
+	db.open_db()
+	var tableName = "PlayerInfo"
+	var result = db.query("SELECT * FROM " + tableName + "WHERE id = 3;")
+#	if result:
+		
+
 #adding user
 func addPlayerInfo(name, password, salt) -> bool:
 	var data = {

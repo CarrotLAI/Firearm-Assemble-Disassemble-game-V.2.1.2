@@ -1,5 +1,7 @@
 extends Spatial
 
+signal send_instruction(val)
+
 var rotating = false
 var prev_mousePos
 var next_mousePos
@@ -35,6 +37,7 @@ func _process(delta):
 	if Input.is_action_just_released("click"):
 #		rotating = false
 		trigger = Vector3()
+		emit_signal("send_instruction", 5)
 		set_process(false)	
 		
 #	if rotating:
@@ -65,3 +68,7 @@ func First_Time_Click(trigger):
 
 func Second_Time_Click(trigger):
 	pass
+
+
+func _on_Draggable_drag_move(node, cast):
+	pass # Replace with function body.

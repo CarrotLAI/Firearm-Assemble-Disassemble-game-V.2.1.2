@@ -3,6 +3,7 @@ extends Spatial
 
 #signals
 signal spring_remove(value)
+signal send_instruction(val)
 
 # Declare member variables here. Examples:
 var x
@@ -39,6 +40,7 @@ func Default_position(node, cast):
 	slide.get_node("slide_area").set_visible(true)
 	print_debug("Default_position")
 	var default_position = Vector3(0,0,6)
+	emit_signal("send_instruction", 4)
 	set_translation(default_position)
 #	emit_signal("spring_remove", true)
 	

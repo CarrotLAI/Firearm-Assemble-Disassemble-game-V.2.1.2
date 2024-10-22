@@ -12,6 +12,8 @@ var is_barrel_outside = false
 var isReady_Barrel_outside = false
 var game_win
 
+signal send_instruction(val)
+
 onready var cylinder_cap_area = $"%cylinder_cap_area"
 
 # Called when the node enters the scene tree for the first time.
@@ -50,15 +52,16 @@ func _on_colt_slide_parent_colt_barrel_area(value):
 		get_node("mesh_158001/colt_barrel_area").set_visible(false)
 		ismove_barrel = false		
 		cylinder_cap_area.set_visible(true)
+		emit_signal("send_instruction", 2)
 		set_process(false)
 
 
-func _on_colt_barrel_area_area_entered(area):
-	if(area.name == "colt_barrel_area"):
-		var position = Vector3(0, 0, 0)
-		set_translation(position)
-		get_node("mesh_158001/colt_barrel_area").set_visible(false)
-		cylinder_cap_area.set_visible(true)
-		ismove_barrel = false
-		set_process(false)
+#func _on_colt_barrel_area_area_entered(area):
+#	if(area.name == "colt_barrel_area"):
+#		var position = Vector3(0, 0, 0)
+#		set_translation(position)
+#		get_node("mesh_158001/colt_barrel_area").set_visible(false)
+#		cylinder_cap_area.set_visible(true)
+#		ismove_barrel = false
+#		set_process(false)
 	

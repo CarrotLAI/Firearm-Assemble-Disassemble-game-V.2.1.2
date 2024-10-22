@@ -33,6 +33,7 @@ var secs
 var mins
 var time_secs
 var time_mins
+var ins_val = 1
 
 #signals
 signal spring_area_val(e)
@@ -42,6 +43,8 @@ signal barrel_val(e)
 
 
 func _ready():
+#	EnumsInstruction(ins_val)
+	instruction.text = "position the barrel"
 	set_process(false)
 
 func _on_Timer_timeout():
@@ -108,7 +111,6 @@ func _on_colt_slide_parent_spring_skeleton_area(value):
 			emit_signal("spring_area_val", condition_to_win.spring_area)
 
 
-
 #Sgnal
 signal slide_enter(value)
 signal magazine_enter(value)
@@ -128,3 +130,44 @@ func _on_slide_area_area_entered(area):
 			if area.name == "slide_area":
 				condition_to_win.slide_area = 1
 				print(condition_to_win.slide_area)
+				
+
+onready var instruction = $"%instruction"
+func EnumsInstruction(e):
+	if(e == 1):
+		instruction.text = "position the barrel"
+#		instruction.rect_position = Vector2(650, 50)
+		instruction.rect_size = Vector2(960, 200)
+	if(e == 2):
+		instruction.text = "close the barrel cap"
+	if(e == 3):
+		instruction.text = "Insert spring"
+	if(e == 4):
+		instruction.text = "Insert spring cap"
+	if(e == 5):
+		instruction.text = "clip back the slide"
+	if(e == 6):
+		instruction.text = "insert the magazine"	
+
+#5
+func _on_spring_cap_send_instruction(val):
+	print(val)
+	EnumsInstruction(val)
+
+#2
+func _on_colt_barrel_send_instruction(val):
+	print(val)
+	EnumsInstruction(val)
+
+#3
+func _on_cylinder_cap_send_instruction(val):
+	print(val)
+	EnumsInstruction(val)
+
+#4
+func _on_spring_skeleton_send_instruction(val):
+	print(val)
+	EnumsInstruction(val)
+
+func _on_colt_slide_send_instruction(val):
+	EnumsInstruction(val)

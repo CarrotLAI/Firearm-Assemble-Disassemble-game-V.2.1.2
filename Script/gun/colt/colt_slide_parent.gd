@@ -6,7 +6,7 @@ extends Spatial
 # var b = "text"
 signal colt_barrel_area(value)
 signal spring_skeleton_area(value)
-
+signal send_instruction(val)
 
 func _on_spring_area2_area_exited(area):
 	if area.name == "spring_skeleton_area":
@@ -34,6 +34,9 @@ onready var slide = $"%slide"
 onready var colt_slide = $"%colt_slide"
 onready var spring_skeleton = $"%spring_skeleton"
 
+#array
+var slide_node = [colt_slide, spring_cap, cylinder_cap, spring_skeleton]
+
 #region Slide
 func _on_Slide_Draggable_drag_move(node, cast):
 	if(drag_to_right):
@@ -60,15 +63,14 @@ func Drag_to_right(node, cast):
 	if(z <= 1.2 && x >= z):
 #		print(nextPos)
 		var nextPos = Vector3(0, 0, z)
-#		print_debug(nextPos)
-#		set_translation(nextPos)
 		colt_slide.set_translation(nextPos)
-		spring_cap.set_translation(nextPos)
-		cylinder_cap.set_translation(nextPos)
-		spring_skeleton.set_translation(nextPos)
+		spring_cap.set_visible(false)
+		cylinder_cap.set_visible(false)
+		spring_skeleton.set_visible(false)
 		
 	if(z  <= -3.6):
 #		print_debug("Drag_to_right")
+		emit_signal("send_instruction", 3)
 		To_default_position(node, cast)
 	
 func To_default_position(node, cast):
@@ -76,12 +78,15 @@ func To_default_position(node, cast):
 	print_debug("Check point To_default_position")
 	var defaulPos = Vector3(0, 0, 0)
 	colt_slide.set_translation(defaulPos)
-	spring_cap.set_translation(defaulPos)
-	cylinder_cap.set_translation(defaulPos)
-	colt_slide.set_translation(nextPos)	
-	spring_skeleton.set_translation(nextPos)
+#	spring_cap.set_translation(defaulPos)
+#	cylinder_cap.set_translation(defaulPos)
+#	colt_slide.set_translation(nextPos)	
+#	spring_skeleton.set_translation(nextPos)
 	slide.get_node("slide_area").set_visible(false)
 	spring_cap.get_node("spring/spring_cap_area").set_visible(true)
+	spring_cap.set_visible(true)
+	cylinder_cap.set_visible(true)
+	spring_skeleton.set_visible(true)
 	drag_to_right = false
 #		isSlide = false
 #		
@@ -108,11 +113,11 @@ func Drag_to_left(node, cast):
 #		To_default_position(node, cast)
 
 func Remove_from_body(node, cast):
-#	print_debug("Remove_from_body")
 	var x = cast.position.x + 2
 	var y = cast.position.y - 3.5
 	var z = get_node(".").transform.origin.z
 	var nextPos = Vector3(x, y, 0)
+	emit_signal("send_instruction", 6)
 	set_translation(nextPos)
 #	spring_cap.set_translation(nextPos)
 #	colt_barrel.set_translation(nextPos)

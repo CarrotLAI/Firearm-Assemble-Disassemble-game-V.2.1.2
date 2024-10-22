@@ -40,8 +40,11 @@ signal magazine_val(e)
 signal slide_val(e)
 signal barrel_val(e)
 
+onready var slide_area = $"%slide_area"
+
 
 func _ready():
+	EnumsInstruction(1)
 	set_process(false)
 
 func _on_Timer_timeout():
@@ -95,6 +98,8 @@ func _on_magazine_area_area_exited(area):
 	if condition_to_win.mag_area != 1:
 		if area.name == "mag_area":
 			condition_to_win.mag_area = 1
+			EnumsInstruction(2)
+			slide_area.set_visible(true)
 			print(condition_to_win.mag_area)
 
 func _on_slide_area_area_exited(area):
@@ -128,4 +133,35 @@ func _on_colt_slide_parent_spring_skeleton_area(value):
 	pass # Replace with function body.
 
 
+onready var instruction = $"%instruction"
+func EnumsInstruction(e):
+	if(e == 1):
+		instruction.text = "remove magazine"
+#		instruction.rect_position = Vector2(650, 50)
+#		instruction.rect_size = Vector2(960, 200)
+	if(e == 2):
+		instruction.text = "check if there is a bullet"
+	if(e == 3):
+		instruction.text = "Remove spring cap"
+	if(e == 4):
+		instruction.text = "remove slide lock"
+	if(e == 5):
+		instruction.text = "Remove slide"
+	if(e == 6):
+		instruction.text = "Remove Spring"
+	if(e == 7):
+		instruction.text = "Remove Barrel Cap"
+	if(e == 8):
+		instruction.text = "Remove Barrel"
 
+#2
+func _on_colt_slide_parent_send_instruction(val):
+	EnumsInstruction(val)
+	
+#3
+func _on_spring_cap_send_instruction(val):
+	EnumsInstruction(val)
+
+#4
+func _on_colt_body_send_instruction(val):
+	EnumsInstruction(val)

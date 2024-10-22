@@ -4,6 +4,7 @@ extends Spatial
 #signals
 signal slide_condition(value)
 signal move_parent(value)
+signal send_instruction(val)
 # Declare member variables here. Examples:
 #var x 
 #var y 
@@ -22,6 +23,7 @@ onready var cylinder_cap = $"%cylinder_cap"
 onready var colt_barrel = $"%colt_barrel"
 onready var colt_barrel_cap = $"%colt_barrel_cap"
 onready var colt_slide_parent = $"%colt_slide_parent"
+onready var mag_area = $"%mag_area"
 
 
 func _ready():
@@ -32,8 +34,8 @@ func _ready():
 func _on_Draggable_drag_move(node, cast):
 	if(to_default):
 		drag_to_default(node, cast)
-	else:
-		print(to_default)
+#	else:
+#		print(to_default)
 #
 func drag_to_default(node, cast):
 	var x = cast.position.x + 2
@@ -41,6 +43,8 @@ func drag_to_default(node, cast):
 	var z = get_node(".").transform.origin.z
 	var nextPos = Vector3(x, y, 1.2)
 	colt_slide_parent.set_translation(nextPos)
+	if to_default:
+		set_process(false)
 	
 func spring_remove(value):
 	if (value):
@@ -59,12 +63,12 @@ func _on_Draggable_drag_stop(node):
 	
 
 
-func _on_slide_area_area_entered(area):
-	print(area.name)
-	if(area.name == "slide_area"):
-		var position = Vector3(0, 0.48, 1.2)
-#		to_default = false
-		set_translation(position)	
+#func _on_slide_area_area_entered(area):
+#	print(area.name)
+#	if(area.name == "slide_area"):
+#		var position = Vector3(0, 0.48, 1.2)
+##		to_default = false
+#		set_translation(position)	
 
 
 func _on_Global_slide_enter(value):
@@ -72,4 +76,6 @@ func _on_Global_slide_enter(value):
 		var position = Vector3(0, 0.48, 1.2)
 		set_translation(position)	
 		to_default = false
+		mag_area.set_visible(true)
+		emit_signal("send_instruction", 6)
 		set_process(false)

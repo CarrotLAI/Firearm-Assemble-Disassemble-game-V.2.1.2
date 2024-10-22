@@ -1,6 +1,6 @@
 extends Spatial
 
-
+signal send_instruction(val)
 # Declare member variables here. Examples:
 var x 
 var y 

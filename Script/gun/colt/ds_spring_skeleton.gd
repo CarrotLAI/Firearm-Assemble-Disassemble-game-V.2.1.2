@@ -7,6 +7,7 @@ extends Spatial
 var away_from_slide = false
 var  default_spring_skeleton = true
 
+signal send_instruction(val)
 
 onready var colt_slide = $"%colt_slide"
 onready var spring_cap_area = $"%spring_cap_area"
@@ -30,21 +31,21 @@ func default_Spr_Skel(node, cast):
 #	colt_slide.get_node("slide/slide_area").set_visible(false)
 		
 
-func _on_spring_skeleton_area_area_entered(area):
-	print(area.name)
-	if(area.name == "spring_area"):
-		var position = Vector3(0, 0, 0)
-		set_translation(position)
-#		get_node("mesh_136001/spring_skeleton_area").set_visible(false)
-		set_process(false)
+#func _on_spring_skeleton_area_area_entered(area):
+#	print(area.name)
+#	if(area.name == "spring_area"):
+#		var position = Vector3(0, 0, 0)
+#		set_translation(position)
+##		get_node("mesh_136001/spring_skeleton_area").set_visible(false)
+#		set_process(false)
 		
-func _on_spring_area_area_entered(area):
-	if(area.name == "spring_area"):
-		var position = Vector3(0, 0, 0)
-		set_translation(position)
-		default_spring_skeleton = false
-		spring_cap_area.set_visible(true)
-		set_process(false)
+#func _on_spring_area_area_entered(area):
+#	if(area.name == "spring_area"):
+#		var position = Vector3(0, 0, 0)
+#		set_translation(position)
+#		default_spring_skeleton = false
+#		spring_cap_area.set_visible(true)
+#		set_process(false)
 		
 
 func _on_colt_slide_parent_spring_skeleton_area(value):
@@ -52,6 +53,7 @@ func _on_colt_slide_parent_spring_skeleton_area(value):
 		var position = Vector3(0, 0, 0)
 		set_translation(position)
 		default_spring_skeleton = false
-		spring_cap_area.set_visible(true)		
+		spring_cap_area.set_visible(true)
+		emit_signal("send_instruction", 4)
 #		get_node("mesh_136001/spring_skeleton_area").set_visible(false)
 		set_process(false)

@@ -22,5 +22,4 @@ func _on_Draggable_drag_move(node, cast):
 	y = cast.position.y - 3.2
 	z = get_node(".").transform.origin.z
 	nextPos = Vector3(x, y, z)
-#	print(cast.position)
 	set_translation(nextPos)

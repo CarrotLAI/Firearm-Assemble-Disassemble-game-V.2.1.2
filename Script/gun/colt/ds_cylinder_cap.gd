@@ -6,6 +6,8 @@ extends Spatial
 # var b = "text"
 var isCast = true
 
+signal send_instruction(val)
+
 onready var colt_barrel = $"%colt_barrel"
 
 # Called when the node enters the scene tree for the first time.
@@ -27,6 +29,7 @@ func Default_Pos(node, cast):
 #	if(z >= 0 && z <= 6.4):
 	var nextPos = Vector3(0, 0, 0)
 	set_translation(nextPos)
+	emit_signal("send_instruction", 3)
 	isCast = false
 #	colt_barrel.get_node("mesh_158001/colt_barrel_area").set_visible(true)
 #	var barr_pos = Vector3(0, 0, -2)
