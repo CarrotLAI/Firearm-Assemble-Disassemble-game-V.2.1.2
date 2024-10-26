@@ -36,10 +36,12 @@ var time_mins
 
 #sfx
 #onready var metal_click = $"%metal_click"
+onready var instruction = $"%instruction"
+onready var slide_lock = $"%slide_lock"
 
 
 func _ready():
-#	EnumsInstruction(1)
+	EnumsInstruction(1)
 	set_process(false)
 
 func _on_Timer_timeout():
@@ -92,6 +94,8 @@ func _on_magazine_area_area_exited(area):
 	if condition_to_win.mag_area != 1:
 		if area.name == "magazine_area":
 #			metal_click.play()
+			EnumsInstruction(3)
+			slide_lock.set_visible(true)
 			condition_to_win.mag_area = 1
 			print(condition_to_win.mag_area)
 
@@ -115,23 +119,23 @@ func _on_barel_area_area_exited(area):
 			set_process(true)
 			print(condition_to_win)
 			
-#func EnumsInstruction(e):
-#	if(e == 1):
-#		instruction.text = "remove magazine"
-##		instruction.rect_position = Vector2(650, 50)
-##		instruction.rect_size = Vector2(960, 200)
-#	if(e == 2):
-#		instruction.text = "check if there is a bullet"
-#	if(e == 3):
-#		instruction.text = "Remove spring cap"
-#	if(e == 4):
-#		instruction.text = "remove slide lock"
-#	if(e == 5):
-#		instruction.text = "Remove slide"
-#	if(e == 6):
-#		instruction.text = "Remove Spring"
-#	if(e == 7):
-#		instruction.text = "Remove Barrel Cap"
-#	if(e == 8):
-#		instruction.text = "Remove Barrel"
+func EnumsInstruction(e):
+	if(e == 1):
+		instruction.text = "Check bullet"
+#		instruction.rect_position = Vector2(650, 50)
+#		instruction.rect_size = Vector2(960, 200)
+	if(e == 2):
+		instruction.text = "Remove Magazine"
+	if(e == 3):
+		instruction.text = "Click slide lock"
+	if(e == 4):
+		instruction.text = "Remove slide"
+	if(e == 5):
+		instruction.text = "Remove Spring"
+	if(e == 6):
+		instruction.text = "Remove Barrel"
 	
+
+#slide
+func _on_slide_main_send_instruction(val):
+	EnumsInstruction(val)

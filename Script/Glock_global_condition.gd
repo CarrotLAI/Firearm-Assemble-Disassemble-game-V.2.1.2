@@ -36,7 +36,7 @@ signal slide_area_lock(value)
 #	set_process(false)
 
 func _ready():
-#	EnumsInstruction(1)
+	EnumsInstruction(1)
 	set_process(false)	
 
 func _on_Main_start_game(value):
@@ -87,26 +87,32 @@ func _on_magazine_area_area_entered(area):
 		isMagazine_enter = true
 		emit_signal("area_lock", isMagazine_enter)
 
+onready var slide_main = $"%slide_main"
 
 func _on_slide_area_area_entered(area):
-	print_debug(area.get_parent().get_parent().get_parent())
+#	print_debug(area.get_parent().get_parent().get_parent())
 	var slide_main = area.get_parent().get_parent().get_parent()
 	if slide_main:
 		isSlide_main_enter = true
+#		var nextPos = Vector3(-0.069, 0.5, 0.802)
+#		EnumsInstruction(4)
+#		slide_main.set_translation(nextPos)
+#		slide_main.get_node("slide/slide_mesh/slide_area").set_visible(false)
 		emit_signal("slide_area_lock", isSlide_main_enter)
 
+onready var instruction_lbl = $"%instruction_lbl"
 
-#func EnumsInstruction(e):
-#	if(e == 1):
-#		instruction_lbl.text = "Insert Barrel"
-#	if(e == 2):
-#		instruction_lbl.text = "Insert Spring"
-#	if(e == 3):
-#		instruction_lbl.text = "Insert Slide"
-#	if(e == 4):
-#		instruction_lbl.text = "Insert Magazine"
+func EnumsInstruction(e):
+	if(e == 1):
+		get_node("%instruction_lbl").text = "Insert Barrel"
+	if(e == 2):
+		instruction_lbl.text = "Insert Spring"
+	if(e == 3):
+		instruction_lbl.text = "Insert Slide"
+	if(e == 4):
+		instruction_lbl.text = "Insert Magazine"
 
 
 
-#func _on_slide_main_send_instruction(val):
-#	EnumsInstruction(val)
+func _on_slide_main_send_instruction(val):
+	EnumsInstruction(val)

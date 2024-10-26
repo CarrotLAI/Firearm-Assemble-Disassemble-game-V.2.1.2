@@ -4,6 +4,7 @@ onready var spring = $"../spring"
 onready var slide_main = $"%slide_main"
 onready var imported_array = get_node('gun')
 onready var barel = $"%barel"
+onready var magazine = $"%magazine"
 
 #var scene = preload("res://Scene/barel.tscn")
 #var instance = scene.instance()
@@ -21,6 +22,8 @@ var posZ
 var newPos
 var disable_barel = true
 var remove_spring = false;
+
+signal send_instruction(val)
 
 #fix later the mouse position
 func _physics():
@@ -56,11 +59,18 @@ func remove_bullet(node, cast):
 #			print("translation: ", offset)
 #			print("casthit: ", cast.position)
 		slide.set_translation(newPos)
-	if !bullet_remove:
-		print("remove bullet")
+	if(posX >= 1.63):
 		bullet_remove = true
+		var newPos = Vector3(0.63, 0, 0.167)
+		slide.set_translation(newPos)
+		drag_to_right = false
+		magazine.get_node("Cube006/magazine_area").set_visible(true)
+		emit_signal("send_instruction", 2)
+#	if !bullet_remove:
+#		print("remove bullet")
+#		bullet_remove = true
 		
-	return Vector3()
+	
 	
 #		_on_Draggable_slide_drag_stop(node)
 	
@@ -77,14 +87,15 @@ func remove_slide(node, cast):
 		if start_drag:
 			slide_main.set_translation(newPos)
 		#if outside of the area
-			if posX <= -1.3:
-				slide_remove = true
-				start_drag = false
-				print(slide_remove)
+	if posX <= -1.4:
+		slide_remove = true
+		start_drag = false
+		print(slide_remove)
 #	set_translation((Vector3() * .1))
 	if slide_remove:
 		newPos = Vector3( posX, translate.y, posZ)
 		slide_main.set_translation(newPos)
+		emit_signal("send_instruction", 5)
 		
 #	set_translation(cast.)
 
@@ -114,21 +125,20 @@ func _on_SpringDrag_drag_move(node, cast):
 	offset = (spring.transform.origin)
 
 #	var drag_offset = lerp(offset, cast.position, 25 * 1)	
-	var x = cast.position.x + 1.2
-	var z = cast.position.z + 3
-	var nextPos = Vector3(x, offset.y, z)
+	var x = cast.position.x + 1.1
+	var z = cast.position.z + 3.4
+	var nextPos = Vector3(x, 0, z)
 	spring.set_translation(nextPos)
 	if nextPos.x < -1.1 or nextPos.x > -0.4:
 		disable_barel = false
 		remove_spring = true
 	if remove_spring == true:
-		var updatePosition = Vector3(x, offset.y, z)
+		emit_signal("send_instruction", 6)
+		var updatePosition = Vector3(x, 0, z)
 #func _on_spring_area_input_event(camera, event, position, normal, shape_idx):
 #		if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
 #			if event.is_pressed():
 #
-
-
 
 func _on_slide_area_exited(area):
 	print(area)
@@ -142,15 +152,16 @@ func _on_Draggable_barrel_drag_move(node, cast):
 #		var current_mouse = -(prev_position.y - next_position.y) *.1
 		var barel_position = barel.transform.origin
 		var x = cast.position.x
-		var z = (cast.position.z + 3)
+		var z = (cast.position.z + 2.8)
 #	print(positionZ, " ", barel_position.z)
-		var newPos = Vector3(x, barel_position.y, z)
+		var newPos = Vector3(x, 0, z)
 		barel.set_translation(newPos)
 
 
 func _on_slide_lock_input_event(camera, event, position, normal, shape_idx):
 	if event.is_pressed():
 		slide_lock_open = true
+		emit_signal("send_instruction", 4)
 		print(slide_lock_open)
 
 
