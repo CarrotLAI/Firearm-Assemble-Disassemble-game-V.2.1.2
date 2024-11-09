@@ -7,14 +7,12 @@ var y
 var z
 var nextPos = Vector3()
 
+onready var frame1 = $"%Inner_Frame_mesh_33_mesh_33003"
+onready var frame2 = $"%Frame001_mesh_212_mesh_212003"
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 
 
 func _on_Draggable_drag_move(node, cast):
@@ -24,3 +22,11 @@ func _on_Draggable_drag_move(node, cast):
 	nextPos = Vector3(x, y, z)
 	print(cast.position)
 	set_translation(nextPos)
+	if get_node(".").transform.origin.x > 4:
+		RemoveStock(node, cast)
+
+
+func RemoveStock(node, cast):
+	frame1.set_visible(true)
+	frame1.set_visible(true)
+	pass

@@ -1,27 +1,82 @@
 [
-    {
-        "question": "What type of ammunition does the Colt .45 1911 use?",
-        "options": [".45 ACP", ".40 S&W"],
-        "correctAnswerIndex": 0
-    },
-    {
-        "question": "Who designed the Colt .45 1911?",
-        "options": ["John Browning", "Samuel Colt"],
-        "correctAnswerIndex": 0
-    },
-    {
-        "question": "When was the Colt .45 1911 first introduced?",
-        "options": ["1911", "1912"],
-        "correctAnswerIndex": 0
-    },
-    {
-        "question": "What is the typical magazine capacity of the Colt .45 1911?",
-        "options": ["7 rounds", "8 rounds"],
-        "correctAnswerIndex": 1
-    },
-    {
-        "question": "What is the primary use of the Colt .45 1911?",
-        "options": ["Self-defense", "Sport shooting"],
-        "correctAnswerIndex": 0
-    }
+  {
+    "question": "What year was the .45 caliber 1911 pistol first introduced?",
+    "options": [
+      "2000- present",
+      "1911- present"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "question": "Who is the designer of the caliber 45 1911?",
+    "options": [
+      "John Browning",
+      "John Ganier"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "What kind of bullet does a .45 take?",
+    "options": [
+      "45ACP",
+      "46ACP"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "How many bullets are in a .45 caliber pistol?",
+    "options": [
+      "7 rounds",
+      "8 rounds"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "Where did the caliber .45 originate?",
+    "options": [
+      "United States",
+      "Australia"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "What type of trigger mechanism does the M1911 use?",
+    "options": [
+      "single-action trigger",
+      "doble-action trigger"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "What is the effective range of the Colt M1911?",
+    "options": [
+      "Around 50 meters",
+      "Around 80 meters"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "What is the standard weight of the .45 caliber Colt 1911 without the magazine?",
+    "options": [
+      "39 ounces (approximately 2.44 pounds)",
+      "40 ounces (approximately 2.55 pounds)"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "What is the standard barrel length of the Colt 1911?",
+    "options": [
+      "5 inches (127 mm)",
+      "5 inches (130 mm)"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "What is the unloaded weight of the Colt 1911?",
+    "options": [
+      "39 ounces (1.8 kg)",
+      "38 ounces (1.7 kg)"
+    ],
+    "correctAnswerIndex": 0
+  }
 ]

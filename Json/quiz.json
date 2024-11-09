@@ -1,27 +1,82 @@
 [
-    {
-        "question": "What type of ammunition does the glock 17 use?",
-        "options": ["9×19m", "10mm"],
-        "correctAnswerIndex": 0
-    },
-    {
-        "question": "Who designed the Glock 17",
-        "options": ["River Glock", "Gaston Glock"],
-        "correctAnswerIndex": 1
-    },
-    {
-        "question": "When did the Glock 17 designed ",
-        "options": ["1979-1982", "1978-1980"],
-        "correctAnswerIndex": 0
-    },
-    {
-        "question": "What is the weight of Glock 17 without magazine",
-        "options": ["635g", "625g"],
-        "correctAnswerIndex": 1
-    },
-    {
-        "question" : "What place the Glock 17 origin?",
-        "options" : ["USA", "Australia"],
-        "correctAnswerIndex" : 1
-    }
+  {
+    "question": "What type of ammunition does the Glock 17 use?",
+    "options": [
+      "9×19mm",
+      "10mm"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "Who designed the Glock 17?",
+    "options": [
+      "Gaston Glock",
+      "River Glock"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "What is the weight of the Glock 17 without magazine?",
+    "options": [
+      "625g",
+      "635g"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "Where did the Glock 17 originate?",
+    "options": [
+      "US",
+      "Australia"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "When was the Glock 17 designed?",
+    "options": [
+      "1979-1982",
+      "1978-1980"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "What is the Glock 17 effective range?",
+    "options": [
+      "Approximately 60 meters",
+      "Approximately 50 meters"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "question": "What is the standard magazine capacity of the Glock 17?",
+    "options": [
+      "17 rounds",
+      "19 rounds"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "How much does a loaded Glock 17 weigh?",
+    "options": [
+      "36.2 ounces (1000 grams)",
+      "32.1 ounces (910 grams)"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "question": "What is the barrel length of a Glock 17?",
+    "options": [
+      "190mm",
+      "186mm"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "Is the Glock 17 fully automatic?",
+    "options": [
+      "No, it's a semi-automatic",
+      "Yes"
+    ],
+    "correctAnswerIndex": 0
+  }
 ]
