@@ -1,5 +1,6 @@
 extends Spatial
 
+signal remove_recoilSpring(val)
 
 # Declare member variables here. Examples:
 var x 
@@ -23,5 +24,17 @@ func _on_Draggable_drag_move(node, cast):
 	y = 0
 	z = 0
 	nextPos = Vector3(x, y, z)
-	print(cast.position)
+#	print(cast.position)
+	set_translation(nextPos)
+
+
+func _on_Draggable_drag_stop(node):
+	print("drop")
+	set_translation(nextPos)
+
+func PhaseOne(node, cast):
+	var x = cast.position.x
+	var y = cast.position.y
+	var z = cast.position.z
+	nextPos = Vector3(x, 0, z)
 	set_translation(nextPos)

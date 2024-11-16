@@ -35,6 +35,7 @@ var db = SQLite.new()
 var PlayerAchievements = {}
 
 func _ready():
+	set_process(true)
 	# Connect to the SQLite database
 	db.path = "res://DataAccess/database"
 	if not db.open_db():

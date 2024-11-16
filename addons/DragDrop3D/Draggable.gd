@@ -39,8 +39,9 @@ func mouse_entered(node):
 	hovered = node
 #	print(hovered)
 
+#//change from null to node
 func mouse_exited(node):
-	hovered = null
+	hovered = node
 	
 func on_hover(cast):
 	emit_signal("drag_move", self, cast)
@@ -48,6 +49,7 @@ func on_hover(cast):
 func input_event(camera, event, click_position, click_normal, shape_idx, node):
 #	print(camera, " ", event, " ", click_position, " ", click_normal, " ", shape_idx, " ", node)
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
+#		print(event)
 		if event.is_pressed():
 			if hovered:
 				current = hovered.get_parent()

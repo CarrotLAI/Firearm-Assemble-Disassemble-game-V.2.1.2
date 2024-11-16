@@ -40,6 +40,7 @@ func show_question():
 	item = items[index_item]
 	DisplayText.text = item.question
 	var options = item.options
+	yield_task(1.0)
 	for option in options:
 		item_list.add_item(option)
 
@@ -64,3 +65,7 @@ func _on_Button_pressed():
 #	correct = 0
 #	index_item = 0
 #	refresh_scene()
+
+func yield_task(seconds):
+    # Create a temporary timer and wait for it to time out
+    yield(get_tree().create_timer(seconds), "timeout")

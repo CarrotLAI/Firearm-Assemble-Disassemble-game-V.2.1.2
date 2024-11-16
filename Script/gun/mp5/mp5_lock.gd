@@ -33,7 +33,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("click"):
 #		rotating = true
 		time_click =+ 1
-		First_Time_Click(trigger)
+#		First_Time_Click(trigger)
 #		trigger.
 	if Input.is_action_just_released("click"):
 #		rotating = false
@@ -50,16 +50,16 @@ func _on_lock_input_event(camera, event, position, normal, shape_idx):
 		else:
 			set_process(false)
 
-func First_Time_Click(trigger):
-	trigger = hovered
-	var x = 10
-	var y = 0
-	var z = -10
-#	prev_mousePos = get_viewport().get_mouse_position()
-	var next_position = Vector3(x, y, z)
-	trigger.set_translation(next_position)
-	trigger.rotation = Vector3(deg2rad(0), 45, 0)
-	print_debug(next_position)
+#func First_Time_Click(trigger):
+#	trigger = hovered
+#	var x = 10
+#	var y = 0
+#	var z = -10
+##	prev_mousePos = get_viewport().get_mouse_position()
+#	var next_position = Vector3(x, y, z)
+#	trigger.set_translation(next_position)
+#	trigger.rotation = Vector3(deg2rad(0), 45, 0)
+#	print_debug(next_position)
 
 
 func _on_lock_mouse_entered():

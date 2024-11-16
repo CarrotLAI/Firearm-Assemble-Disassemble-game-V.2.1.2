@@ -1,5 +1,6 @@
 extends Spatial
 
+signal remove_stock(val)
 
 # Declare member variables here. Examples:
 var x 
@@ -20,13 +21,16 @@ func _on_Draggable_drag_move(node, cast):
 	y = cast.position.y - 6
 	z = get_node(".").transform.origin.z
 	nextPos = Vector3(x, y, z)
-	print(cast.position)
+#	print(cast.position)
 	set_translation(nextPos)
-	if get_node(".").transform.origin.x > 4:
-		RemoveStock(node, cast)
+#	if get_node(".").transform.origin.x > 4:
+#		RemoveStock(node, cast)
 
+func PhaseOne(node, cast):
+	set_translation(nextPos)
 
 func RemoveStock(node, cast):
-	frame1.set_visible(true)
-	frame1.set_visible(true)
+	frame1.set_visible(false)
+	frame2.set_visible(false)
+	emit_signal("remove_stock", true)
 	pass
