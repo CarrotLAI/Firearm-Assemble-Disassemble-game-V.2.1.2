@@ -38,3 +38,9 @@ func DefaultPosition(node, cast):
 	nextPos = Vector3(x, y, z)
 	set_translation(nextPos)
 	emit_signal("remove_boltCarrier", true)
+
+
+func _on_bolt_carrier2_area_area_exited(area):
+	if area.name == "bolt_carrier_Area":
+		print(area.name)
+		emit_signal("remove_boltCarrier", true)

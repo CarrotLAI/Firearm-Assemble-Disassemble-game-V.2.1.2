@@ -61,3 +61,7 @@ func input_event(camera, event, click_position, click_normal, shape_idx, node):
 			
 func depth_sort(a,b):
 	return b.get_index()<a.get_index()
+
+func _process(delta):
+	if Input.is_action_just_released("click"):
+		emit_signal("drag_stop", self)

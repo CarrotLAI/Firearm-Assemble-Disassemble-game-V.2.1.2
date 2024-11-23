@@ -1,27 +1,29 @@
 extends Spatial
 
-signal drag_pos(cast)
+signal drag_pos(cast, val)
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-
+var drag
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	if Input.is_action_just_pressed("click"):
+		drag = true
+	if Input.is_action_just_released("click"):
+		drag = false
 
 
 func _on_StaticBody_input_event(camera, event, position, normal, shape_idx):
 #	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
-#	if !event is InputEventMouseMotion:
-#		print(event)
-	emit_signal("drag_pos", position)
-#	print(position.y)
+	if drag:
+		emit_signal("drag_pos", position, true)
+	if !drag:
+		emit_signal("drag_pos", position, false)
+		
 #		if event.is_pressed():
 #			if hovered:
 #				set_process(true)

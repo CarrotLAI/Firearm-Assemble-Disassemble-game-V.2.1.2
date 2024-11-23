@@ -51,7 +51,7 @@ func _on_Timer_timeout():
 		main.add_child(try_again_scene)
 
 
-func _on_magazine_area_input_event(camera, event, position, normal, shape_idx):
+func _on_magazine_area_input_event(event):
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
 		if event.is_pressed():
 #			start_timer()
