@@ -12,14 +12,14 @@ var remove_vertGrip = true
 var phaseTwo = false
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+#func _ready():
+#	set_process(false)
 
 func _on_Draggable_drag_move(node, cast):
 	if remove_vertGrip:
 		PhaseOne(node, cast)
-	if phaseTwo:
-		PhaseTwo(node, cast)
+#	if phaseTwo:
+#		PhaseTwo(node, cast)
 #	var x = nextPos.x + 4 
 #	var y = nextPos.y - 4 
 #	var z = nextPos.z - 4 
@@ -44,9 +44,9 @@ func PhaseOne(node, cast):
 	z = get_node(".").transform.origin.z
 	nextPos = Vector3(x, y, z)
 	set_translation(nextPos)
-	if y - 3:
-		remove_vertGrip = false 
-		phaseTwo = true
+#	if y - 3:
+#		remove_vertGrip = false 
+#		phaseTwo = true
 
 func PhaseTwo(node, cast):
 	x = (cast.position.x) + 3.5
@@ -54,3 +54,15 @@ func PhaseTwo(node, cast):
 	z = get_node(".").transform.origin.z
 	nextPos = Vector3(x, y, z)
 	set_translation(nextPos)
+
+
+func _on_Draggable_drag_stop(node):
+	if phaseTwo:
+		set_translation(nextPos)
+		emit_signal("remove_verticalGrip", true)
+
+
+func _on_vertical_area_area_exited(area):
+	print(area.name)
+	if area.name == "front_grip":
+		phaseTwo = true

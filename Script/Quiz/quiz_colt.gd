@@ -4,7 +4,7 @@ onready var DisplayText = $VBoxContainer/DisplayText
 onready var item_list = $VBoxContainer/ItemList
 onready var button = $VBoxContainer/Button
 
-var back_to_menu = preload("res://Scene/UI/game_index.tscn")
+var back_to_menu = load("res://Scene/UI/game_index.tscn")
 
 var items: Array = read_json_file("json/colt_quiz.json")
 var item: Dictionary
@@ -67,5 +67,5 @@ func _on_Button_pressed():
 #	refresh_scene()
 
 func yield_task(seconds):
-    # Create a temporary timer and wait for it to time out
-    yield(get_tree().create_timer(seconds), "timeout")
+	# Create a temporary timer and wait for it to time out
+	yield(get_tree().create_timer(seconds), "timeout")

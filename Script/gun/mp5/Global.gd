@@ -1,11 +1,11 @@
 extends Spatial
 
+
+
 onready var timer = $time/Timer
 onready var main = $".."
 onready var condition_to_win = {
 	"mag_area": 0,
-	"slide_area": 0,
-	"spring_area": 0, 
 	"barel_area": 0,
 	"stock_area": 0,
 	"vertical_area": 0,
@@ -14,8 +14,8 @@ onready var condition_to_win = {
 	"grip_area": 0,
 	"bolt_head": 0
 }
-var result_scene = load("res://Scene/result/game_result.tscn")
-var try_again = load("res://Scene/result/try_again.tscn")
+var result_scene = load("res://Scene/result/mp5_result.tscn")
+var try_again = load("res://Scene/result/try_again_mp5_disassemble.tscn")
 # Instantiate the scene
 var try_again_scene = try_again.instance()
 var resultUI = result_scene.instance()
@@ -90,13 +90,10 @@ func _process(delta):
 #	total_time = time_passed - time
 	timer_label.text = time_passed
 	
-	if condition_to_win.mag_area == 1: 
-		if condition_to_win.slide_area == 1:
-			if condition_to_win.spring_area == 1:
-				if condition_to_win.barel_area == 1:
-					main.add_child(resultUI)
-					pass_time_result()
-					set_process(false)
+	if condition_to_win.mag_area == 1 && condition_to_win.stock_area == 1 && condition_to_win.grip_area == 1 && condition_to_win.vertical_area == 1 && condition_to_win.bolt_carrier == 1 && condition_to_win.recoil_spring == 1 && condition_to_win.grip_area == 1 && condition_to_win.bolt_head == 1:
+		main.add_child(resultUI)
+		pass_time_result()
+		set_process(false)
 
 func pass_time_result():
 	var time = resultUI.get_node(".")
@@ -111,25 +108,25 @@ func _on_magazine_area_area_exited(area):
 			EnumsInstruction(4)
 			print(area.name)
 
-func _on_slide_area_area_exited(area):
-	if condition_to_win.slide_area !=  1:
-		if area.name == "slide_area":
-			condition_to_win.slide_area = 1
-			print(condition_to_win.slide_area)
+#func _on_slide_area_area_exited(area):
+#	if condition_to_win.slide_area !=  1:
+#		if area.name == "slide_area":
+#			condition_to_win.slide_area = 1
+#			print(condition_to_win.slide_area)
 	
 
-func _on_spring_area_area_exited(area):
-	if condition_to_win.spring_area != 1:
-		if area.name == "spring_area":
-			condition_to_win.spring_area = 1
-			print("spring: ",condition_to_win.spring_area)
+#func _on_spring_area_area_exited(area):
+#	if condition_to_win.spring_area != 1:
+#		if area.name == "spring_area":
+#			condition_to_win.spring_area = 1
+#			print("spring: ",condition_to_win.spring_area)
 	
-func _on_barel_area_area_exited(area):
-	if condition_to_win.barel_area != 1:
-		if area.name == "barrel_area":
-			condition_to_win.barel_area = 1
-			set_process(true)
-			print(condition_to_win)
+#func _on_barel_area_area_exited(area):
+#	if condition_to_win.barel_area != 1:
+#		if area.name == "barrel_area":
+#			condition_to_win.barel_area = 1
+#			set_process(true)
+#			print(condition_to_win)
 			
 
 func _on_grip_area_area_exited(area):
@@ -184,9 +181,9 @@ func _on_firing_pin_remove_firingPin(val):
 		print("remove firing pin")
 		EnumsInstruction(10)
 		
-func _on_recoils_spring_remove_recoilSpring(val):
-	if val == true:
-		print("remove firing pin")
+#func _on_recoils_spring_remove_recoilSpring(val):
+#	if val == true:
+#		print("remove firing pin")
 		
 func EnumsInstruction(e):
 	if(e == 1):

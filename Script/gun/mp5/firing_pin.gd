@@ -6,6 +6,8 @@ var phaseOne = true
 var phaseTwo = false
 
 var x; var y; var z; var nextPos = Vector3()
+onready var vertical_area = $"%vertical_area"
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -29,6 +31,7 @@ func PhaseOne(node, cast):
 
 func PhaseTwo(node, cast):
 	emit_signal("remove_firingPin", true)
+	vertical_area.set_visible(true)
 	x = cast.position.x
 	y = cast.position.y 
 	z = cast.position.z

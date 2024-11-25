@@ -150,10 +150,10 @@ func _on_front_grip_area_entered(area):
 		
 
 func _on_bolt_carrier_area_entered(area):
-	if area.name == "bolt_carrier2_area":
+	print(area.name)
+	if area.name == "Bolt_Carrier_mesh_Area" || area.name == "bolt_carrier_Area" || area.name =="firing_pin_Area" || area.name == "bolt_carrier_Area":
 #		condition_to_win.barel_area = 1
 #		set_process(true)
-		print(area.name)
 		EnumsInstruction(8)		
 
 func _on_recoil_spring_area_entered(area):

@@ -16,11 +16,13 @@ var defaultPost = false
 # Called when the node enters the scene tree for the first time.
 onready var magazine_area = $"%magazine_area"
 
-
-func _on_crank_Area_input_event(event):
+	
+func _on_crank_Area_input_event(camera, event, position, normal, shape_idx):
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
-		print(event)
-		emit_signal("startGame", true)
+		if event.is_pressed():
+			emit_signal("startGame", true)
+		
+			
 
 func _on_Draggable_drag_move(node, cast):
 	if removeBullet:

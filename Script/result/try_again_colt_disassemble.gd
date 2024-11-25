@@ -9,7 +9,7 @@ onready var set_false = set_process(false)
 var value
 
 #for try agai
-var colt_disassemble = load("res://Scene/gun/colt/colt_disassembly.tscn")
+var mp5_disassemble = load("res://Scene/gun/mp5/mp5_disassembly.tscn")
 
 
 func _process(delta):
@@ -27,7 +27,7 @@ func _on_take_quiz_pressed():
 
 #for try again menu
 func _on_try_again_pressed():
-	get_tree().change_scene_to(colt_disassemble)
+	get_tree().change_scene_to(mp5_disassemble)
 
 
 func _on_quit_pressed():
