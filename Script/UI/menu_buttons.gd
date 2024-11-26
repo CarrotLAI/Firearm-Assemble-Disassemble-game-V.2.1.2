@@ -11,6 +11,7 @@ onready var control = $"../Control"
 onready var vbox_glock = $modes/vbox
 onready var vbox_calibre = $modes/vbox_calibre
 onready var vbox__m_16 = $modes/vbox_M16
+onready var vbox_smg = $modes/vbox_Smg
 
 onready var notify = $notify
 onready var label = $notify/VBoxContainer/Label
@@ -54,6 +55,13 @@ func _on_game_interface_proceed_calibre(val):
 #	notify.set_visible(true)
 
 
+func _on_game_interface_proceed_smg(val):
+	vbox_glock.set_visible(false)
+	vbox_smg.set_visible(true)
+	label.rect_position = Vector2(100, 200)
+	get_node("smg").move(Vector2(700,0))
+	get_node("modes").move(Vector2(0,0))
+
 #########################
 # END
 #########################
@@ -85,7 +93,8 @@ func _on_back_to_mode_pressed():
 
 
 func _on_smg_pressed():
-	pass # Replace with function body.
+	get_node("Category").move(Vector2(700,0))
+	get_node("smg").move(Vector2(0, 0))
 
 
 func _on_leaderboard_pressed():
@@ -95,6 +104,11 @@ func _on_leaderboard_pressed():
 func _on_ld_back_pressed():
 	get_node("board").move(Vector2(0,-1225))
 	get_node("start").move(Vector2(0,0))
+	
+func _on_mp5_back_pressed():
+	get_node("Category").move(Vector2(0,0))
+	get_node("smg").move(Vector2(700, 0))
+
 
 
 func _on_colt_video_tutorial_pressed():
@@ -109,3 +123,9 @@ func _on_colt_Description_pdf_pressed():
 func _on_Description_pdf_pressed():
 	var pdf_url = "https://us.glock.com/-/media/Global/US/old/US-Site/83-Downloadable-Materials/GLOCK-Warranty-Form-8522.ashx"  # Replace with your URL
 	OS.shell_open(pdf_url)
+
+
+func _on_Smg_pressed():
+	pass # Replace with function body.
+
+

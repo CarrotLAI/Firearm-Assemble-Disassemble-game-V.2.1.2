@@ -8,7 +8,7 @@ var y
 var z
 var nextPos = Vector3()
 
-var remove_vertGrip = true
+var drag_vertGrip = true
 var phaseTwo = false
 
 # Called when the node enters the scene tree for the first time.
@@ -16,7 +16,7 @@ var phaseTwo = false
 #	set_process(false)
 
 func _on_Draggable_drag_move(node, cast):
-	if remove_vertGrip:
+	if drag_vertGrip:
 		PhaseOne(node, cast)
 #	if phaseTwo:
 #		PhaseTwo(node, cast)
@@ -42,18 +42,18 @@ func PhaseOne(node, cast):
 	x = (cast.position.x) + 3.5
 	y = cast.position.y - 4
 	z = get_node(".").transform.origin.z
-	nextPos = Vector3(x, y, z)
+	nextPos = Vector3(x, y, 1.2)
 	set_translation(nextPos)
 #	if y - 3:
 #		remove_vertGrip = false 
 #		phaseTwo = true
 
-func PhaseTwo(node, cast):
-	x = (cast.position.x) + 3.5
-	y = cast.position.y - 4
-	z = get_node(".").transform.origin.z
-	nextPos = Vector3(x, y, z)
-	set_translation(nextPos)
+#func PhaseTwo(node, cast):
+#	x = (cast.position.x) + 3.5
+#	y = cast.position.y - 4
+#	z = get_node(".").transform.origin.z
+#	nextPos = Vector3(x, y, z)
+#	set_translation(nextPos)
 
 
 func _on_Draggable_drag_stop(node):
@@ -66,3 +66,9 @@ func _on_vertical_area_area_exited(area):
 	print(area.name)
 	if area.name == "front_grip":
 		phaseTwo = true
+
+
+func _on_Global2_defaultVertical(val):
+	drag_vertGrip = false
+	nextPos = Vector3(1.742, 3.625, 1.2)
+	set_translation(nextPos)

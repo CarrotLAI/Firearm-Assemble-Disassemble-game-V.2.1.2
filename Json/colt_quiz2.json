@@ -1,0 +1,42 @@
+[
+  {
+    "question": "What type of trigger mechanism does the M1911 use?",
+    "options": [
+      "single-action trigger",
+      "doble-action trigger"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "What is the effective range of the Colt M1911?",
+    "options": [
+      "Around 50 meters",
+      "Around 80 meters"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "What is the standard weight of the .45 caliber Colt 1911 without the magazine?",
+    "options": [
+      "39 ounces (approximately 2.44 pounds)",
+      "40 ounces (approximately 2.55 pounds)"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "What is the standard barrel length of the Colt 1911?",
+    "options": [
+      "5 inches (127 mm)",
+      "5 inches (130 mm)"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "What is the unloaded weight of the Colt 1911?",
+    "options": [
+      "39 ounces (1.8 kg)",
+      "38 ounces (1.7 kg)"
+    ],
+    "correctAnswerIndex": 0
+  }
+]

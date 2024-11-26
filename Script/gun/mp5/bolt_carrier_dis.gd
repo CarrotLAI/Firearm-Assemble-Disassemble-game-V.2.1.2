@@ -26,8 +26,11 @@ onready var body_frame = $"%body_frame"
 func _on_Draggable_drag_move(node, cast):
 	if phaseOne:
 		PhaseOne(node, cast)
-	if phaseTwo:
-		PhaseTwo(node, cast)
+#	if phaseTwo:
+#		PhaseTwo(node, cast)
+onready var bolt_head_area = $"%bolt_head_area"
+onready var bolt_carrier_area = $"%bolt_carrier_Area"
+onready var firing_pin_area = $"%firing_pin_Area"
 
 func PhaseOne(node, cast):
 	body_frame.set_visible(false)
@@ -35,24 +38,38 @@ func PhaseOne(node, cast):
 	y = cast.position.y - 10
 	z = cast.position.z
 	nextPos = Vector3(-x, y, 0)
-#	print(nextPos)
 	set_translation(nextPos)
-	if x > 5:
-		phaseOne = false
-		phaseTwo = true
+#	if x > 5:$"%bolt_carrier"
+#		phaseOne = false
+#		phaseTwo = true
 
-func PhaseTwo(node, cast):
-	x = cast.position.x
-	y = cast.position.y - i
-	z = cast.position.z
-	nextPos = Vector3(-x, y, 0)
-	if cast.position.y > y:
-		i -= i
-	set_translation(nextPos)
-	
+#func PhaseTwo(node, cast):
+#	x = cast.position.x
+#	y = cast.position.y - i
+#	z = cast.position.z
+#	nextPos = Vector3(-x, y, 0)
+#	if cast.position.y > y:
+#		i -= i
+#	set_translation(nextPos)
+onready var bolt_carrier1 = $"%bolt_carrier"
+onready var bolt_carrier_spatial = $"%bolt_carrier_spatial"
 
-func _on_Draggable_drag_stop(node):
-	set_translation(nextPos)
+func _on_Global2_defaultPos(val):
+	print("check")
+	phaseOne = false
+#	var nextP1os = Vector3(x,y,z)
+#	print(nextP1os)
+	var nextdPos = Vector3(17, -0.7, 0)
+	set_translation(nextdPos)
+#	holder_pin.set_translation(nextdPos)
+
+#func _on_Bolt_Carrier_mesh_Area_area_entered(area):
+#	print(area)
+#	if area.name == "bolt_carrier":
+		
+
+#func _on_Draggable_drag_stop(node):
+#	set_translation(nextPos)
 
 
 #firing pin
@@ -87,7 +104,7 @@ func _on_bolt_carrier_Draggable_drag_move(node, cast):
 		z = cast.position.z
 		nextPos = Vector3(-x, 0, 0)
 		locking_piece.set_translation(nextPos)
-	
+
 func _on_bolt_area_area_entered(area):
 #	print(area.name)
 	if area.name == "bolt_carrier_Area":
@@ -102,6 +119,7 @@ var move_boltHead = true
 var inc = 0.4
 onready var holder_pin = $"%holder_pin"
 onready var bolt_head = $"%bolt_head"
+onready var bolt_carrier = $"%bolt_carrier"
 
 func _on_bolt_head_Draggable_drag_move(node, cast):
 	if move_boltHead:
@@ -124,13 +142,15 @@ func _on_bolt_main_Area_area_entered(area):
 #bolt main
 #var move_bolrMain = true
 
+#func _on_bolt_carrier_area_entered(area):
+#	if area.name == "Bolt_Carrier_mesh_Area" || area.name == "bolt_carrier_Area" || area.name =="firing_pin_Area" || area.name == "bolt_carrier_Area":
+#		x = 18.456
+#		y = -3.089
+#		nextPos = Vector3(-x, y, 0)
+##		bolt_head.set_translation(nextPos)
+#		set_translation(nextPos)
 
 
-func _on_bolt_carrier_area_entered(area):
-	if area.name == "Bolt_Carrier_mesh_Area" || area.name == "bolt_carrier_Area" || area.name =="firing_pin_Area" || area.name == "bolt_carrier_Area":
-		x = 18.456
-		y = -3.089
-		nextPos = Vector3(-x, y, 0)
-#		bolt_head.set_translation(nextPos)
-		set_translation(nextPos)
-	
+
+
+

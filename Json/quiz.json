@@ -38,45 +38,5 @@
       "1978-1980"
     ],
     "correctAnswerIndex": 0
-  },
-  {
-    "question": "What is the Glock 17 effective range?",
-    "options": [
-      "Approximately 60 meters",
-      "Approximately 50 meters"
-    ],
-    "correctAnswerIndex": 1
-  },
-  {
-    "question": "What is the standard magazine capacity of the Glock 17?",
-    "options": [
-      "17 rounds",
-      "19 rounds"
-    ],
-    "correctAnswerIndex": 0
-  },
-  {
-    "question": "How much does a loaded Glock 17 weigh?",
-    "options": [
-      "36.2 ounces (1000 grams)",
-      "32.1 ounces (910 grams)"
-    ],
-    "correctAnswerIndex": 1
-  },
-  {
-    "question": "What is the barrel length of a Glock 17?",
-    "options": [
-      "190mm",
-      "186mm"
-    ],
-    "correctAnswerIndex": 0
-  },
-  {
-    "question": "Is the Glock 17 fully automatic?",
-    "options": [
-      "No, it's a semi-automatic",
-      "Yes"
-    ],
-    "correctAnswerIndex": 0
   }
 ]

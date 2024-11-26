@@ -8,11 +8,13 @@ extends Control
 var glockCount = 0
 var calibreCount = 0
 var m16Count = 0
+var mp5Count = 0
 
 signal proceed_glock(val)
 signal proceed_calibre(val)
 signal proceed_m16(val)
-
+signal proceed_smg(val)
+ 
 
 #signal start_game(value)
 onready var game_interface = $"."
@@ -22,6 +24,9 @@ var glock_assemble = load("res://Scene/model_glock/glock_assemble.tscn")
 #colt
 var colt_disassamble = load("res://Scene/gun/colt/colt_disassembly.tscn")
 var colt_assemble = load("res://Scene/gun/colt/colt_assembly.tscn")
+#mp5
+var mp5_disassamble = load("res://Scene/gun/mp5/mp5_disassembly.tscn")
+var mp5_assemble = load("res://Scene/gun/mp5/mp5_Assembly.tscn")
 #instance
 var descript_instance = description.instance()
 
@@ -119,3 +124,27 @@ func _on_colt_assemble_pressed():
 
 
 
+func _on_smg_disassemble_pressed():
+	get_tree().change_scene_to(mp5_disassamble)
+	
+func _on_Smg2_pressed():
+	mp5Count = mp5Count + 1  
+#	calibreCount = 0
+#	if glockCount < 1:
+##		control.set_visible(false)
+#	control.get_node("Calibre").set_visible(false)
+#	control.get_node("M-16").set_visible(false)
+#	if calibreCount == 1:
+#	print("glock is pressed ", mp5Count)
+	control.set_visible(true)
+	control.get_node("ColorRect").set_visible(true)
+	control.get_node("mp5").set_visible(true)
+	if mp5Count == 2:
+		emit_signal("proceed_smg", true)
+		control.set_visible(false)
+		control.get_node("ColorRect").set_visible(false)
+		control.get_node("mp5").set_visible(false)
+		mp5Count = 0
+
+func _on_smg_assemble_pressed():
+	get_tree().change_scene_to(mp5_assemble)

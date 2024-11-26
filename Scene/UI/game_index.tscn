@@ -193,6 +193,72 @@ flat = true
 
 [node name="move_tween" type="Tween" parent="menu_buttons/guns"]
 
+[node name="smg" type="Node2D" parent="menu_buttons"]
+position = Vector2( 700, 0 )
+script = ExtResource( 3 )
+
+[node name="vbox" type="VBoxContainer" parent="menu_buttons/smg"]
+margin_left = 290.0
+margin_top = 420.0
+margin_right = 654.0
+margin_bottom = 951.0
+rect_min_size = Vector2( 0, 531 )
+alignment = 1
+
+[node name="Smg" type="Button" parent="menu_buttons/smg/vbox"]
+visible = false
+margin_top = 176.0
+margin_right = 364.0
+margin_bottom = 233.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.921569, 0.521569, 0.0941176, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "SMG"
+flat = true
+
+[node name="Smg2" type="Button" parent="menu_buttons/smg/vbox"]
+margin_top = 206.0
+margin_right = 364.0
+margin_bottom = 263.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.921569, 0.521569, 0.0941176, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "SMG"
+flat = true
+
+[node name="calibre45" type="Button" parent="menu_buttons/smg/vbox"]
+visible = false
+margin_top = 237.0
+margin_right = 364.0
+margin_bottom = 294.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.921569, 0.521569, 0.0941176, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "Calibre 45"
+flat = true
+
+[node name="m16_rifle" type="Button" parent="menu_buttons/smg/vbox"]
+visible = false
+margin_top = 267.0
+margin_right = 364.0
+margin_bottom = 324.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "M16 Rifle"
+flat = true
+
+[node name="mp5_back" type="Button" parent="menu_buttons/smg/vbox"]
+margin_top = 267.0
+margin_right = 364.0
+margin_bottom = 324.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.913725, 0.0588235, 0.0588235, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "Back"
+flat = true
+
+[node name="move_tween" type="Tween" parent="menu_buttons/smg"]
+
 [node name="start" type="Node2D" parent="menu_buttons"]
 script = ExtResource( 5 )
 
@@ -364,7 +430,7 @@ custom_fonts/font = SubResource( 8 )
 text = "Back"
 flat = true
 
-[node name="vbox_M16" type="VBoxContainer" parent="menu_buttons/modes"]
+[node name="vbox_Smg" type="VBoxContainer" parent="menu_buttons/modes"]
 visible = false
 margin_left = 308.0
 margin_top = 429.0
@@ -372,7 +438,7 @@ margin_right = 638.0
 margin_bottom = 1014.0
 alignment = 1
 
-[node name="video tutorial" type="Button" parent="menu_buttons/modes/vbox_M16"]
+[node name="video tutorial" type="Button" parent="menu_buttons/modes/vbox_Smg"]
 margin_top = 172.0
 margin_right = 344.0
 margin_bottom = 229.0
@@ -383,7 +449,7 @@ custom_fonts/font = SubResource( 7 )
 text = "Video Tutorial"
 flat = true
 
-[node name="disassemble" type="Button" parent="menu_buttons/modes/vbox_M16"]
+[node name="smg_disassemble" type="Button" parent="menu_buttons/modes/vbox_Smg"]
 margin_top = 233.0
 margin_right = 344.0
 margin_bottom = 290.0
@@ -393,7 +459,7 @@ custom_fonts/font = SubResource( 7 )
 text = "Disassemble"
 flat = true
 
-[node name="assemble" type="Button" parent="menu_buttons/modes/vbox_M16"]
+[node name="smg_assemble" type="Button" parent="menu_buttons/modes/vbox_Smg"]
 margin_top = 294.0
 margin_right = 344.0
 margin_bottom = 351.0
@@ -403,7 +469,7 @@ custom_fonts/font = SubResource( 8 )
 text = "Assemble"
 flat = true
 
-[node name="back_to_difficulty" type="Button" parent="menu_buttons/modes/vbox_M16"]
+[node name="back_to_difficulty" type="Button" parent="menu_buttons/modes/vbox_Smg"]
 margin_top = 355.0
 margin_right = 344.0
 margin_bottom = 412.0
@@ -519,7 +585,7 @@ visible = false
 [node name="RichTextLabel" parent="Control" index="1"]
 visible = false
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="Control"]
+[node name="mp5" type="RichTextLabel" parent="Control"]
 visible = false
 margin_left = 47.0
 margin_top = 116.0
@@ -541,12 +607,22 @@ autoplay = true
 
 [connection signal="proceed_calibre" from="." to="menu_buttons" method="_on_game_interface_proceed_calibre"]
 [connection signal="proceed_glock" from="." to="menu_buttons" method="_on_game_interface_proceed_glock"]
+[connection signal="proceed_smg" from="." to="menu_buttons" method="_on_game_interface_proceed_smg"]
 [connection signal="pressed" from="menu_buttons/board/vbox/ld_back" to="menu_buttons" method="_on_ld_back_pressed"]
 [connection signal="gui_input" from="menu_buttons/guns/vbox/glock" to="." method="_on_glock_gui_input"]
 [connection signal="gui_input" from="menu_buttons/guns/vbox/glock" to="menu_buttons" method="_on_glock_gui_input"]
 [connection signal="pressed" from="menu_buttons/guns/vbox/glock" to="." method="_on_glock_pressed"]
 [connection signal="pressed" from="menu_buttons/guns/vbox/calibre45" to="." method="_on_calibre45_pressed"]
 [connection signal="pressed" from="menu_buttons/guns/vbox/back" to="menu_buttons" method="_on_back_pressed"]
+[connection signal="gui_input" from="menu_buttons/smg/vbox/Smg" to="." method="_on_glock_gui_input"]
+[connection signal="gui_input" from="menu_buttons/smg/vbox/Smg" to="menu_buttons" method="_on_glock_gui_input"]
+[connection signal="pressed" from="menu_buttons/smg/vbox/Smg" to="." method="_on_glock_pressed"]
+[connection signal="pressed" from="menu_buttons/smg/vbox/Smg" to="menu_buttons" method="_on_Smg_pressed"]
+[connection signal="gui_input" from="menu_buttons/smg/vbox/Smg2" to="." method="_on_glock_gui_input"]
+[connection signal="gui_input" from="menu_buttons/smg/vbox/Smg2" to="menu_buttons" method="_on_glock_gui_input"]
+[connection signal="pressed" from="menu_buttons/smg/vbox/Smg2" to="." method="_on_Smg2_pressed"]
+[connection signal="pressed" from="menu_buttons/smg/vbox/calibre45" to="." method="_on_calibre45_pressed"]
+[connection signal="pressed" from="menu_buttons/smg/vbox/mp5_back" to="menu_buttons" method="_on_mp5_back_pressed"]
 [connection signal="pressed" from="menu_buttons/start/vbox/start" to="menu_buttons" method="_on_start_pressed"]
 [connection signal="pressed" from="menu_buttons/start/vbox/leaderboard" to="menu_buttons" method="_on_leaderboard_pressed"]
 [connection signal="pressed" from="menu_buttons/start/vbox/quit" to="." method="_on_quit_pressed"]
@@ -561,7 +637,9 @@ autoplay = true
 [connection signal="pressed" from="menu_buttons/modes/vbox_calibre/colt_disassemble" to="." method="_on_colt_disassemble_pressed"]
 [connection signal="pressed" from="menu_buttons/modes/vbox_calibre/colt_assemble" to="." method="_on_colt_assemble_pressed"]
 [connection signal="pressed" from="menu_buttons/modes/vbox_calibre/back_to_difficulty" to="menu_buttons" method="_on_back_to_difficulty_pressed"]
-[connection signal="pressed" from="menu_buttons/modes/vbox_M16/back_to_difficulty" to="menu_buttons" method="_on_back_to_difficulty_pressed"]
+[connection signal="pressed" from="menu_buttons/modes/vbox_Smg/smg_disassemble" to="." method="_on_smg_disassemble_pressed"]
+[connection signal="pressed" from="menu_buttons/modes/vbox_Smg/smg_assemble" to="." method="_on_smg_assemble_pressed"]
+[connection signal="pressed" from="menu_buttons/modes/vbox_Smg/back_to_difficulty" to="menu_buttons" method="_on_back_to_difficulty_pressed"]
 [connection signal="pressed" from="menu_buttons/Category/VBox/Pistol" to="menu_buttons" method="_on_Pistol_pressed"]
 [connection signal="pressed" from="menu_buttons/Category/VBox/smg" to="menu_buttons" method="_on_smg_pressed"]
 [connection signal="pressed" from="menu_buttons/Category/VBox/Back" to="menu_buttons" method="_on_Back_pressed"]

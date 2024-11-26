@@ -5,14 +5,14 @@ onready var main = $".."
 onready var condition_to_win = {
 	"mag_area": 0,
 	"grip_area": 0,
-	"spring_area": 0, 
-	"bolt_carrier2_area": 0,
+#	"spring_area": 0, 
+#	"bolt_carrier2_area": 0,
 	"stock_area": 0,
 	"vertical_area": 0,
-	"bolt_carrier": 0,
+#	"bolt_carrier": 0,
 	"recoil_spring": 0,
 }
-var result_scene = load("res://Scene/result/game_result.tscn")
+var result_scene = load("res://Scene/result/mp5_result.tscn")
 var try_again = load("res://Scene/result/try_again.tscn")
 # Instantiate the scene
 var try_again_scene = try_again.instance()
@@ -45,8 +45,10 @@ onready var instruction = $"%instruction"
 
 
 func _ready():
-	EnumsInstruction(1)
 	set_process(false)
+	yield(get_tree().create_timer(1), "timeout")  # Correct syntax for a delay
+	set_process(true)	
+	EnumsInstruction(0)
 
 func _on_Timer_timeout():
 	if game_status == "win":
@@ -81,26 +83,27 @@ func _process(delta):
 #	total_time = time_passed - time
 	timer_label.text = time_passed
 	
-	if condition_to_win.mag_area == 1: 
-		if condition_to_win.slide_area == 1:
-			if condition_to_win.spring_area == 1:
-				if condition_to_win.barel_area == 1:
-					main.add_child(resultUI)
-					pass_time_result()
-					set_process(false)
+	if condition_to_win.mag_area == 1 && condition_to_win.stock_area == 1 && condition_to_win.vertical_area == 1 && condition_to_win.recoil_spring == 1 && condition_to_win.grip_area == 1:
+		main.add_child(resultUI)
+		pass_time_result()
+		set_process(false)
 
 func pass_time_result():
 	var time = resultUI.get_node(".")
 	time.get_result_time(total_time)
 	
 
+signal defaultmag(val)
 func _on_magazine_area_area_entered(area):
 	if condition_to_win.mag_area != 1:
-		if area.name == "magazine_area":
+#		if area.name == "magazine_area":
+		if area.name == "mag_area":
+			emit_signal("defaultmag", true)
 #			metal_click.play()
 			condition_to_win.mag_area = 1
-			EnumsInstruction(4)
+			EnumsInstruction(5)
 			print(area.name)
+			
 func _on_magazine_area_area_exited(area):
 	pass
 
@@ -125,43 +128,49 @@ func _on_barel_area_area_exited(area):
 			print(condition_to_win)
 			
 
+signal defaultGrip(val)
 func _on_grip_area_area_entered(area):
 	if area.name == "grip_area":
-#		condition_to_win.barel_area = 1
+		emit_signal("defaultGrip", true)
+		condition_to_win.grip_area = 1
 #		set_process(true)
 		print("grip_area")
-		EnumsInstruction(5)
+		EnumsInstruction(4)
 
-
+signal defaultStock(val)
 func _on_stock_area_area_entered(area):
-	if area.name == "stock_area":
-		body_frame.set_visible(false)
-#		condition_to_win.barel_area = 1
-#		set_process(true)
-		print("stock_area")
-		EnumsInstruction(6)
-		
-	
-func _on_front_grip_area_entered(area):
-	if area.name == "vertical_area":
-#		condition_to_win.barel_area = 1
-#		set_process(true)
-		print(area.name)
-		
-
-func _on_bolt_carrier_area_entered(area):
 	print(area.name)
-	if area.name == "Bolt_Carrier_mesh_Area" || area.name == "bolt_carrier_Area" || area.name =="firing_pin_Area" || area.name == "bolt_carrier_Area":
-#		condition_to_win.barel_area = 1
+	if area.name == "stock_Area":
+		emit_signal("defaultStock", true)
+#		body_frame.set_visible(false)
+		condition_to_win.stock_area = 1
 #		set_process(true)
-		EnumsInstruction(8)		
+#		print("stock_area")
+		EnumsInstruction(3)
+		
+signal defaultVertical(val)
+func _on_front_grip_area_entered(area):
+	if area.name == "vertical_Area":
+		emit_signal("defaultVertical", true)
+		condition_to_win.vertical_area = 1
+#		set_process(true)
+		print(condition_to_win)
+		
+signal defaultPos(val)
+onready var bolt_carrier = $"%bolt_carrier"
+func _on_bolt_carrier_area_entered(area):
+	if area.name == "Bolt_Carrier_mesh_Area":
+		emit_signal("defaultPos", true)
+		EnumsInstruction(1)		
 
+signal defaultRecoil(val)
 func _on_recoil_spring_area_entered(area):
 	if area.name == "recoil_spring":
-#		condition_to_win.barel_area = 1
+		emit_signal("defaultRecoil", true)
+		condition_to_win.recoil_spring = 1
 #		set_process(true)
 		print(area.name)
-		EnumsInstruction(7)
+		EnumsInstruction(2)
 	
 func _on_crank_removeBullet(value):
 	if value == true:
@@ -183,23 +192,25 @@ func _on_recoils_spring_remove_recoilSpring(val):
 		print("remove firing pin")
 		
 func EnumsInstruction(e):
+	if(e == 0):
+		instruction.text = "assemble bolt"
 	if(e == 1):
-		instruction.text = "remove bullet"
+		instruction.text = "insert recoil spring"
 	if(e == 2):
 #		instruction.rect_position = Vector2(650, 50)
 #		instruction.rect_size = Vector2(960, 200)
-		instruction.text = "remove magazine"
+		instruction.text = "insert stock"
 	if(e == 3):
-		instruction.text = "unlock lock pin"
+		instruction.text = "insert grip"
 	if(e == 4):
-		instruction.text = "remove grip"
+		instruction.text = "insert magazine"
 	if(e == 5):
-		instruction.text = "remove stock"
-	if(e == 6):
-		instruction.text = "remove recoil"
-	if(e == 7):
-		instruction.text = "remove bolt carrier"
-	if(e == 8):
-		instruction.text = "remove holder pin"
-	if(e == 9):
-		instruction.text = "remove vertical stock"
+		instruction.text = "insert front stock"
+#	if(e == 6):
+#		instruction.text = "remove recoil"
+#	if(e == 7):
+#		instruction.text = "remove bolt carrier"
+#	if(e == 8):
+#		instruction.text = "remove holder pin"
+#	if(e == 9):
+#		instruction.text = "remove vertical stock"

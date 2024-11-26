@@ -1,0 +1,27 @@
+[
+  {
+    "question": "Who designed the MP5 submachine gun?",
+    "options": ["John Browning", "Heckler & Koch (H&K)"],
+    "correctAnswerIndex": 1
+  },
+  {
+    "question": "In what year was the MP5 first produced?",
+    "options": ["1965", "1996"],
+    "correctAnswerIndex": 0
+  },
+  {
+    "question": "What country is the MP5 from?",
+    "options": ["USA", "West Germany"],
+    "correctAnswerIndex": 1
+  },
+  {
+    "question": "What is the typical caliber of the MP5?",
+    "options": ["9x11mm Parabellum", "9x19mm Parabellum"],
+    "correctAnswerIndex": 1
+  },
+  {
+    "question": "What is the unloaded weight of the MP5?",
+    "options": ["9.6 lbs (2.54 kg)", "5.6 lbs (2.54 kg)"],
+    "correctAnswerIndex": 1
+  }
+]
