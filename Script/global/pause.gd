@@ -1,7 +1,7 @@
 extends Control
 
 
-var back_to_menu = preload("res://Scene/UI/game_index.tscn")
+var back_to_menu = load("res://Scene/UI/game_index.tscn")
 var new_pause_state
 
 #func _ready():

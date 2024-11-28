@@ -61,6 +61,7 @@ func _ready():
 #		for i in range(db.query_result.size()):
 #			PlayerAchievements.append("Glock-D: ", db.query_result[i]["Glock-D"])
 #			if db.fetch_row():
+
 func _on_disassemble_pressed():
 	get_tree().change_scene_to(glock_disassemble)
 
@@ -132,18 +133,19 @@ func _on_Smg2_pressed():
 #	calibreCount = 0
 #	if glockCount < 1:
 ##		control.set_visible(false)
-#	control.get_node("Calibre").set_visible(false)
-#	control.get_node("M-16").set_visible(false)
+	control.get_node("RichTextLabel").set_visible(false)
+	control.get_node("Calibre").set_visible(false)
+	control.get_node("M-16").set_visible(false)
 #	if calibreCount == 1:
-#	print("glock is pressed ", mp5Count)
+	print("glock is pressed ", mp5Count)
 	control.set_visible(true)
 	control.get_node("ColorRect").set_visible(true)
-	control.get_node("mp5").set_visible(true)
+	control.get_node("Smg").set_visible(true)
 	if mp5Count == 2:
 		emit_signal("proceed_smg", true)
 		control.set_visible(false)
 		control.get_node("ColorRect").set_visible(false)
-		control.get_node("mp5").set_visible(false)
+		control.get_node("Smg").set_visible(false)
 		mp5Count = 0
 
 func _on_smg_assemble_pressed():

@@ -82,8 +82,10 @@ func _on_Back_pressed():
 
 #glock
 func _on_video_tutorial_pressed():
-	var youtube_url = "https://www.youtube.com/watch?v=I5IvD4iwqIE"  # Replace with your URL
-	OS.shell_open(youtube_url)
+	var glock_video = load("res://Scene/Tutorials/glock.tscn")
+	get_tree().change_scene_to(glock_video)
+	yield(get_tree().create_timer(1), "timeout")
+#	var youtube_url = "https://www.youtube.com/watch?v=I5IvD
 
 
 func _on_back_to_mode_pressed():
@@ -112,8 +114,11 @@ func _on_mp5_back_pressed():
 
 
 func _on_colt_video_tutorial_pressed():
-	var youtube_url = "https://www.youtube.com/watch?v=BP4z0wND66w"  # Replace with your URL
-	OS.shell_open(youtube_url)
+	var colt_video = load("res://Scene/Tutorials/colt.tscn")
+	get_tree().change_scene_to(colt_video)
+	yield(get_tree().create_timer(1), "timeout")  # Correct syntax for a delay
+#	var youtube_url = "https://www.youtube.com/watch?v=BP4z0wND66w"  # Replace with your URL
+#	OS.shell_open(youtube_url)
 
 #colt
 func _on_colt_Description_pdf_pressed():
@@ -124,8 +129,8 @@ func _on_Description_pdf_pressed():
 	var pdf_url = "https://us.glock.com/-/media/Global/US/old/US-Site/83-Downloadable-Materials/GLOCK-Warranty-Form-8522.ashx"  # Replace with your URL
 	OS.shell_open(pdf_url)
 
-
-func _on_Smg_pressed():
-	pass # Replace with function body.
-
-
+#smg
+func _on_sm_video_tutorial_pressed():
+	var mp5_video = load("res://Scene/Tutorials/mp5.tscn")
+	get_tree().change_scene_to(mp5_video)
+	yield(get_tree().create_timer(1), "timeout")  # Correct syntax for a delay

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Script/UI/game_menu.gd" type="Script" id=1]
 [ext_resource path="res://fonts/Gugi-Regular.ttf" type="DynamicFontData" id=2]
@@ -7,7 +7,7 @@
 [ext_resource path="res://Script/StartMenu.gd" type="Script" id=5]
 [ext_resource path="res://Script/UI/menu_buttons.gd" type="Script" id=6]
 [ext_resource path="res://Script/UI/Category.gd" type="Script" id=7]
-[ext_resource path="res://Scene/UI/Description.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Script/description/Description.gd" type="Script" id=8]
 [ext_resource path="res://fonts/comingsoon.tres" type="Theme" id=9]
 [ext_resource path="res://assets/image/vintage-military-weapons-seamless-pattern/8.jpg" type="Texture" id=10]
 [ext_resource path="res://music/Hitman.mp3" type="AudioStream" id=11]
@@ -62,6 +62,13 @@ font_data = ExtResource( 2 )
 [sub_resource type="DynamicFont" id=10]
 size = 50
 font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=13]
+size = 24
+font_data = ExtResource( 2 )
+
+[sub_resource type="Theme" id=14]
+default_font = SubResource( 13 )
 
 [node name="game_interface" type="Control"]
 anchor_right = 1.0
@@ -438,7 +445,7 @@ margin_right = 638.0
 margin_bottom = 1014.0
 alignment = 1
 
-[node name="video tutorial" type="Button" parent="menu_buttons/modes/vbox_Smg"]
+[node name="sm_video tutorial" type="Button" parent="menu_buttons/modes/vbox_Smg"]
 margin_top = 172.0
 margin_right = 344.0
 margin_bottom = 229.0
@@ -575,15 +582,139 @@ custom_fonts/font = SubResource( 10 )
 text = "Back"
 flat = true
 
-[node name="Control" parent="." instance=ExtResource( 8 )]
+[node name="Control" type="Control" parent="."]
 visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
 margin_bottom = -813.0
+script = ExtResource( 8 )
 
-[node name="ColorRect" parent="Control" index="0"]
+[node name="ColorRect" type="ColorRect" parent="Control"]
 visible = false
+margin_left = -7.0
+margin_top = 78.0
+margin_right = 962.0
+margin_bottom = 464.0
+color = Color( 0, 0, 0, 0.666667 )
 
-[node name="RichTextLabel" parent="Control" index="1"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
 visible = false
+margin_left = 47.0
+margin_top = 116.0
+margin_right = 651.0
+margin_bottom = 433.0
+theme = SubResource( 14 )
+bbcode_enabled = true
+bbcode_text = "[i]Glock 17 [i]
+[color=#88ffff22]Place origin: Austalia [/color] 
+Designed: 1979 -1982
+Designer: Ganston Glock
+Produced: 1982 - Present
+IN present: 1982-Present
+Barrel lenght:  186 mm
+Cartridge: 9×19 mm parabellum
+"
+text = "Glock 17 
+Place origin: Austalia  
+Designed: 1979 -1982
+Designer: Ganston Glock
+Produced: 1982 - Present
+IN present: 1982-Present
+Barrel lenght:  186 mm
+Cartridge: 9×19 mm parabellum
+"
+scroll_active = false
+scroll_following = true
+
+[node name="Calibre" type="RichTextLabel" parent="Control"]
+visible = false
+margin_left = 47.0
+margin_top = 116.0
+margin_right = 651.0
+margin_bottom = 433.0
+theme = SubResource( 14 )
+bbcode_enabled = true
+bbcode_text = "[i] Colt M1911 [i]
+[color=#88ffff22] Place origin: United States [/color]
+Designed: 1904-1911
+Designer: John Browning
+Produced: 1911 - Present
+In present: 1911 - Present
+Barrel length: 127 mm
+Cartridge: .45 ACP"
+text = " Colt M1911 
+ Place origin: United States 
+Designed: 1904-1911
+Designer: John Browning
+Produced: 1911 - Present
+In present: 1911 - Present
+Barrel length: 127 mm
+Cartridge: .45 ACP"
+scroll_active = false
+scroll_following = true
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Smg" type="RichTextLabel" parent="Control"]
+visible = false
+margin_left = 47.0
+margin_top = 116.0
+margin_right = 651.0
+margin_bottom = 433.0
+theme = SubResource( 14 )
+bbcode_enabled = true
+bbcode_text = "[i] M16 Rifle [i]
+[color=#88ffff22] Place origin: United States [/color]
+Designed: 1956-1960
+Designer: Eugene Stoner
+Produced: 1960 - Present
+In present: 1960 - Present
+Barrel length: 508 mm (20 in)
+Cartridge: 5.56×45 mm NATO"
+text = " M16 Rifle 
+ Place origin: United States 
+Designed: 1956-1960
+Designer: Eugene Stoner
+Produced: 1960 - Present
+In present: 1960 - Present
+Barrel length: 508 mm (20 in)
+Cartridge: 5.56×45 mm NATO"
+scroll_active = false
+scroll_following = true
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="M-16" type="RichTextLabel" parent="Control"]
+visible = false
+margin_left = 47.0
+margin_top = 116.0
+margin_right = 651.0
+margin_bottom = 433.0
+theme = SubResource( 14 )
+bbcode_enabled = true
+bbcode_text = "[i] M16 Rifle [i]
+[color=#88ffff22] Place origin: United States [/color]
+Designed: 1956-1960
+Designer: Eugene Stoner
+Produced: 1960 - Present
+In present: 1960 - Present
+Barrel length: 508 mm (20 in)
+Cartridge: 5.56×45 mm NATO"
+text = " M16 Rifle 
+ Place origin: United States 
+Designed: 1956-1960
+Designer: Eugene Stoner
+Produced: 1960 - Present
+In present: 1960 - Present
+Barrel length: 508 mm (20 in)
+Cartridge: 5.56×45 mm NATO"
+scroll_active = false
+scroll_following = true
+__meta__ = {
+"_editor_description_": ""
+}
 
 [node name="mp5" type="RichTextLabel" parent="Control"]
 visible = false
@@ -614,14 +745,9 @@ autoplay = true
 [connection signal="pressed" from="menu_buttons/guns/vbox/glock" to="." method="_on_glock_pressed"]
 [connection signal="pressed" from="menu_buttons/guns/vbox/calibre45" to="." method="_on_calibre45_pressed"]
 [connection signal="pressed" from="menu_buttons/guns/vbox/back" to="menu_buttons" method="_on_back_pressed"]
-[connection signal="gui_input" from="menu_buttons/smg/vbox/Smg" to="." method="_on_glock_gui_input"]
-[connection signal="gui_input" from="menu_buttons/smg/vbox/Smg" to="menu_buttons" method="_on_glock_gui_input"]
-[connection signal="pressed" from="menu_buttons/smg/vbox/Smg" to="." method="_on_glock_pressed"]
-[connection signal="pressed" from="menu_buttons/smg/vbox/Smg" to="menu_buttons" method="_on_Smg_pressed"]
 [connection signal="gui_input" from="menu_buttons/smg/vbox/Smg2" to="." method="_on_glock_gui_input"]
 [connection signal="gui_input" from="menu_buttons/smg/vbox/Smg2" to="menu_buttons" method="_on_glock_gui_input"]
 [connection signal="pressed" from="menu_buttons/smg/vbox/Smg2" to="." method="_on_Smg2_pressed"]
-[connection signal="pressed" from="menu_buttons/smg/vbox/calibre45" to="." method="_on_calibre45_pressed"]
 [connection signal="pressed" from="menu_buttons/smg/vbox/mp5_back" to="menu_buttons" method="_on_mp5_back_pressed"]
 [connection signal="pressed" from="menu_buttons/start/vbox/start" to="menu_buttons" method="_on_start_pressed"]
 [connection signal="pressed" from="menu_buttons/start/vbox/leaderboard" to="menu_buttons" method="_on_leaderboard_pressed"]
@@ -637,6 +763,7 @@ autoplay = true
 [connection signal="pressed" from="menu_buttons/modes/vbox_calibre/colt_disassemble" to="." method="_on_colt_disassemble_pressed"]
 [connection signal="pressed" from="menu_buttons/modes/vbox_calibre/colt_assemble" to="." method="_on_colt_assemble_pressed"]
 [connection signal="pressed" from="menu_buttons/modes/vbox_calibre/back_to_difficulty" to="menu_buttons" method="_on_back_to_difficulty_pressed"]
+[connection signal="pressed" from="menu_buttons/modes/vbox_Smg/sm_video tutorial" to="menu_buttons" method="_on_sm_video_tutorial_pressed"]
 [connection signal="pressed" from="menu_buttons/modes/vbox_Smg/smg_disassemble" to="." method="_on_smg_disassemble_pressed"]
 [connection signal="pressed" from="menu_buttons/modes/vbox_Smg/smg_assemble" to="." method="_on_smg_assemble_pressed"]
 [connection signal="pressed" from="menu_buttons/modes/vbox_Smg/back_to_difficulty" to="menu_buttons" method="_on_back_to_difficulty_pressed"]
@@ -644,5 +771,3 @@ autoplay = true
 [connection signal="pressed" from="menu_buttons/Category/VBox/smg" to="menu_buttons" method="_on_smg_pressed"]
 [connection signal="pressed" from="menu_buttons/Category/VBox/Back" to="menu_buttons" method="_on_Back_pressed"]
 [connection signal="pressed" from="menu_buttons/notify/VBoxContainer/back_to_mode" to="menu_buttons" method="_on_back_to_mode_pressed"]
-
-[editable path="Control"]

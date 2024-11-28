@@ -1,0 +1,73 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Video/Colt M1911.webm.webm" type="VideoStream" id=1]
+[ext_resource path="res://Script/Tutorial/colt.gd" type="Script" id=2]
+[ext_resource path="res://assets/icons/left-arrow.png" type="Texture" id=3]
+[ext_resource path="res://assets/image/vintage-military-weapons-seamless-pattern/8.jpg" type="Texture" id=4]
+[ext_resource path="res://fonts/Gugi-Regular.ttf" type="DynamicFontData" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 21
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 5 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 60, 0 )
+script = ExtResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_top = -4.0
+margin_right = 5000.0
+margin_bottom = 4996.0
+texture = ExtResource( 4 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_top = -4.0
+margin_right = 959.0
+margin_bottom = 1277.0
+color = Color( 1, 1, 1, 0.419608 )
+
+[node name="Label" type="Label" parent="."]
+anchor_left = -0.003125
+anchor_top = 0.139062
+anchor_right = 1.0
+anchor_bottom = 0.178125
+custom_fonts/font = SubResource( 1 )
+text = "Credit:  SegaSvd
+Game: Weapon Stripping "
+align = 1
+valign = 1
+uppercase = true
+
+[node name="background" type="ColorRect" parent="."]
+margin_top = 303.0
+margin_right = 959.0
+margin_bottom = 980.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="VideoPlayer" type="VideoPlayer" parent="."]
+anchor_top = 0.25
+anchor_right = 1.0
+anchor_bottom = 0.746
+margin_left = 2.0
+margin_right = 2.0
+margin_bottom = 0.119934
+stream = ExtResource( 1 )
+autoplay = true
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 879, 74 )
+scale = Vector2( 0.181641, 0.165074 )
+texture = ExtResource( 3 )
+
+[node name="Button" type="Button" parent="Sprite"]
+margin_left = -154.0
+margin_top = -164.0
+margin_right = 160.0
+margin_bottom = 170.0
+flat = true
+
+[connection signal="pressed" from="Sprite/Button" to="." method="_on_Button_pressed"]
