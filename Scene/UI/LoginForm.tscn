@@ -11,7 +11,6 @@ size = 36
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 24
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=3]
@@ -45,6 +44,7 @@ margin_right = -182.0
 margin_bottom = 216.0
 
 [node name="Login" type="Control" parent="TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -62,14 +62,14 @@ custom_fonts/font = SubResource( 1 )
 text = "Submit"
 icon_align = 1
 
-[node name="username" type="LineEdit" parent="TabContainer/Login"]
+[node name="log_username" type="LineEdit" parent="TabContainer/Login"]
 margin_left = 60.0
 margin_top = 60.0
 margin_right = 600.0
 margin_bottom = 110.0
 placeholder_text = "Username"
 
-[node name="password" type="LineEdit" parent="TabContainer/Login"]
+[node name="log_password" type="LineEdit" parent="TabContainer/Login"]
 margin_left = 60.0
 margin_top = 129.0
 margin_right = 603.0
@@ -77,6 +77,7 @@ margin_bottom = 180.0
 placeholder_text = "Password"
 
 [node name="Label" type="Label" parent="TabContainer/Login"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 194.0
@@ -98,7 +99,6 @@ flat = true
 icon_align = 1
 
 [node name="Signup" type="Control" parent="TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -108,47 +108,65 @@ margin_bottom = -4.0
 script = ExtResource( 4 )
 
 [node name="password_confirm" type="LineEdit" parent="TabContainer/Signup"]
-margin_left = 60.0
-margin_top = 193.0
+margin_left = 331.0
+margin_top = 24.0
 margin_right = 600.0
-margin_bottom = 243.0
+margin_bottom = 74.0
+placeholder_text = "Confirm Password"
+
+[node name="email" type="LineEdit" parent="TabContainer/Signup"]
+margin_left = 331.0
+margin_top = 89.0
+margin_right = 600.0
+margin_bottom = 139.0
 placeholder_text = "Confirm Password"
 
 [node name="username" type="LineEdit" parent="TabContainer/Signup"]
 margin_left = 60.0
-margin_top = 57.0
-margin_right = 600.0
-margin_bottom = 107.0
+margin_top = 25.0
+margin_right = 269.0
+margin_bottom = 75.0
 placeholder_text = "Username"
 
 [node name="password" type="LineEdit" parent="TabContainer/Signup"]
 margin_left = 60.0
-margin_top = 127.0
-margin_right = 600.0
-margin_bottom = 177.0
+margin_top = 89.0
+margin_right = 269.0
+margin_bottom = 139.0
 placeholder_text = "Password"
 
 [node name="create" type="Button" parent="TabContainer/Signup"]
 margin_left = 209.0
-margin_top = 322.0
+margin_top = 304.0
 margin_right = 438.0
-margin_bottom = 375.0
+margin_bottom = 357.0
 custom_fonts/font = SubResource( 1 )
 text = "Create"
 icon_align = 1
 
-[node name="Label" type="Label" parent="TabContainer/Signup"]
+[node name="SignUp_Label" type="Label" parent="TabContainer/Signup"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 194.0
-margin_top = 267.0
+margin_top = 237.0
 margin_right = -211.0
-margin_bottom = -106.0
+margin_bottom = -118.0
 custom_fonts/font = SubResource( 2 )
+
+[node name="remind" type="Label" parent="TabContainer/Signup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 78.0
+margin_top = 164.0
+margin_right = -82.0
+margin_bottom = -167.0
+custom_fonts/font = SubResource( 2 )
+text = " The password must contain at least 8 characters including uppercase and lowercase letters and numbers
+"
 align = 1
 valign = 1
+autowrap = true
 
-[connection signal="pressed" from="TabContainer/Login/Login" to="TabContainer/Login" method="_on_Login_pressed"]
+[connection signal="pressed" from="TabContainer/Login/Login" to="." method="_on_Login_pressed"]
 [connection signal="pressed" from="TabContainer/Login/Login as guest" to="TabContainer/Login" method="_on_Login_as_guest_pressed"]
 [connection signal="pressed" from="TabContainer/Signup/create" to="." method="_on_create_pressed"]
-[connection signal="pressed" from="TabContainer/Signup/create" to="TabContainer/Signup" method="_on_create_pressed"]

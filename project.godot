@@ -43,6 +43,8 @@ GRayCast="res://Script/RayCast.gd"
 GCondition="*res://Script/global/global_condition.gd"
 GassembleCondition="res://Script/assemble_script/assemble_condition.gd"
 DB="*res://DataAccess/MainSystem.gd"
+SilentWolf="*res://addons/silent_wolf/SilentWolf.gd"
+Global="*res://global.gd"
 
 [display]
 
@@ -60,7 +62,7 @@ version_control_plugin_name="GitAPI"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/DragDrop3D/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/DragDrop3D/plugin.cfg", "res://addons/silent_wolf/plugin.cfg" )
 
 [global]
 

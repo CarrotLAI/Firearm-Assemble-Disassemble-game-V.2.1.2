@@ -98,8 +98,9 @@ func _on_smg_pressed():
 	get_node("Category").move(Vector2(700,0))
 	get_node("smg").move(Vector2(0, 0))
 
-
+var leaderboard_screen = preload("res://addons/silent_wolf/Scores/Leaderboard.tscn")
 func _on_leaderboard_pressed():
+	get_tree().change_scene_to(leaderboard_screen)
 	get_node("board").move(Vector2(0,0))
 	get_node("start").move(Vector2(700,0))
 	

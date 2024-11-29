@@ -14,7 +14,7 @@ onready var condition_to_win = {
 	"grip_area": 0,
 	"bolt_head": 0
 }
-var result_scene = load("res://Scene/result/mp5_result.tscn")
+var result_scene = load("res://Scene/result/mp5_result_dis.tscn")
 var try_again = load("res://Scene/result/try_again_mp5_disassemble.tscn")
 # Instantiate the scene
 var try_again_scene = try_again.instance()

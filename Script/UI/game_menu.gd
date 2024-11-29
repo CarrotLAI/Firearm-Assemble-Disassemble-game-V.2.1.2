@@ -40,6 +40,15 @@ var db = SQLite.new()
 var PlayerAchievements = {}
 
 func _ready():
+	SilentWolf.configure({
+	"api_key": "0cO9IGqn2T5AriYPTbWHy57z2iHCLPHY7ZLznkKg",
+	"game_id": "Firearm Simulator",
+	"game_version": "1.0.2",
+	"log_level": 1
+	})
+	SilentWolf.configure_scores({
+		"open_scene_on_close": "res://scenes/MainPage.tscn"
+	})
 	set_process(true)
 	# Connect to the SQLite database
 	db.path = "res://DataAccess/database"
@@ -122,7 +131,6 @@ func _on_colt_disassemble_pressed():
 
 func _on_colt_assemble_pressed():
 	get_tree().change_scene_to(colt_assemble)
-
 
 
 func _on_smg_disassemble_pressed():

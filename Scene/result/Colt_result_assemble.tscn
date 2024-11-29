@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Script/result/Colt_result_assemble.gd" type="Script" id=1]
+[ext_resource path="res://fonts/Gugi-Regular.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 46
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 45
+extra_spacing_top = 6
+extra_spacing_bottom = 6
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 46
+font_data = ExtResource( 2 )
+
+[node name="congratulation" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+self_modulate = Color( 1, 1, 1, 0.117647 )
+margin_top = 351.0
+margin_right = 956.0
+margin_bottom = 967.0
+
+[node name="result" type="Node2D" parent="."]
+position = Vector2( 0, 453 )
+
+[node name="container" type="VBoxContainer" parent="result"]
+margin_right = 953.0
+margin_bottom = 538.0
+
+[node name="Label" type="Label" parent="result/container"]
+margin_right = 953.0
+margin_bottom = 97.0
+custom_fonts/font = SubResource( 1 )
+text = "Congratulations!
+Time finished:"
+align = 1
+autowrap = true
+
+[node name="take_quiz" type="Button" parent="result/container"]
+margin_left = 347.0
+margin_top = 262.0
+margin_right = 606.0
+margin_bottom = 326.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 2 )
+text = "Take a quiz"
+icon_align = 1
+
+[node name="time_label" type="Label" parent="result/container"]
+margin_top = 491.0
+margin_right = 953.0
+margin_bottom = 538.0
+custom_fonts/font = SubResource( 3 )
+
+[connection signal="pressed" from="result/container/take_quiz" to="." method="_on_take_quiz_pressed"]

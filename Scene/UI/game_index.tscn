@@ -326,9 +326,9 @@ margin_bottom = 1014.0
 alignment = 1
 
 [node name="video tutorial" type="Button" parent="menu_buttons/modes/vbox"]
-margin_top = 142.0
-margin_right = 385.0
-margin_bottom = 199.0
+margin_top = 172.0
+margin_right = 344.0
+margin_bottom = 229.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.313726, 0.858824, 0.141176, 1 )
 custom_colors/font_color_pressed = Color( 0.211765, 0.101961, 0.839216, 1 )
@@ -337,6 +337,7 @@ text = "Video Tutorial"
 flat = true
 
 [node name="Description pdf" type="Button" parent="menu_buttons/modes/vbox"]
+visible = false
 margin_top = 203.0
 margin_right = 385.0
 margin_bottom = 260.0
@@ -348,9 +349,9 @@ text = "Description pdf"
 flat = true
 
 [node name="disassemble" type="Button" parent="menu_buttons/modes/vbox"]
-margin_top = 264.0
-margin_right = 385.0
-margin_bottom = 321.0
+margin_top = 233.0
+margin_right = 344.0
+margin_bottom = 290.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.921569, 0.521569, 0.0941176, 1 )
 custom_fonts/font = SubResource( 7 )
@@ -358,9 +359,9 @@ text = "Disassemble"
 flat = true
 
 [node name="assemble" type="Button" parent="menu_buttons/modes/vbox"]
-margin_top = 325.0
-margin_right = 385.0
-margin_bottom = 382.0
+margin_top = 294.0
+margin_right = 344.0
+margin_bottom = 351.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.921569, 0.521569, 0.0941176, 1 )
 custom_fonts/font = SubResource( 8 )
@@ -368,9 +369,9 @@ text = "Assemble"
 flat = true
 
 [node name="back_to_difficulty" type="Button" parent="menu_buttons/modes/vbox"]
-margin_top = 386.0
-margin_right = 385.0
-margin_bottom = 443.0
+margin_top = 355.0
+margin_right = 344.0
+margin_bottom = 412.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.913725, 0.0588235, 0.0588235, 1 )
 custom_fonts/font = SubResource( 8 )
@@ -397,6 +398,7 @@ text = "Video Tutorial"
 flat = true
 
 [node name="colt_Description pdf" type="Button" parent="menu_buttons/modes/vbox_calibre"]
+visible = false
 margin_top = 375.0
 margin_right = 385.0
 margin_bottom = 432.0
@@ -500,9 +502,9 @@ margin_bottom = 890.0
 alignment = 1
 
 [node name="Pistol" type="Button" parent="menu_buttons/Category/VBox"]
-margin_top = 62.0
+margin_top = 92.0
 margin_right = 233.0
-margin_bottom = 119.0
+margin_bottom = 149.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.921569, 0.521569, 0.0941176, 1 )
 custom_fonts/font = SubResource( 9 )
@@ -510,9 +512,9 @@ text = "Pistol"
 flat = true
 
 [node name="smg" type="Button" parent="menu_buttons/Category/VBox"]
-margin_top = 123.0
+margin_top = 153.0
 margin_right = 233.0
-margin_bottom = 180.0
+margin_bottom = 210.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.921569, 0.521569, 0.0941176, 1 )
 custom_fonts/font = SubResource( 9 )
@@ -520,6 +522,7 @@ text = "SMG"
 flat = true
 
 [node name="Rifle" type="Button" parent="menu_buttons/Category/VBox"]
+visible = false
 margin_top = 184.0
 margin_right = 233.0
 margin_bottom = 241.0
@@ -530,9 +533,9 @@ text = "Rifle"
 flat = true
 
 [node name="Back" type="Button" parent="menu_buttons/Category/VBox"]
-margin_top = 245.0
+margin_top = 214.0
 margin_right = 233.0
-margin_bottom = 302.0
+margin_bottom = 271.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.913725, 0.0588235, 0.0588235, 1 )
 custom_fonts/font = SubResource( 10 )

@@ -1,34 +1,56 @@
 extends Node
 
-signal LoginUser(user, password)
-signal CreateUser(user, password)
-
-#@Export var CreateUserWindow : PackedScene
-
-var username = ""
-var password
-var profile
+#signal LoginUser(user, password)
+#signal CreateUser(user, password)
+#
+##@Export var CreateUserWindow : PackedScene
+#
+#var username = ""
+#var password
+#var profile
 #
 #var dao = DB.new()
 #db
-var db_username = "admin"
-var db_password = "admin".sha256_text()
+#var db_username = "admin"
+#var db_password = "admin".sha256_text()
 
-var created = false
+#var created = false
 #login
-onready var node_username = $TabContainer/Login/username
-onready var node_password = $TabContainer/Login/password
+onready var log_username = $TabContainer/Login/log_username
+onready var log_password = $TabContainer/Login/log_password
+
+
 #signup
 onready var create_username = $TabContainer/Signup/username
 onready var create_password = $TabContainer/Signup/password
 onready var create_password_confirm = $TabContainer/Signup/password_confirm
+onready var sign_up_label = $TabContainer/Signup/SignUp_Label
+onready var email = $TabContainer/Signup/email
+
+
+func _ready():
+	SilentWolf.Auth.connect("sw_registration_succeeded", self, "_on_registration_succeeded")
+	SilentWolf.Auth.connect("sw_registration_failed", self, "_on_registration_failed")
+	SilentWolf.Auth.connect("sw_login_succeeded", self, "_on_login_succeeded")
+	SilentWolf.Auth.connect("sw_login_failed", self, "_on_login_failed")
+	
 
 # Called when the node enters the scene tree for the first time.
 #func _ready():
 #	$VBoxContainer/username.rect_size(653, 25)
 #	$VBoxContainer/password.rect_size(653, 25)
-	
+func _on_login_succeeded():
+	print("Login succeeded!")
+	print("logged in as: " + str(SilentWolf.Auth.logged_in_player))
 
+func _on_login_failed(error):
+	print("Error: " + str(error))
+
+func _on_registration_succeeded():
+	print("Registration succeeded!")
+	
+func _on_registration_failed(error):
+	print("Error: " + str(error))
 #login user Script
 #func _on_Login_pressed():
 #	if !created:
@@ -63,43 +85,29 @@ onready var create_password_confirm = $TabContainer/Signup/password_confirm
 #	LoginUser.emit($username, $password)
 
 
-signal addPlayerInfo(name, password, salt)
+#signal addPlayerInfo(name, password, salt)
 
 #Create user Script
-func _on_create_pressed():
+func _on_create_pressed():	
 #func addPlayerInfo(name: String, password: String, salt: String) -> bool:
 	var username = create_username.text
 	var password = create_password.text
+	var confirm_password = create_password_confirm.text
+	var email_entry = email.text
 	var salt = "asfhalksh12lk4234"
-	if name != ""  and password != "":
-		emit_signal("addPlayerInfo", name, password, salt)
+	if name != "" && password != "":
+		SilentWolf.Auth.register_player(username, email_entry, password, confirm_password)
+#		emit_signal("addPlayerInfo", name, password, salt)
 	else:
+		sign_up_label.text = "no valid input inside the textbox"
 		print("no valid input inside the textbox")
-#	var salt = cryptoUtil.GenerateSalt()
-#	var hashedPassword = cryptoUtil.HashPassword(data.data.password, salt)
-#	MainSystem.InsertUserData(data.data.username, hashedPassword, salt)
-#	login(data)
-#	if create_password == create_password_confirm:
-#		profile = {
-#			username = create_username.text,
-#			password =  create_password.text.sha256_text()
-#		}
-#		print(profile)
-#	else:
-#		print("password doesn't match")
-#	#added from Tutorial
-#	var createUserWindow = CreateUserWindow.instantiate()
-#	add_child(createUserWindow)
-#	createUserWindow.CreateUser.connect()
-#
-##added from Tutorial
-#func createUser(name, password):
-#	CreateUser.emit(name, password)
-#
 
-
-
-
-
-func _on_Login_as_guest_pressed():
-	pass # Replace with function body.
+func _on_Login_pressed():
+	var username = log_username.text
+	var password = log_password.text
+	var label = get_node("Label")
+	if SilentWolf.Auth.login_player(username, password):
+#		label.text = "Login successful!"
+#		label.set("custom_colors/font_color", Color(0, 1, 0))
+#		yield(wait_time(2), "complete")
+		get_tree().change_scene("res://Scene/UI/game_index.tscn")

@@ -6,7 +6,7 @@ onready var button = $VBoxContainer/Button
 
 var back_to_menu = preload("res://Scene/UI/game_index.tscn")
 
-var items: Array = read_json_file("json/quiz.json")
+var items: Array = read_json_file("json/quiz2.json")
 var item: Dictionary
 var index_item: int = 0
 
