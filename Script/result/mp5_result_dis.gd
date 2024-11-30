@@ -1,7 +1,7 @@
 extends Spatial
 
 
-onready var take_quiz = preload("res://Scene/QUIZ/quiz_mp5_assem.tscn")
+onready var take_quiz = preload("res://Scene/QUIZ/quiz_mp5_dis.tscn")
 onready var back_start = preload("res://Scene/UI/game_index.tscn")
 onready var congratulations = $"."
 onready var label = $result/container/time_label
@@ -9,7 +9,7 @@ onready var set_false = set_process(false)
 var value
 
 #for try agai
-var mp5_dis = load("res://Scene/gun/mp5/mp5_Assembly.tscn")
+#var mp5_dis = load("res://Scene/gun/mp5/mp5_Assembly.tscn")
 
 
 func _process(delta):
@@ -22,8 +22,8 @@ func get_result_time(val):
 	set_process(true)
 
 #for try again menu
-func _on_try_again_pressed():
-	get_tree().change_scene_to(mp5_dis)
+#func _on_try_again_pressed():
+#	get_tree().change_scene_to(mp5_dis)
 
 func _on_quit_pressed():
 	get_tree().change_scene_to(back_start)

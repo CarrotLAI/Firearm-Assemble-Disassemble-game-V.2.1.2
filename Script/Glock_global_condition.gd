@@ -6,8 +6,8 @@ onready var main = $".."
 var game_status = "defeat"
 
 #instanc
-var result_scene = load("res://Scene/result/game_result_asse.tscn")
-var try_again = load("res://Scene/result/try_again.tscn")
+var result_scene = load("res://Scene/result/glock_result_asse.tscn")
+var try_again = load("res://Scene/result/try_again_glock_assemble.tscn")
 # Instantiate the scene
 var try_again_scene = try_again.instance()
 var resultUI = result_scene.instance()

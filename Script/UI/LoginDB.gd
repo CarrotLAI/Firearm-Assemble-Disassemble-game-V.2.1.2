@@ -105,6 +105,8 @@ func _on_create_pressed():
 func _on_Login_pressed():
 	var username = log_username.text
 	var password = log_password.text
+	#	Global.player_name = username
+	Global._setPlayerName(username)
 	var label = get_node("Label")
 	if SilentWolf.Auth.login_player(username, password):
 #		label.text = "Login successful!"

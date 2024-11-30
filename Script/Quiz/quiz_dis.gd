@@ -4,9 +4,9 @@ onready var DisplayText = $VBoxContainer/DisplayText
 onready var item_list = $VBoxContainer/ItemList
 onready var button = $VBoxContainer/Button
 
-var back_to_menu = load("res://Scene/UI/game_index.tscn")
+var back_to_menu = preload("res://Scene/UI/game_index.tscn")
 
-var items: Array = read_json_file("json/colt_quiz.json")
+var items: Array = read_json_file("json/quiz2.json")
 var item: Dictionary
 var index_item: int = 0
 
@@ -16,7 +16,7 @@ var player_name
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	refresh_scene()
-	player_name = Global._getPlayerName() + " Colt Disssemble"
+	player_name = Global._getPlayerName() + " Glock Disassemble"
 
 func refresh_scene():
 	if index_item >= items.size():
@@ -45,7 +45,6 @@ func show_question():
 	item = items[index_item]
 	DisplayText.text = item.question
 	var options = item.options
-	yield_task(1.0)
 	for option in options:
 		item_list.add_item(option)
 
@@ -70,7 +69,3 @@ func _on_Button_pressed():
 #	correct = 0
 #	index_item = 0
 #	refresh_scene()
-
-func yield_task(seconds):
-	# Create a temporary timer and wait for it to time out
-	yield(get_tree().create_timer(seconds), "timeout")

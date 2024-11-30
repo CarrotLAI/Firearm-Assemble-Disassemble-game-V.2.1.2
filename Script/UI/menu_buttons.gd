@@ -1,5 +1,7 @@
 extends Control
 
+signal EnumDescript(val)
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -123,15 +125,31 @@ func _on_colt_video_tutorial_pressed():
 
 #colt
 func _on_colt_Description_pdf_pressed():
-	var pdf_url = "https://npshistory.com/publications/battlefield/hwp/colt-45-handling-2017.pdf"  # Replace with your URL
-	OS.shell_open(pdf_url)
+#	Global._setEnumsDescript(2) # glock == 2
+	emit_signal("EnumDescript", 2)
+	var page = load("res://Scene/UI/Description_page.tscn")
+	get_tree().change_scene_to(page)
+#	var pdf_url = "https://npshistory.com/publications/battlefield/hwp/colt-45-handling-2017.pdf"  # Replace with your URL
+#	OS.shell_open(pdf_url)
 #glock
 func _on_Description_pdf_pressed():
-	var pdf_url = "https://us.glock.com/-/media/Global/US/old/US-Site/83-Downloadable-Materials/GLOCK-Warranty-Form-8522.ashx"  # Replace with your URL
-	OS.shell_open(pdf_url)
-
+#	Global._setEnumsDescript(1) # glock == 1
+	emit_signal("EnumDescript", 1)
+	var page = load("res://Scene/UI/Description_page.tscn")
+	get_tree().change_scene_to(page)
+#	var pdf_url = "https://us.glock.com/-/media/Global/US/old/US-Site/83-Downloadable-Materials/GLOCK-Warranty-Form-8522.ashx"  # Replace with your URL
+#	OS.shell_open(pdf_url)
+#mp5
+func _on_mp5_Description_pdf_pressed():
+#	Global._setEnumsDescript(3) # glock == 3
+	emit_signal("EnumDescript", 3)
+	var page = load("res://Scene/UI/Description_page.tscn")
+	get_tree().change_scene_to(page)
+	
 #smg
 func _on_sm_video_tutorial_pressed():
 	var mp5_video = load("res://Scene/Tutorials/mp5.tscn")
 	get_tree().change_scene_to(mp5_video)
 	yield(get_tree().create_timer(1), "timeout")  # Correct syntax for a delay
+
+

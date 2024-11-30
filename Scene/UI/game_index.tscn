@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Script/UI/game_menu.gd" type="Script" id=1]
 [ext_resource path="res://fonts/Gugi-Regular.ttf" type="DynamicFontData" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://music/Hitman.mp3" type="AudioStream" id=11]
 [ext_resource path="res://Script/UI/board.gd" type="Script" id=12]
 [ext_resource path="res://Script/UI/leaderboard_cont.gd" type="Script" id=13]
+[ext_resource path="res://Scene/UI/Description_page.tscn" type="PackedScene" id=14]
 
 [sub_resource type="DynamicFont" id=12]
 size = 29
@@ -326,9 +327,9 @@ margin_bottom = 1014.0
 alignment = 1
 
 [node name="video tutorial" type="Button" parent="menu_buttons/modes/vbox"]
-margin_top = 172.0
-margin_right = 344.0
-margin_bottom = 229.0
+margin_top = 142.0
+margin_right = 385.0
+margin_bottom = 199.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.313726, 0.858824, 0.141176, 1 )
 custom_colors/font_color_pressed = Color( 0.211765, 0.101961, 0.839216, 1 )
@@ -337,7 +338,6 @@ text = "Video Tutorial"
 flat = true
 
 [node name="Description pdf" type="Button" parent="menu_buttons/modes/vbox"]
-visible = false
 margin_top = 203.0
 margin_right = 385.0
 margin_bottom = 260.0
@@ -349,9 +349,9 @@ text = "Description pdf"
 flat = true
 
 [node name="disassemble" type="Button" parent="menu_buttons/modes/vbox"]
-margin_top = 233.0
-margin_right = 344.0
-margin_bottom = 290.0
+margin_top = 264.0
+margin_right = 385.0
+margin_bottom = 321.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.921569, 0.521569, 0.0941176, 1 )
 custom_fonts/font = SubResource( 7 )
@@ -359,9 +359,9 @@ text = "Disassemble"
 flat = true
 
 [node name="assemble" type="Button" parent="menu_buttons/modes/vbox"]
-margin_top = 294.0
-margin_right = 344.0
-margin_bottom = 351.0
+margin_top = 325.0
+margin_right = 385.0
+margin_bottom = 382.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.921569, 0.521569, 0.0941176, 1 )
 custom_fonts/font = SubResource( 8 )
@@ -369,9 +369,9 @@ text = "Assemble"
 flat = true
 
 [node name="back_to_difficulty" type="Button" parent="menu_buttons/modes/vbox"]
-margin_top = 355.0
-margin_right = 344.0
-margin_bottom = 412.0
+margin_top = 386.0
+margin_right = 385.0
+margin_bottom = 443.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.913725, 0.0588235, 0.0588235, 1 )
 custom_fonts/font = SubResource( 8 )
@@ -398,7 +398,6 @@ text = "Video Tutorial"
 flat = true
 
 [node name="colt_Description pdf" type="Button" parent="menu_buttons/modes/vbox_calibre"]
-visible = false
 margin_top = 375.0
 margin_right = 385.0
 margin_bottom = 432.0
@@ -456,6 +455,17 @@ custom_colors/font_color_hover = Color( 0.313726, 0.858824, 0.141176, 1 )
 custom_colors/font_color_pressed = Color( 0.211765, 0.101961, 0.839216, 1 )
 custom_fonts/font = SubResource( 7 )
 text = "Video Tutorial"
+flat = true
+
+[node name="mp5_Description pdf" type="Button" parent="menu_buttons/modes/vbox_Smg"]
+margin_top = 547.0
+margin_right = 385.0
+margin_bottom = 604.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.313726, 0.858824, 0.141176, 1 )
+custom_colors/font_color_pressed = Color( 0.211765, 0.101961, 0.839216, 1 )
+custom_fonts/font = SubResource( 7 )
+text = "Description pdf"
 flat = true
 
 [node name="smg_disassemble" type="Button" parent="menu_buttons/modes/vbox_Smg"]
@@ -734,6 +744,12 @@ In present: 1911 - Present
 Barrel length: 127 mm
 Cartridge: .45 ACP"
 
+[node name="description_page" parent="." instance=ExtResource( 14 )]
+margin_left = 1008.0
+margin_top = 632.0
+margin_right = 1008.0
+margin_bottom = 632.0
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
 volume_db = -1.0
@@ -742,6 +758,7 @@ autoplay = true
 [connection signal="proceed_calibre" from="." to="menu_buttons" method="_on_game_interface_proceed_calibre"]
 [connection signal="proceed_glock" from="." to="menu_buttons" method="_on_game_interface_proceed_glock"]
 [connection signal="proceed_smg" from="." to="menu_buttons" method="_on_game_interface_proceed_smg"]
+[connection signal="EnumDescript" from="menu_buttons" to="description_page" method="_on_menu_buttons_EnumDescript"]
 [connection signal="pressed" from="menu_buttons/board/vbox/ld_back" to="menu_buttons" method="_on_ld_back_pressed"]
 [connection signal="gui_input" from="menu_buttons/guns/vbox/glock" to="." method="_on_glock_gui_input"]
 [connection signal="gui_input" from="menu_buttons/guns/vbox/glock" to="menu_buttons" method="_on_glock_gui_input"]
@@ -767,6 +784,7 @@ autoplay = true
 [connection signal="pressed" from="menu_buttons/modes/vbox_calibre/colt_assemble" to="." method="_on_colt_assemble_pressed"]
 [connection signal="pressed" from="menu_buttons/modes/vbox_calibre/back_to_difficulty" to="menu_buttons" method="_on_back_to_difficulty_pressed"]
 [connection signal="pressed" from="menu_buttons/modes/vbox_Smg/sm_video tutorial" to="menu_buttons" method="_on_sm_video_tutorial_pressed"]
+[connection signal="pressed" from="menu_buttons/modes/vbox_Smg/mp5_Description pdf" to="menu_buttons" method="_on_mp5_Description_pdf_pressed"]
 [connection signal="pressed" from="menu_buttons/modes/vbox_Smg/smg_disassemble" to="." method="_on_smg_disassemble_pressed"]
 [connection signal="pressed" from="menu_buttons/modes/vbox_Smg/smg_assemble" to="." method="_on_smg_assemble_pressed"]
 [connection signal="pressed" from="menu_buttons/modes/vbox_Smg/back_to_difficulty" to="menu_buttons" method="_on_back_to_difficulty_pressed"]

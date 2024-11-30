@@ -8,7 +8,7 @@ onready var condition_to_win = {
 	"spring_area": 0, 
 	"barel_area": 0
 }
-var result_scene = load("res://Scene/result/Colt_result.tscn")
+var result_scene = load("res://Scene/result/Colt_result_dis.tscn")
 var try_again = load("res://Scene/result/try_again_colt_disassemble.tscn")
 # Instantiate the scene
 var try_again_scene = try_again.instance()
@@ -44,8 +44,10 @@ onready var slide_area = $"%slide_area"
 
 
 func _ready():
-	EnumsInstruction(1)
 	set_process(false)
+	yield(get_tree().create_timer(1), "timeout") 
+	set_process(true)
+	EnumsInstruction(1)
 
 func _on_Timer_timeout():
 	if game_status == "win":

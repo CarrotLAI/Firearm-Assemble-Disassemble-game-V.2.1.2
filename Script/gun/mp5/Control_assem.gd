@@ -11,10 +11,12 @@ var item: Dictionary
 var index_item: int = 0
 
 var correct: float = 0
+var player_name
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	refresh_scene()
+	player_name = Global._getPlayerName() + " MP5 Assemble"
 
 func refresh_scene():
 	if index_item >= items.size():
@@ -31,6 +33,9 @@ func show_result():
 		greet = "Congratulation"
 	else:
 		greet = "Try again next time"
+	SilentWolf.Scores.persist_score(player_name, score)
+	var score_id = yield(SilentWolf.Scores.persist_score(player_name, score), "sw_score_posted")
+	print("Score persisted successfully: " + str(score_id))
 	DisplayText.text = "{greet} ! Your Score is {score}".format({"greet": greet, "score": score})
 
 func show_question():

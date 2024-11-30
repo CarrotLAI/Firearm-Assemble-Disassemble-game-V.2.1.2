@@ -1,24 +1,24 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://fonts/Gugi-Regular.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://Script/result/game_result.gd" type="Script" id=2]
+[ext_resource path="res://Script/result/glock_result_dis.gd" type="Script" id=1]
+[ext_resource path="res://fonts/Gugi-Regular.ttf" type="DynamicFontData" id=2]
 
 [sub_resource type="DynamicFont" id=14]
 size = 46
-font_data = ExtResource( 1 )
+font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=13]
 size = 45
 extra_spacing_top = 6
 extra_spacing_bottom = 6
-font_data = ExtResource( 1 )
+font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=15]
 size = 46
-font_data = ExtResource( 1 )
+font_data = ExtResource( 2 )
 
 [node name="congratulations" type="Spatial"]
-script = ExtResource( 2 )
+script = ExtResource( 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 self_modulate = Color( 1, 1, 1, 0.117647 )

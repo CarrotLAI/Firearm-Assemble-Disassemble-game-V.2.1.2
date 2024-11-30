@@ -1,7 +1,7 @@
 extends Spatial
 
 
-onready var take_quiz = preload("res://Scene/QUIZ/quiz.tscn")
+onready var take_quiz = preload("res://Scene/QUIZ/quiz_asse.tscn")
 onready var back_start = preload("res://Scene/UI/game_index.tscn")
 onready var congratulations = $"."
 onready var label = $result/container/time_label
@@ -9,7 +9,7 @@ onready var set_false = set_process(false)
 var value
 
 #for try agai
-var glock_disassemble = load("res://Scene/model_glock/glock_disassemble.tscn")
+#var glock_disassemble = load("res://Scene/model_glock/glock_disassemble.tscn")
 
 
 func _process(delta):
@@ -26,8 +26,8 @@ func _on_take_quiz_pressed():
 	get_tree().change_scene_to(take_quiz)
 
 #for try again menu
-func _on_try_again_pressed():
-	get_tree().change_scene_to(glock_disassemble)
+#func _on_try_again_pressed():
+#	get_tree().change_scene_to(glock_disassemble)
 
 
 func _on_quit_pressed():

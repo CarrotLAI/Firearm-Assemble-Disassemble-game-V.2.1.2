@@ -12,8 +12,8 @@ onready var condition_to_win = {
 #	"bolt_carrier": 0,
 	"recoil_spring": 0,
 }
-var result_scene = load("res://Scene/result/mp5_result.tscn")
-var try_again = load("res://Scene/result/try_again.tscn")
+var result_scene = load("res://Scene/result/mp5_result_asse.tscn")
+var try_again = load("res://Scene/result/try_again_mp5_assemble.tscn")
 # Instantiate the scene
 var try_again_scene = try_again.instance()
 var resultUI = result_scene.instance()

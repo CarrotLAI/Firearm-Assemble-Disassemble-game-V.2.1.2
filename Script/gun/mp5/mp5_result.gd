@@ -9,7 +9,7 @@ onready var set_false = set_process(false)
 var value
 
 #for try agai
-var mp5_assemble = load("res://Scene/gun/mp5/mp5_Assembly.tscn")
+#var mp5_assemble = load("res://Scene/gun/mp5/mp5_Assembly.tscn")
 
 
 func _process(delta):
@@ -22,8 +22,8 @@ func get_result_time(val):
 	set_process(true)
 
 #for try again menu
-func _on_try_again_pressed():
-	get_tree().change_scene_to(mp5_assemble)
+#func _on_try_again_pressed():
+#	get_tree().change_scene_to(mp5_assemble)
 
 func _on_quit_pressed():
 	get_tree().change_scene_to(back_start)

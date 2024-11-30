@@ -8,8 +8,8 @@ onready var condition_to_win = {
 	"spring_area": 0, 
 	"barel_area": 0
 }
-var result_scene = load("res://Scene/result/Colt_result.tscn")
-var try_again = load("res://Scene/result/try_again.tscn")
+var result_scene = load("res://Scene/result/glock_result_dis.tscn")
+var try_again = load("res://Scene/result/try_again_glock_disassemble.tscn")
 # Instantiate the scene
 var try_again_scene = try_again.instance()
 var resultUI = result_scene.instance()

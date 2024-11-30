@@ -1,7 +1,7 @@
 extends Spatial
 
 
-onready var take_quiz = preload("res://Scene/QUIZ/quiz_colt.tscn")
+#onready var take_quiz = preload("res://Scene/QUIZ/quiz_colt.tscn")
 onready var back_start = preload("res://Scene/UI/game_index.tscn")
 onready var congratulations = $"."
 onready var label = $result/container/time_label
@@ -21,9 +21,9 @@ func get_result_time(val):
 	value = val
 	set_process(true)
 
-func _on_take_quiz_pressed():
-	yield(get_tree().create_timer(1), "timeout")
-	get_tree().change_scene_to(take_quiz)
+#func _on_take_quiz_pressed():
+#	yield(get_tree().create_timer(1), "timeout")
+#	get_tree().change_scene_to(take_quiz)
 
 #for try again menu
 func _on_try_again_pressed():
