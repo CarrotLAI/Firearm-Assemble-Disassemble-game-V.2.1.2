@@ -6,6 +6,9 @@ var next_mousePos
 var hovered
 var slide_lock_open = false
 var time_click = 0
+var readyDragg = false
+var nextPost
+var obj
 
 func _ready():
 	set_process(false)
@@ -13,9 +16,10 @@ func _ready():
 
 #func _on_trigger_input_event(camera, event, click_position, click_normal, shape_idx):
 #detecting input
-func _on_slide_lock_input_event(camera, event, position, normal, shape_idx):
+
+func _on_slide_area_input_event(camera, event, position, normal, shape_idx):
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
-		print(event)
+#		print(event)
 		if event.is_pressed():
 			if hovered:
 				set_process(true)
@@ -51,10 +55,10 @@ func _process(delta):
 
 func _on_slide_lock_mouse_entered():
 	hovered = get_node("slide_lock_spatial")
-	print(hovered)
 	
 func First_Time_Click(trigger):
 	trigger = get_node("slide_lock_spatial")
+	obj = trigger
 	var x = -0.082
 	var y = -0.234
 	var z = 0.534
@@ -62,6 +66,20 @@ func First_Time_Click(trigger):
 	var next_position = Vector3(x, y, z)
 	trigger.set_translation(next_position)
 	trigger.rotation = Vector3(deg2rad(87), 0, 0)
+	readyDragg = true
 
 func Second_Time_Click(trigger):
 	pass
+
+#
+#func _on_Draggable_drag_move(node, cast):
+#	if readyDragg == true:
+#		var x = cast.position.x
+#		var y = cast.position.y
+#		var z = cast.position.z
+#		nextPost = Vector3(x, y, z)
+#		obj.set_translation(nextPost)
+#
+#
+#func _on_Draggable_drag_stop(node):
+#	obj.set_translation(nextPost)

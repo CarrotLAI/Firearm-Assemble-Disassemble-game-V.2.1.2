@@ -167,3 +167,13 @@ func _on_spring_cap_send_instruction(val):
 #4
 func _on_colt_body_send_instruction(val):
 	EnumsInstruction(val)
+
+onready var cylinder_area = $"../colt_slide_parent/colt_barrel_cap/cylinder_cap/mesh_187002/cylinder_area"
+
+func _on_spring_skeleton_spring_remove(value): #7
+	EnumsInstruction(value)
+	cylinder_area.set_visible(true)
+
+
+func _on_cylinder_cap_remove_barrelCap(val): #8
+	EnumsInstruction(val)

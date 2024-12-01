@@ -8,16 +8,16 @@ signal colt_barrel_area(value)
 signal spring_skeleton_area(value)
 signal send_instruction(val)
 
-func _on_spring_area2_area_exited(area):
-	if area.name == "spring_skeleton_area":
-		print_debug(area)
-		emit_signal("spring_skeleton_area", 1)
-
-
-func _on_barrel_area_area_exited(area):
-	if(area.name == "colt_barrel_area"):
-		print_debug(area)
-		emit_signal("colt_barrel_area", 1)
+#func _on_spring_area2_area_exited(area):
+#	if area.name == "spring_skeleton_area":
+#		print_debug(area)
+#		emit_signal("spring_skeleton_area", 1)
+#
+#
+#func _on_barrel_area_area_exited(area):
+#	if(area.name == "colt_barrel_area"):
+#		print_debug(area)
+#		emit_signal("colt_barrel_area", 1)
 
 #Slide
 var drag_to_right = true
@@ -93,7 +93,7 @@ func To_default_position(node, cast):
 
 #remove slide
 func Drag_to_left(node, cast):
-	print_debug("Drag_to_left")
+#	print_debug("Drag_to_left")
 	var x = get_node(".").transform.origin.z
 	var y = cast.position.y - 3.5
 	var z =  -(cast.position.x)
@@ -198,6 +198,7 @@ func Remove_Spr_Skel(node, cast):
 		spring_skeleton.set_translation(nextPos)
 	if(z >= -4):
 		away_from_slide = true
+		
 		cylinder_cap.get_node("mesh_187002/cylinder_area").set_visible(true)
 
 #end region

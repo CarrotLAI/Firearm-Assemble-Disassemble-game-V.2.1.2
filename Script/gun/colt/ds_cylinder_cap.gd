@@ -9,6 +9,7 @@ var isCast = true
 signal send_instruction(val)
 
 onready var colt_barrel = $"%colt_barrel"
+onready var cylinder_cap_area = $"%cylinder_cap_area"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -31,6 +32,7 @@ func Default_Pos(node, cast):
 	set_translation(nextPos)
 	emit_signal("send_instruction", 3)
 	isCast = false
+	cylinder_cap_area.set_visible(false)
 #	colt_barrel.get_node("mesh_158001/colt_barrel_area").set_visible(true)
 #	var barr_pos = Vector3(0, 0, -2)
 #	colt_barrel.set_translation(barr_pos)

@@ -1,6 +1,6 @@
 extends Spatial
 
-
+signal remove_barrelCap(val)
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -17,8 +17,6 @@ func _on_Draggable_drag_move(node, cast):
 	if(isCast):
 		Default_Pos(node, cast)
 	
-	
-	
 func Default_Pos(node, cast):
 	var x = cast.position.x
 #	get_node(".").transform.origin.x
@@ -32,3 +30,4 @@ func Default_Pos(node, cast):
 	var barr_pos = Vector3(0, -2, -2)
 	colt_barrel.set_translation(barr_pos)
 	colt_barrel.rotation = Vector3(deg2rad(-3), 0, 0)
+	emit_signal("remove_barrelCap", 8)

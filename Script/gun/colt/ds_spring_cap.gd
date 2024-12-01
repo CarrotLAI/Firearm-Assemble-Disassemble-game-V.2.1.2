@@ -23,7 +23,8 @@ func _on_Draggable_drag_move(node, cast):
 	if(drag_to_default):
 		Drag_default(node, cast)
 	
-	
+
+onready var spring_cap_area = $"%spring_cap_area"
 #change it to onclick
 func Drag_default(node, cast):
 	nextPos = Vector3(0, 0, 0)
@@ -31,6 +32,7 @@ func Drag_default(node, cast):
 	slide.get_node("slide_area").set_visible(true)
 	drag_to_default = false
 	emit_signal("send_instruction", 5)
+	spring_cap_area.set_visible(false)
 #	emit_signal("spring_remove", true)	
 
 

@@ -1,7 +1,8 @@
 extends Control
 
 
-var back_to_menu = load("res://Scene/UI/game_index.tscn")
+var address = load("res://Scene/UI/game_index.tscn")
+var back_to_menu = address.instance()
 var new_pause_state
 
 #func _ready():
@@ -13,6 +14,7 @@ func _on_Resume_pressed():
 
 func _on_Quit_pressed():
 	get_tree().change_scene_to(back_to_menu)
+#	yield(get_tree().create_timer(1), "timeout")
 
 
 func _on_Button_pressed():

@@ -89,8 +89,8 @@ func _process(delta):
 		set_process(false)
 
 func pass_time_result():
-	var time = resultUI.get_node(".")
-	time.get_result_time(total_time)
+	var time1 = resultUI.get_node(".")
+	time1.get_result_time(total_time)
 	
 
 signal defaultmag(val)

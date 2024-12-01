@@ -43,7 +43,6 @@ func Move_barrel(node, cast):
 func Barrel_outside(node, cast):
 	pass
 
-
 func _on_colt_slide_parent_colt_barrel_area(value):
 #	game_win = value
 	if(value == 1):

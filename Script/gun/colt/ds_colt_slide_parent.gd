@@ -27,17 +27,28 @@ func _on_colt_slide_move_parent(value):
 #		print_debug(area)
 #		emit_signal("colt_barrel_area", 1)
 
+onready var spring_area = $colt_barrel_cap/spring_skeleton/spring/spring_area
+onready var spring_area_condition = $spring_area
 
 func _on_spring_area_area_entered(area):
 	if area.name == "spring_skeleton_area":
+		spring_area.set_visible(false)		
 		print_debug(area)
 		emit_signal("spring_skeleton_area", 1)
-
+		spring_area_condition.set_visible(false)
+		spring_area_condition.disconnect("area_entered", self, "_on_spring_area_area_entered")
+		
+onready var colt_barrel_area = $colt_barrel/mesh_158001/colt_barrel_area
+onready var barrel_area = $barrel_area
 
 func _on_barrel_area_area_entered(area):
 	if area.name == "colt_barrel_area":
+		colt_barrel_area.set_visible(false)
 		print_debug(area)
 		emit_signal("colt_barrel_area", 1)
+		barrel_area.set_visible(false)
+		barrel_area.disconnect("area_entered", self, "_on_barrel_area_area_entered")
+
 
 
 func _on_Global_slide_enter(value):

@@ -1,5 +1,6 @@
 extends Spatial
 
+signal spring_remove(value)
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -28,9 +29,11 @@ func Remove_Spr_Skel(node, cast):
 	var y = (cast.position.y - 7) * 4
 	var z = -((cast.position.x + 3 )* 4)
 	var nextPos = Vector3(0, y, z)
-#	print(nextPos)
 	set_translation(nextPos)
 	colt_slide.get_node("slide/slide_area").set_visible(false)
+	if (y < -2 || z < -2):
+		emit_signal("spring_remove", 7)
+	
 		
 	
 	
