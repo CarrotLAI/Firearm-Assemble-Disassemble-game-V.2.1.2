@@ -20,20 +20,20 @@ func _on_Button_pressed():
 		get_tree().change_scene_to(game_index)
 		yield(get_tree().create_timer(1), "timeout")  # Correct syntax for a delay
 
-
-func _on_menu_buttons_EnumDescript(val):
-	if val == 1: #glock
-		glock.set_visible(false)
-		colt.set_visible(false)
-		mp_5.set_visible(false)
-	if val == 2: #colt
-		colt.set_visible(true)
-		glock.set_visible(false)
-		mp_5.set_visible(false)
-	if val == 2: #mp5
-		mp_5.set_visible(true)
-		colt.set_visible(false)
-		glock.set_visible(false)
+#
+#func _on_menu_buttons_EnumDescript(val):
+#	if val == 1: #glock
+#		glock.set_visible(false)
+#		colt.set_visible(false)
+#		mp_5.set_visible(false)
+#	if val == 2: #colt
+#		colt.set_visible(true)
+#		glock.set_visible(false)
+#		mp_5.set_visible(false)
+#	if val == 2: #mp5
+#		mp_5.set_visible(true)
+#		colt.set_visible(false)
+#		glock.set_visible(false)
 #	glock.set_visible(true)
 #	colt.set_visible(false)
 #	mp_5.set_visible(false)

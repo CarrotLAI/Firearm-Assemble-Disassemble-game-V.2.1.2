@@ -148,12 +148,12 @@ func _on_Smg2_pressed():
 	print("glock is pressed ", mp5Count)
 	control.set_visible(true)
 	control.get_node("ColorRect").set_visible(true)
-	control.get_node("Smg").set_visible(true)
+	control.get_node("MP5").set_visible(true)
 	if mp5Count == 2:
 		emit_signal("proceed_smg", true)
 		control.set_visible(false)
 		control.get_node("ColorRect").set_visible(false)
-		control.get_node("Smg").set_visible(false)
+		control.get_node("MP5").set_visible(false)
 		mp5Count = 0
 
 func _on_smg_assemble_pressed():
