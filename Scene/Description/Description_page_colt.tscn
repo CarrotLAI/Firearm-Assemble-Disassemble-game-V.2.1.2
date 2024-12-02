@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/image/vintage-military-weapons-seamless-pattern/8.jpg" type="Texture" id=1]
 [ext_resource path="res://assets/icons/left-arrow.png" type="Texture" id=2]
-[ext_resource path="res://assets/image/1b39837a-23c0-4d88-ad8d-33f68dc7b7ff.jpg" type="Texture" id=3]
+[ext_resource path="res://assets/image/new_colt.jpg" type="Texture" id=3]
 [ext_resource path="res://fonts/Gugi-Regular.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Script/description/Description_page.gd" type="Script" id=5]
 [ext_resource path="res://assets/image/409e3dba-0ec8-4adb-93bc-04eee3500697.jpg" type="Texture" id=6]
@@ -47,15 +47,15 @@ valign = 1
 uppercase = true
 
 [node name="background" type="ColorRect" parent="."]
-margin_left = 35.0
+margin_left = 50.0
 margin_top = 139.0
-margin_right = 931.0
-margin_bottom = 1227.0
+margin_right = 908.0
+margin_bottom = 1267.0
 color = Color( 0, 0, 0, 1 )
 
 [node name="colt" type="Sprite" parent="."]
-position = Vector2( 484, 676 )
-scale = Vector2( 1.33333, 1.33333 )
+position = Vector2( 477, 697 )
+scale = Vector2( 1.3141, 1.3125 )
 texture = ExtResource( 3 )
 
 [node name="glock" type="Sprite" parent="."]

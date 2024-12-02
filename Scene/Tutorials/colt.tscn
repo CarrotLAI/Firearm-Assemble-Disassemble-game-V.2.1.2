@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Video/Colt_webm.webm" type="VideoStream" id=1]
+[ext_resource path="res://Video/new_colt.webm" type="VideoStream" id=1]
 [ext_resource path="res://Script/Tutorial/colt.gd" type="Script" id=2]
 [ext_resource path="res://assets/icons/left-arrow.png" type="Texture" id=3]
 [ext_resource path="res://assets/image/vintage-military-weapons-seamless-pattern/8.jpg" type="Texture" id=4]
@@ -45,16 +45,17 @@ uppercase = true
 [node name="background" type="ColorRect" parent="."]
 margin_top = 303.0
 margin_right = 959.0
-margin_bottom = 1277.0
+margin_bottom = 1075.0
 color = Color( 0, 0, 0, 1 )
 
 [node name="VideoPlayer" type="VideoPlayer" parent="."]
 anchor_top = 0.25
 anchor_right = 1.0
 anchor_bottom = 0.746
-margin_left = 2.0
-margin_right = 2.0
-margin_bottom = 298.12
+margin_left = -3.0
+margin_top = 107.0
+margin_right = -3.0
+margin_bottom = 15.12
 stream = ExtResource( 1 )
 autoplay = true
 
