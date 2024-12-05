@@ -18,10 +18,12 @@ onready var notify = $notify
 onready var label = $notify/VBoxContainer/Label
 
 
+onready var sprite = $"../Sprite"
 func _on_start_pressed():
 	print("start")
 	get_node("start").move(Vector2(-700, 0))
 	get_node("Category").move(Vector2(0,0))
+	sprite.set_visible(false)
 #	get_node("guns").move(Vector2(0, 0))
 
 func _on_back_pressed():
@@ -80,6 +82,8 @@ func _on_Pistol_pressed():
 func _on_Back_pressed():
 	get_node("start").move(Vector2(0, 0))
 	get_node("Category").move(Vector2(700,0))
+	sprite.set_visible(true)
+	
 
 #glock
 func _on_video_tutorial_pressed():
@@ -152,4 +156,5 @@ func _on_sm_video_tutorial_pressed():
 	get_tree().change_scene_to(mp5_video)
 	yield(get_tree().create_timer(1), "timeout")  # Correct syntax for a delay
 
-
+func _on_quit_pressed():
+	get_tree().quit()

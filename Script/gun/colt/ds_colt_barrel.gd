@@ -43,24 +43,27 @@ func Move_barrel(node, cast):
 func Barrel_outside(node, cast):
 	pass
 
-func _on_colt_slide_parent_colt_barrel_area(value):
-#	game_win = value
-	if(value == 1):
-		var position = Vector3(0, 0, -0.2)
-		set_translation(position)
-		get_node("mesh_158001/colt_barrel_area").set_visible(false)
-		ismove_barrel = false		
-		cylinder_cap_area.set_visible(true)
-		emit_signal("send_instruction", 2)
-		set_process(false)
-
-
-#func _on_colt_barrel_area_area_entered(area):
-#	if(area.name == "colt_barrel_area"):
-#		var position = Vector3(0, 0, 0)
+#func _on_colt_slide_parent_colt_barrel_area(value):
+##	game_win = value
+#	if(value == 1):
+#		var position = Vector3(0, 0, -0.2)
 #		set_translation(position)
 #		get_node("mesh_158001/colt_barrel_area").set_visible(false)
+#		ismove_barrel = false		
 #		cylinder_cap_area.set_visible(true)
-#		ismove_barrel = false
+#		emit_signal("send_instruction", 2)
 #		set_process(false)
-	
+
+
+
+func _on_barrel_area_area_entered(area):
+	print_debug(area.name)
+	if area.name == "colt_barrel_area":
+		ismove_barrel = false
+		emit_signal("assemble_bolt", true)
+		nextPos = Vector3(0, 0, -0.2)
+		set_translation(nextPos)
+		get_node("mesh_158001/colt_barrel_area").set_visible(false)
+		cylinder_cap_area.set_visible(true)
+#		emit_signal("send_instruction", 2)
+#		set_process(false)

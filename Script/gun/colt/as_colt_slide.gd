@@ -73,13 +73,13 @@ func _on_Draggable_drag_stop(node):
 ##		to_default = false
 #		set_translation(position)	
 
-
-func _on_Global_slide_enter(value):
-	if(value == 1):
-		var position = Vector3(0, 0.48, 1.2)
-		set_translation(position)	
-		yield(get_tree().create_timer(2), "timeout") 
-		to_default = false
-		mag_area.set_visible(true)
-		emit_signal("send_instruction", 6)
-		set_process(false)
+#
+#func _on_Global_slide_enter(value):
+#	if(value == 1):
+#		var position = Vector3(0, 0.48, 1.2)
+#		set_translation(position)	
+##		yield(get_tree().create_timer(2), "timeout") 
+#		to_default = false
+#		mag_area.set_visible(true)
+#		emit_signal("send_instruction", 6)
+#		set_process(false)

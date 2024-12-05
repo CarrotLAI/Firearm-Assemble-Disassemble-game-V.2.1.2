@@ -40,14 +40,17 @@ func _on_spring_area_area_entered(area):
 		
 onready var colt_barrel_area = $colt_barrel/mesh_158001/colt_barrel_area
 onready var barrel_area = $barrel_area
+onready var colt_barrel = $"%colt_barrel"
 
-func _on_barrel_area_area_entered(area):
-	if area.name == "colt_barrel_area":
-		colt_barrel_area.set_visible(false)
-		print_debug(area)
-		emit_signal("colt_barrel_area", 1)
-		barrel_area.set_visible(false)
-		barrel_area.disconnect("area_entered", self, "_on_barrel_area_area_entered")
+#func _on_barrel_area_area_entered(area):
+#	if area.name == "colt_barrel_area":
+#		colt_barrel_area.set_visible(false)
+#		print_debug(area)
+#		var position = Vector3(0, 0, 0)
+#		colt_barrel.set_translation(position)
+#		emit_signal("colt_barrel_area", 1)
+#		barrel_area.set_visible(false)
+#		barrel_area.disconnect("area_entered", self, "_on_barrel_area_area_entered")
 
 
 

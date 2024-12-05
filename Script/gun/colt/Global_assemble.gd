@@ -98,6 +98,7 @@ func _on_colt_slide_parent_colt_barrel_area(value):
 		if value == 1:
 #		if area.name == "colt_barrel_area":
 			condition_to_win.barel_area = 1
+			EnumsInstruction(2)
 			set_process(true)
 			print(condition_to_win)
 			emit_signal("spring_area_val", condition_to_win.barel_area)
@@ -106,6 +107,7 @@ func _on_colt_slide_parent_spring_skeleton_area(value):
 	if condition_to_win.spring_area != 1:
 		if value == 1:
 #		if area.name == "spring_skeleton_area":
+			EnumsInstruction(4)
 			condition_to_win.spring_area = 1
 			print("spring: ",condition_to_win.spring_area)
 			emit_signal("spring_area_val", condition_to_win.spring_area)
@@ -119,17 +121,18 @@ func _on_magazine_area_area_entered(area):
 	if(area.name == "mag_area"):
 		emit_signal("magazine_enter", 1)
 		if condition_to_win.mag_area != 1:
-			if area.name == "mag_area":
-				condition_to_win.mag_area = 1
-				print(condition_to_win.mag_area)
+#			if area.name == "mag_area":
+			condition_to_win.mag_area = 1
+			print(condition_to_win.mag_area)
 
-func _on_slide_area_area_entered(area):
+func _on_slide_area_main_area_entered(area):
 	if(area.name == "slide_area"):
 		emit_signal("slide_enter", 1)
 		if condition_to_win.slide_area !=  1:
-			if area.name == "slide_area":
-				condition_to_win.slide_area = 1
-				print(condition_to_win.slide_area)
+#			if area.name == "slide_area":
+			EnumsInstruction(6)
+			condition_to_win.slide_area = 1
+			print(condition_to_win.slide_area)
 				
 
 onready var instruction = $"%instruction"
@@ -155,9 +158,10 @@ func _on_spring_cap_send_instruction(val):
 	EnumsInstruction(val)
 
 #2
-func _on_colt_barrel_send_instruction(val):
-	print(val)
-	EnumsInstruction(val)
+#func _on_colt_barrel_send_instruction(val):
+#	print(val)
+#	EnumsInstruction(val)
+#	EnumsInstruction(2)
 
 #3
 func _on_cylinder_cap_send_instruction(val):
@@ -165,9 +169,12 @@ func _on_cylinder_cap_send_instruction(val):
 	EnumsInstruction(val)
 
 #4
-func _on_spring_skeleton_send_instruction(val):
-	print(val)
-	EnumsInstruction(val)
+#func _on_spring_skeleton_send_instruction(val):
+#	print(val)
+#	EnumsInstruction(val)
+#	EnumsInstruction(6)
 
 func _on_colt_slide_send_instruction(val):
 	EnumsInstruction(val)
+
+pass # Replace with function body.
