@@ -57,13 +57,13 @@ func Barrel_outside(node, cast):
 
 
 func _on_barrel_area_area_entered(area):
-	print_debug(area.name)
 	if area.name == "colt_barrel_area":
+		print_debug(area.name)
 		ismove_barrel = false
-		emit_signal("assemble_bolt", true)
+#		emit_signal("assemble_bolt", true)
 		nextPos = Vector3(0, 0, -0.2)
 		set_translation(nextPos)
 		get_node("mesh_158001/colt_barrel_area").set_visible(false)
 		cylinder_cap_area.set_visible(true)
-#		emit_signal("send_instruction", 2)
+		emit_signal("send_instruction", true)
 #		set_process(false)

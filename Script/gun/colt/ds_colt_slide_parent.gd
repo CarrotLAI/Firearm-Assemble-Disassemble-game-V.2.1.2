@@ -51,8 +51,3 @@ onready var colt_barrel = $"%colt_barrel"
 #		emit_signal("colt_barrel_area", 1)
 #		barrel_area.set_visible(false)
 #		barrel_area.disconnect("area_entered", self, "_on_barrel_area_area_entered")
-
-
-
-func _on_Global_slide_enter(value):
-	pass # Replace with function body.

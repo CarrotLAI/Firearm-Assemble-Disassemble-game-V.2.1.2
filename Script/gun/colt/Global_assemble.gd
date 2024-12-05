@@ -44,8 +44,10 @@ signal barrel_val(e)
 
 func _ready():
 #	EnumsInstruction(ins_val)
-	instruction.text = "position the barrel"
 	set_process(false)
+	yield(get_tree().create_timer(1), "timeout") 
+	set_process(true)
+	instruction.text = "position the barrel"
 
 func _on_Timer_timeout():
 	if game_status == "win":
@@ -118,13 +120,21 @@ signal slide_enter(value)
 signal magazine_enter(value)
 
 func _on_magazine_area_area_entered(area):
+	print(area)
 	if(area.name == "mag_area"):
 		emit_signal("magazine_enter", 1)
 		if condition_to_win.mag_area != 1:
 #			if area.name == "mag_area":
 			condition_to_win.mag_area = 1
-			print(condition_to_win.mag_area)
-
+			print(condition_to_win)
+			
+func _on_colt_barrel_send_instruction(val):
+	if(val == true):
+		if condition_to_win.barel_area != 1:
+			condition_to_win.barel_area = 1
+			print(condition_to_win)
+	
+	
 func _on_slide_area_main_area_entered(area):
 	if(area.name == "slide_area"):
 		emit_signal("slide_enter", 1)
@@ -133,8 +143,9 @@ func _on_slide_area_main_area_entered(area):
 			EnumsInstruction(6)
 			condition_to_win.slide_area = 1
 			print(condition_to_win.slide_area)
-				
-
+			
+onready var mag_area = $"%mag_area"
+	
 onready var instruction = $"%instruction"
 func EnumsInstruction(e):
 	if(e == 1):
@@ -147,14 +158,18 @@ func EnumsInstruction(e):
 		instruction.text = "Insert spring"
 	if(e == 4):
 		instruction.text = "Insert spring cap"
-	if(e == 5):
-		instruction.text = "clip back the slide"
 	if(e == 6):
+		instruction.text = "clip back the slide"
+	if(e == 7):
+		instruction.text = "clip back slide lock"
+		mag_area.set_visible(true)
+	if(e == 8):
 		instruction.text = "insert the magazine"	
+		print(condition_to_win)
 
 #5
 func _on_spring_cap_send_instruction(val):
-	print(val)
+#	print(val)
 	EnumsInstruction(val)
 
 #2
@@ -165,7 +180,7 @@ func _on_spring_cap_send_instruction(val):
 
 #3
 func _on_cylinder_cap_send_instruction(val):
-	print(val)
+#	print(val)
 	EnumsInstruction(val)
 
 #4
@@ -177,4 +192,8 @@ func _on_cylinder_cap_send_instruction(val):
 func _on_colt_slide_send_instruction(val):
 	EnumsInstruction(val)
 
-pass # Replace with function body.
+
+func _on_colt_body_send_descript(val):
+	EnumsInstruction(8)
+
+

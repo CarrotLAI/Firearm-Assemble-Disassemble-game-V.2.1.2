@@ -41,17 +41,14 @@ func default_Spr_Skel(node, cast):
 #		get_node("mesh_136001/spring_skeleton_area").set_visible(false)
 #		set_process(false)
 
-onready var cylinder_cap_area = $"%cylinder_cap_area"
-
 
 func _on_spring_area_area_entered(area):
-	print_debug(area.name)
-	if area.name == "colt_barrel_area":
+	if area.name == "spring_skeleton_area":
 		default_spring_skeleton = false
 		emit_signal("assemble_bolt", true)
 		var nextPos = Vector3(0, 0, 0)
 		set_translation(nextPos)
-		get_node("mesh_158001/colt_barrel_area").set_visible(false)
-		cylinder_cap_area.set_visible(true)
+#		get_node("mesh_158001/colt_barrel_area").set_visible(false)
+		spring_cap_area.set_visible(true)
 #		emit_signal("send_instruction", 2)
 #	s	et_process(false)
