@@ -6,12 +6,14 @@ onready var button = $VBoxContainer/Button
 
 var back_to_menu = load("res://Scene/UI/game_index.tscn")
 
-var items: Array = read_json_file("json/colt_quiz.json")
+#var items: Array = read_json_file("json/colt_quiz.json")
 var item: Dictionary
 var index_item: int = 0
 
 var correct: float = 0
 var player_name
+#metadata
+var leaderBrd_name = "main"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -33,10 +35,10 @@ func show_result():
 		greet = "Congratulation"
 	else:
 		greet = "Try again next time"
-	SilentWolf.Scores.persist_score(player_name, score)
-	var score_id = yield(SilentWolf.Scores.persist_score(player_name, score), "sw_score_posted")
-	print("Score persisted successfully: " + str(score_id))
 	DisplayText.text = "{greet} ! Your Score is {score}".format({"greet": greet, "score": score})
+	SilentWolf.Scores.persist_score(player_name, score)
+	var score_id = yield(SilentWolf.Scores.persist_score(player_name, score, leaderBrd_name), "sw_score_posted")
+	print("Score persisted successfully: " + str(score_id))
 
 func show_question():
 	item_list.show()
@@ -74,3 +76,46 @@ func _on_Button_pressed():
 func yield_task(seconds):
 	# Create a temporary timer and wait for it to time out
 	yield(get_tree().create_timer(seconds), "timeout")
+
+var items: Array = [
+	{
+	"question": "What year was the .45 caliber 1911 pistol first introduced?",
+	"options": [
+	  "2000- present",
+	  "1911- present"
+	],
+	"correctAnswerIndex": 1
+  },
+  {
+	"question": "Who is the designer of the caliber 45 1911?",
+	"options": [
+	  "John Browning",
+	  "John Ganier"
+	],
+	"correctAnswerIndex": 0
+  },
+  {
+	"question": "What kind of bullet does a .45 take?",
+	"options": [
+	  "45ACP",
+	  "46ACP"
+	],
+	"correctAnswerIndex": 0
+  },
+  {
+	"question": "How many bullets are in a .45 caliber pistol?",
+	"options": [
+	  "7 rounds",
+	  "8 rounds"
+	],
+	"correctAnswerIndex": 0
+  },
+  {
+	"question": "Where did the caliber .45 originate?",
+	"options": [
+	  "United States",
+	  "Australia"
+	],
+	"correctAnswerIndex": 0
+  }
+]

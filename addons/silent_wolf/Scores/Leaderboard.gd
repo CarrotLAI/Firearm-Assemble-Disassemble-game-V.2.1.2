@@ -17,6 +17,7 @@ func _ready():
 	if ld_name in SilentWolf.Scores.leaderboards:
 		scores = SilentWolf.Scores.leaderboards[ld_name]
 	var local_scores = SilentWolf.Scores.local_scores
+	_get_high_score()
 	
 	if len(scores) > 0: 
 		render_board(scores, local_scores)
@@ -27,6 +28,11 @@ func _ready():
 		hide_message()
 		render_board(SilentWolf.Scores.scores, local_scores)
 
+func _get_high_score():
+	yield(SilentWolf.Scores.get_high_scores(10), "sw_scores_received")
+	print("All scores: " + str(SilentWolf.Scores.scores)) 
+#	for score in scores:
+#		add_item(score.player_name, str(int(score.score)))
 
 func render_board(scores, local_scores):
 	var all_scores = scores

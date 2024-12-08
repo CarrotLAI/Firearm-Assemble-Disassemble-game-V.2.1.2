@@ -11,7 +11,7 @@ onready var control = $"../Control"
 #modes node
 onready var vbox_glock = $modes/vbox
 onready var vbox_calibre = $modes/vbox_calibre
-onready var vbox__m_16 = $modes/vbox_M16
+#onready var vbox__m_16 = $modes/vbox_M16
 onready var vbox_smg = $modes/vbox_Smg
 
 onready var notify = $notify
@@ -106,8 +106,8 @@ func _on_smg_pressed():
 var leaderboard_screen = preload("res://addons/silent_wolf/Scores/Leaderboard.tscn")
 func _on_leaderboard_pressed():
 	get_tree().change_scene_to(leaderboard_screen)
-	get_node("board").move(Vector2(0,0))
-	get_node("start").move(Vector2(700,0))
+#	get_node("board").move(Vector2(0,0))
+#	get_node("start").move(Vector2(700,0))
 	
 func _on_ld_back_pressed():
 	get_node("board").move(Vector2(0,-1225))

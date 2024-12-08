@@ -6,12 +6,14 @@ onready var button = $VBoxContainer/Button
 
 var back_to_menu = preload("res://Scene/UI/game_index.tscn")
 
-var items: Array = read_json_file("json/quiz.json")
+#var items: Array = read_json_file("json/quiz.json")
 var item: Dictionary
 var index_item: int = 0
 
 var correct: float = 0
 var player_name
+#metadata
+var leaderBrd_name = "main"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -33,10 +35,10 @@ func show_result():
 		greet = "Congratulation"
 	else:
 		greet = "Try again next time"
-	SilentWolf.Scores.persist_score(player_name, score)
-	var score_id = yield(SilentWolf.Scores.persist_score(player_name, score), "sw_score_posted")
-	print("Score persisted successfully: " + str(score_id))
 	DisplayText.text = "{greet} ! Your Score is {score}".format({"greet": greet, "score": score})
+	SilentWolf.Scores.persist_score(player_name, score)
+	var score_id = yield(SilentWolf.Scores.persist_score(player_name, score, leaderBrd_name), "sw_score_posted")
+	print("Score persisted successfully: " + str(score_id))
 
 func show_question():
 	item_list.show()
@@ -69,3 +71,46 @@ func _on_Button_pressed():
 #	correct = 0
 #	index_item = 0
 #	refresh_scene()
+
+var items: Array = [
+	{
+	"question": "What type of ammunition does the Glock 17 use?",
+	"options": [
+	  "9×19mm",
+	  "10mm"
+	],
+	"correctAnswerIndex": 0
+  },
+  {
+	"question": "Who designed the Glock 17?",
+	"options": [
+	  "Gaston Glock",
+	  "River Glock"
+	],
+	"correctAnswerIndex": 0
+  },
+  {
+	"question": "What is the weight of the Glock 17 without magazine?",
+	"options": [
+	  "625g",
+	  "635g"
+	],
+	"correctAnswerIndex": 0
+  },
+  {
+	"question": "Where did the Glock 17 originate?",
+	"options": [
+	  "US",
+	  "Australia"
+	],
+	"correctAnswerIndex": 0
+  },
+  {
+	"question": "When was the Glock 17 designed?",
+	"options": [
+	  "1979-1982",
+	  "1978-1980"
+	],
+	"correctAnswerIndex": 0
+  }
+]

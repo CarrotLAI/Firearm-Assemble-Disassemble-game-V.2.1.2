@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Script/UI/game_menu.gd" type="Script" id=1]
 [ext_resource path="res://fonts/Gugi-Regular.ttf" type="DynamicFontData" id=2]
@@ -11,7 +11,6 @@
 [ext_resource path="res://fonts/comingsoon.tres" type="Theme" id=9]
 [ext_resource path="res://assets/image/vintage-military-weapons-seamless-pattern/8.jpg" type="Texture" id=10]
 [ext_resource path="res://music/Hitman.mp3" type="AudioStream" id=11]
-[ext_resource path="res://Script/UI/board.gd" type="Script" id=12]
 [ext_resource path="res://Script/UI/leaderboard_cont.gd" type="Script" id=13]
 [ext_resource path="res://assets/theme/button_theme.tres" type="Theme" id=14]
 [ext_resource path="res://assets/image/1f3466c4-56e6-4ba7-a5b3-954579726480.jpg" type="Texture" id=15]
@@ -116,8 +115,8 @@ margin_bottom = 40.0
 script = ExtResource( 6 )
 
 [node name="board" type="Node2D" parent="menu_buttons"]
+visible = false
 position = Vector2( 0, -1225 )
-script = ExtResource( 12 )
 
 [node name="vbox" type="VBoxContainer" parent="menu_buttons/board"]
 margin_left = 80.0
@@ -174,9 +173,10 @@ rect_min_size = Vector2( 0, 531 )
 alignment = 1
 
 [node name="glock" type="Button" parent="menu_buttons/guns/vbox"]
-margin_top = 176.0
+margin_top = 169.0
 margin_right = 364.0
-margin_bottom = 233.0
+margin_bottom = 240.0
+theme = ExtResource( 14 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.921569, 0.521569, 0.0941176, 1 )
 custom_fonts/font = SubResource( 4 )
@@ -184,9 +184,9 @@ text = "Glock"
 flat = true
 
 [node name="calibre45" type="Button" parent="menu_buttons/guns/vbox"]
-margin_top = 237.0
+margin_top = 244.0
 margin_right = 364.0
-margin_bottom = 294.0
+margin_bottom = 301.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.921569, 0.521569, 0.0941176, 1 )
 custom_fonts/font = SubResource( 5 )
@@ -204,9 +204,9 @@ text = "M16 Rifle"
 flat = true
 
 [node name="back" type="Button" parent="menu_buttons/guns/vbox"]
-margin_top = 298.0
+margin_top = 305.0
 margin_right = 364.0
-margin_bottom = 355.0
+margin_bottom = 362.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.913725, 0.0588235, 0.0588235, 1 )
 custom_fonts/font = SubResource( 6 )
@@ -462,9 +462,10 @@ margin_bottom = 1014.0
 alignment = 1
 
 [node name="sm_video tutorial" type="Button" parent="menu_buttons/modes/vbox_Smg"]
-margin_top = 142.0
-margin_right = 385.0
-margin_bottom = 199.0
+margin_top = 109.0
+margin_right = 373.0
+margin_bottom = 180.0
+theme = ExtResource( 14 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.313726, 0.858824, 0.141176, 1 )
 custom_colors/font_color_pressed = Color( 0.211765, 0.101961, 0.839216, 1 )
@@ -473,9 +474,10 @@ text = "Video Tutorial"
 flat = true
 
 [node name="mp5_Description pdf" type="Button" parent="menu_buttons/modes/vbox_Smg"]
-margin_top = 203.0
-margin_right = 385.0
-margin_bottom = 260.0
+margin_top = 184.0
+margin_right = 373.0
+margin_bottom = 255.0
+theme = ExtResource( 14 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.313726, 0.858824, 0.141176, 1 )
 custom_colors/font_color_pressed = Color( 0.211765, 0.101961, 0.839216, 1 )
@@ -484,9 +486,10 @@ text = "Description pdf"
 flat = true
 
 [node name="smg_disassemble" type="Button" parent="menu_buttons/modes/vbox_Smg"]
-margin_top = 264.0
-margin_right = 385.0
-margin_bottom = 321.0
+margin_top = 259.0
+margin_right = 373.0
+margin_bottom = 330.0
+theme = ExtResource( 14 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.921569, 0.521569, 0.0941176, 1 )
 custom_fonts/font = SubResource( 7 )
@@ -494,9 +497,10 @@ text = "Disassemble"
 flat = true
 
 [node name="smg_assemble" type="Button" parent="menu_buttons/modes/vbox_Smg"]
-margin_top = 325.0
-margin_right = 385.0
-margin_bottom = 382.0
+margin_top = 334.0
+margin_right = 373.0
+margin_bottom = 405.0
+theme = ExtResource( 14 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.921569, 0.521569, 0.0941176, 1 )
 custom_fonts/font = SubResource( 8 )
@@ -504,9 +508,10 @@ text = "Assemble"
 flat = true
 
 [node name="back_to_difficulty" type="Button" parent="menu_buttons/modes/vbox_Smg"]
-margin_top = 386.0
-margin_right = 385.0
-margin_bottom = 443.0
+margin_top = 409.0
+margin_right = 373.0
+margin_bottom = 476.0
+theme = ExtResource( 17 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.913725, 0.0588235, 0.0588235, 1 )
 custom_fonts/font = SubResource( 8 )

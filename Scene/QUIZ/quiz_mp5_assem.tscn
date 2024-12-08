@@ -254,7 +254,7 @@ anchor_right = 0.903125
 anchor_bottom = 0.742969
 
 [node name="DisplayText" type="Label" parent="Control/VBoxContainer"]
-margin_right = 774.0
+margin_right = 765.0
 margin_bottom = 89.0
 size_flags_vertical = 5
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -267,12 +267,12 @@ autowrap = true
 
 [node name="Divider" type="Label" parent="Control/VBoxContainer"]
 margin_top = 93.0
-margin_right = 774.0
+margin_right = 765.0
 margin_bottom = 107.0
 
 [node name="ItemList" type="ItemList" parent="Control/VBoxContainer"]
 margin_top = 111.0
-margin_right = 774.0
+margin_right = 765.0
 margin_bottom = 659.0
 size_flags_vertical = 3
 theme = SubResource( 8 )
@@ -280,7 +280,7 @@ items = [ "Item 0", null, false, "Item 1", null, false ]
 
 [node name="Button" type="Button" parent="Control/VBoxContainer"]
 margin_top = 663.0
-margin_right = 774.0
+margin_right = 765.0
 margin_bottom = 712.0
 custom_fonts/font = SubResource( 5 )
 text = "Back"
