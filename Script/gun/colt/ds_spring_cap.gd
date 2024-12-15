@@ -14,6 +14,7 @@ signal send_instruction(val)
 
 onready var slide = $"%slide"
 onready var spring = $"%spring"
+onready var colt_slide_area = $"%colt_slide_area"
 
 #conditions
 var drag_to_default = true
@@ -29,10 +30,11 @@ onready var spring_cap_area = $"%spring_cap_area"
 func Drag_default(node, cast):
 	nextPos = Vector3(0, 0, 0)
 	set_translation(nextPos)
-	slide.get_node("slide_area").set_visible(true)
+	slide.get_node("colt_slide_area").set_visible(true)
 	drag_to_default = false
 	emit_signal("send_instruction", 5)
 	spring_cap_area.set_visible(false)
+	colt_slide_area.set_visible(true)
 #	emit_signal("spring_remove", true)	
 
 

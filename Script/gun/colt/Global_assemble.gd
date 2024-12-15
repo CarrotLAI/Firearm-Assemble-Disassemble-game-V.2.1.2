@@ -134,15 +134,18 @@ func _on_colt_barrel_send_instruction(val):
 			condition_to_win.barel_area = 1
 			print(condition_to_win)
 	
-	
-func _on_slide_area_main_area_entered(area):
-	if(area.name == "slide_area"):
-		emit_signal("slide_enter", 1)
-		if condition_to_win.slide_area !=  1:
-#			if area.name == "slide_area":
-			EnumsInstruction(6)
-			condition_to_win.slide_area = 1
-			print(condition_to_win.slide_area)
+func _on_slide_enter():
+	if condition_to_win.slide_area !=  1:
+		condition_to_win.slide_area = 1
+		print(condition_to_win.slide_area)
+#func _on_slide_area_main_area_entered(area):
+#	if(area.name == "slide_area"):
+#		emit_signal("slide_enter", 1)
+#		if condition_to_win.slide_area !=  1:
+##			if area.name == "slide_area":
+#			EnumsInstruction(6)
+#			condition_to_win.slide_area = 1
+#			print(condition_to_win.slide_area)
 			
 onready var mag_area = $"%mag_area"
 	
@@ -158,13 +161,18 @@ func EnumsInstruction(e):
 		instruction.text = "Insert spring"
 	if(e == 4):
 		instruction.text = "Insert spring cap"
+	if(e == 5):
+		instruction.text = "position slide"
 	if(e == 6):
 		instruction.text = "clip back the slide"
 	if(e == 7):
-		instruction.text = "clip back slide lock"
+		instruction.text = "insert back slide lock"
 		mag_area.set_visible(true)
 	if(e == 8):
-		instruction.text = "insert the magazine"	
+		instruction.text = "insert the magazine"
+		_on_slide_enter()
+		var defaultPos = Vector3(0, 0.5, 1.2)
+		colt_slide_parent.set_translation(defaultPos)	
 		print(condition_to_win)
 
 #5
@@ -188,9 +196,11 @@ func _on_cylinder_cap_send_instruction(val):
 #	print(val)
 #	EnumsInstruction(val)
 #	EnumsInstruction(6)
+onready var colt_slide_parent = $"%colt_slide_parent"
 
 func _on_colt_slide_send_instruction(val):
-	EnumsInstruction(val)
+	if val == true:
+		EnumsInstruction(7)
 
 
 func _on_colt_body_send_descript(val):

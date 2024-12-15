@@ -87,10 +87,12 @@ func _on_Back_pressed():
 
 #glock
 func _on_video_tutorial_pressed():
-	var glock_video = load("res://Scene/Tutorials/glock.tscn")
-	get_tree().change_scene_to(glock_video)
-	yield(get_tree().create_timer(1), "timeout")
-#	var youtube_url = "https://www.youtube.com/watch?v=I5IvD
+#	var glock_video = load("res://Scene/Tutorials/glock.tscn")
+#	get_tree().change_scene_to(glock_video)
+#	yield(get_tree().create_timer(1), "timeout")
+	var youtube_url = "https://www.youtube.com/watch?v=I5IvD"
+	OS.shell_open(youtube_url)
+
 
 
 func _on_back_to_mode_pressed():
@@ -120,11 +122,11 @@ func _on_mp5_back_pressed():
 
 
 func _on_colt_video_tutorial_pressed():
-	var colt_video = load("res://Scene/Tutorials/colt.tscn")
-	get_tree().change_scene_to(colt_video)
-	yield(get_tree().create_timer(1), "timeout")  # Correct syntax for a delay
-#	var youtube_url = "https://www.youtube.com/watch?v=BP4z0wND66w"  # Replace with your URL
-#	OS.shell_open(youtube_url)
+#	var colt_video = load("res://Scene/Tutorials/colt.tscn")
+#	get_tree().change_scene_to(colt_video)
+#	yield(get_tree().create_timer(1), "timeout")  # Correct syntax for a delay
+	var youtube_url = "https://www.youtube.com/watch?v=BP4z0wND66w"  # Replace with your URL
+	OS.shell_open(youtube_url)
 
 #colt
 func _on_colt_Description_pdf_pressed():

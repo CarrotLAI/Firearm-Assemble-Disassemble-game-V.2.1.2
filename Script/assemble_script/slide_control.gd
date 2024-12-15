@@ -10,32 +10,46 @@ var isSpring_enter = false # bool for spring if in position
 var isSlide_main_enter = false #bool for slide_main
 var slide_disable = true
 onready var slide_main = $"%slide_main"
+var isSlideDrag = true
 
 signal send_instruction(val)
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
 
 #Slide
-func _on_Draggable_slide_drag_move(node, cast):
-	if !slide_disable:
-		x = cast.position.x
-		y = 0.5
-		z = (cast.position.z + 2)
-		var to_position = Vector3(x, y, z)
-		set_translation(to_position)
-	if isSlide_main_enter:
-		var in_position = Vector3(-0.069, 0.5, 0.802)
-		emit_signal("send_instruction", 4)
-		set_translation(in_position)
-		slide_disable = true
+var move_slide
+#func _process(delta):
+#	if Input.is_action_just_pressed("click"):
+#		if move_slide:
+#			isSlideDrag = true
+#			print("click")
+##			ToPosition(hovered)
+
+#func _on_slide_area_mouse_entered():
+#	print(get_node("."))
+##	move_slide = get_node("slide/slide_mesh/slide_area")
+#
+#func _on_slide_area_input_event(camera, event, position, normal, shape_idx):
+#	pass
 
 #func _on_Draggable_slide_drag_stop(node):
 #	if isSlide_main_enter:
 #		var in_position = Vector3(-0.069, 0.5, 0.802)
 ##		emit_signal("send_instruction", 4)
 #		slide_main.set_translation(in_position)
-		
+func _on_Draggable_slide_drag_move(node, cast):
+	if isSlideDrag:
+		print("ok")
+		x = cast.position.x
+		y = 0.5
+		z = (cast.position.z + 2)
+		var to_position = Vector3(x, y, z)
+		slide_main.set_translation(to_position)
+	if isSlide_main_enter:
+		var in_position = Vector3(-0.069, 0.5, 0.802)
+		emit_signal("send_instruction", 4)
+		slide_main.set_translation(in_position)
+		slide_disable = true
+
 	
 func _on_Global_slide_area_lock(value):
 	print(value)
@@ -100,8 +114,7 @@ func _on_barel_area_area_exited(area):
 	if area.name == "barrel_area":
 		emit_signal("send_instruction", 1)
 		isbarel_enter = false
-		
-#onready var spring_area = $"%spring_area"
+
 func _on_spring_area_area_entered(area):
 	if area.name == "spring_area":
 		emit_signal("send_instruction", 3)
@@ -109,6 +122,13 @@ func _on_spring_area_area_entered(area):
 		isSpring_enter = true
 		slide_disable = false
 		isDrag = true
+		print_debug(isDrag)
+		var x = -1
+		var y = 0
+		var z = -1
+		var to_position = Vector3(x, y, z)
+		slide_main.set_translation(to_position)
+			
 #		spring_area.set_visible(false)
 
 #
@@ -122,3 +142,6 @@ func _on_spring_area_area_entered(area):
 func _on_Global_area_lock(value):
 	print_debug(value)
 	isSpring_enter = value
+
+
+

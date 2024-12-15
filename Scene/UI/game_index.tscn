@@ -173,25 +173,24 @@ rect_min_size = Vector2( 0, 531 )
 alignment = 1
 
 [node name="glock" type="Button" parent="menu_buttons/guns/vbox"]
-margin_top = 169.0
+margin_top = 157.0
 margin_right = 364.0
-margin_bottom = 240.0
+margin_bottom = 228.0
 theme = ExtResource( 14 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.921569, 0.521569, 0.0941176, 1 )
 custom_fonts/font = SubResource( 4 )
 text = "Glock"
-flat = true
 
 [node name="calibre45" type="Button" parent="menu_buttons/guns/vbox"]
-margin_top = 244.0
+margin_top = 232.0
 margin_right = 364.0
-margin_bottom = 301.0
+margin_bottom = 303.0
+theme = ExtResource( 14 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.921569, 0.521569, 0.0941176, 1 )
 custom_fonts/font = SubResource( 5 )
 text = "Calibre 45"
-flat = true
 
 [node name="m16_rifle" type="Button" parent="menu_buttons/guns/vbox"]
 visible = false
@@ -204,14 +203,14 @@ text = "M16 Rifle"
 flat = true
 
 [node name="back" type="Button" parent="menu_buttons/guns/vbox"]
-margin_top = 305.0
+margin_top = 307.0
 margin_right = 364.0
-margin_bottom = 362.0
+margin_bottom = 374.0
+theme = ExtResource( 17 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.913725, 0.0588235, 0.0588235, 1 )
 custom_fonts/font = SubResource( 6 )
 text = "Back"
-flat = true
 
 [node name="move_tween" type="Tween" parent="menu_buttons/guns"]
 
@@ -239,9 +238,9 @@ text = "SMG"
 flat = true
 
 [node name="Smg2" type="Button" parent="menu_buttons/smg/vbox"]
-margin_top = 199.0
+margin_top = 194.0
 margin_right = 364.0
-margin_bottom = 270.0
+margin_bottom = 265.0
 theme = ExtResource( 14 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
@@ -270,14 +269,14 @@ text = "M16 Rifle"
 flat = true
 
 [node name="mp5_back" type="Button" parent="menu_buttons/smg/vbox"]
-margin_top = 274.0
+margin_top = 269.0
 margin_right = 364.0
-margin_bottom = 331.0
+margin_bottom = 336.0
+theme = ExtResource( 17 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.913725, 0.0588235, 0.0588235, 1 )
 custom_fonts/font = SubResource( 6 )
 text = "Back"
-flat = true
 
 [node name="move_tween" type="Tween" parent="menu_buttons/smg"]
 
@@ -451,7 +450,6 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.913725, 0.0588235, 0.0588235, 1 )
 custom_fonts/font = SubResource( 8 )
 text = "Back"
-flat = true
 
 [node name="vbox_Smg" type="VBoxContainer" parent="menu_buttons/modes"]
 visible = false
@@ -471,7 +469,6 @@ custom_colors/font_color_hover = Color( 0.313726, 0.858824, 0.141176, 1 )
 custom_colors/font_color_pressed = Color( 0.211765, 0.101961, 0.839216, 1 )
 custom_fonts/font = SubResource( 7 )
 text = "Video Tutorial"
-flat = true
 
 [node name="mp5_Description pdf" type="Button" parent="menu_buttons/modes/vbox_Smg"]
 margin_top = 184.0
@@ -483,7 +480,6 @@ custom_colors/font_color_hover = Color( 0.313726, 0.858824, 0.141176, 1 )
 custom_colors/font_color_pressed = Color( 0.211765, 0.101961, 0.839216, 1 )
 custom_fonts/font = SubResource( 7 )
 text = "Description pdf"
-flat = true
 
 [node name="smg_disassemble" type="Button" parent="menu_buttons/modes/vbox_Smg"]
 margin_top = 259.0
@@ -494,7 +490,6 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.921569, 0.521569, 0.0941176, 1 )
 custom_fonts/font = SubResource( 7 )
 text = "Disassemble"
-flat = true
 
 [node name="smg_assemble" type="Button" parent="menu_buttons/modes/vbox_Smg"]
 margin_top = 334.0
@@ -505,7 +500,6 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.921569, 0.521569, 0.0941176, 1 )
 custom_fonts/font = SubResource( 8 )
 text = "Assemble"
-flat = true
 
 [node name="back_to_difficulty" type="Button" parent="menu_buttons/modes/vbox_Smg"]
 margin_top = 409.0
@@ -516,7 +510,6 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0.913725, 0.0588235, 0.0588235, 1 )
 custom_fonts/font = SubResource( 8 )
 text = "Back"
-flat = true
 
 [node name="move_tween" type="Tween" parent="menu_buttons/modes"]
 

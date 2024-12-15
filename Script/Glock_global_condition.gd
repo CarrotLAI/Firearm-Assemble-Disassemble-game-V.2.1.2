@@ -91,14 +91,13 @@ onready var slide_main = $"%slide_main"
 
 func _on_slide_area_area_entered(area):
 #	print_debug(area.get_parent().get_parent().get_parent())
-	var slide_main = area.get_parent().get_parent().get_parent()
-	if slide_main:
-		isSlide_main_enter = true
+	if area.name == "slide_area":
+		var slide_main = area.get_parent().get_parent().get_parent()
+		if slide_main:
+			isSlide_main_enter = true
 #		var nextPos = Vector3(-0.069, 0.5, 0.802)
 #		EnumsInstruction(4)
-#		slide_main.set_translation(nextPos)
-#		slide_main.get_node("slide/slide_mesh/slide_area").set_visible(false)
-		emit_signal("slide_area_lock", isSlide_main_enter)
+			emit_signal("slide_area_lock", isSlide_main_enter)
 
 onready var instruction_lbl = $"%instruction_lbl"
 

@@ -166,7 +166,7 @@ func _on_spring_cap_send_instruction(val):
 
 #4
 func _on_colt_body_send_instruction(val):
-	EnumsInstruction(val)
+	EnumsInstruction(5)
 
 onready var cylinder_area = $"../colt_slide_parent/colt_barrel_cap/cylinder_cap/mesh_187002/cylinder_area"
 

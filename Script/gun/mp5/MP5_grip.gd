@@ -9,6 +9,7 @@ var dragging = false
 var remove_grip = true
 
 var rotating = false
+
 var prev_mousePos
 var next_mousePos
 var hovered

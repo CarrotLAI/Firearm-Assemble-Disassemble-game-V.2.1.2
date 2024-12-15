@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Video/new_glock.webm" type="VideoStream" id=1]
+[ext_resource path="res://Video/glock_latest.webm" type="VideoStream" id=1]
 [ext_resource path="res://Script/Tutorial/glock.gd" type="Script" id=2]
 [ext_resource path="res://assets/icons/left-arrow.png" type="Texture" id=3]
 [ext_resource path="res://fonts/Gugi-Regular.ttf" type="DynamicFontData" id=4]

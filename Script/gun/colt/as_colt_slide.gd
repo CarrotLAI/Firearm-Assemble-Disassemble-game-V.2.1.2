@@ -9,14 +9,15 @@ signal send_instruction(val)
 #var x 
 #var y 
 #var z
-#var nextPos = Vector3()
-
-var to_default = true
+var nextPos = Vector3()
+var isClick = true
+var to_default = false
 var drag_to_left = false
 var remove_to_body = false
 var isSlide = false
 var isSlide_for_lock = false
 # Called when the node enters the scene tree for the first time.
+onready var colt_slide_area = $"%colt_slide_area"
 
 #onready var spring_cap = $"%spring_cap"
 #onready var cylinder_cap = $"%cylinder_cap"
@@ -35,26 +36,35 @@ func _ready():
 
 
 func _on_Draggable_drag_move(node, cast):
+	if isClick:
+		nextPos = Vector3(-0.2, 0.5, 1.2)
+		colt_slide_parent.set_translation(nextPos)
+		isClick = false
+		to_default = true
+		
 	if(to_default):
-		drag_to_default(node, cast)
-#	else:
-#		print(to_default)
-#
+		drag_to_default(node, cast)#	
+
 func drag_to_default(node, cast):
 	var x = cast.position.x + 2
 	var y = cast.position.y - 4
 	var z = get_node(".").transform.origin.z
-	var nextPos = Vector3(x, y, 1.2)
-	colt_slide_parent.set_translation(nextPos)
-#	if to_default:
-#		set_process(false)
+	if x < 1.52 && x > 0.5:
+		nextPos = Vector3(x, 0.5, 1.2)
+		colt_slide_parent.set_translation(nextPos)
+#	if x == 1.52:
+#		x = 1.52
+	if x >= 1.52:
+		to_default = false
+		emit_signal("send_instruction", true)
+		colt_slide_area.set_visible(false)
 	
 func spring_remove(value):
 	if (value):
 		isSlide_for_lock = value
 	
 func _on_Draggable_drag_stop(node):
-	pass
+	colt_slide_parent.set_translation(nextPos)
 #	print_debug(get_node('.'))
 #	var slide = slide
 #	if(isSlide == true):
