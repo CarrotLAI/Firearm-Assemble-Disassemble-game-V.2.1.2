@@ -9,8 +9,8 @@ onready var video_player = $VideoPlayer
 
 func _ready():
 	yield(get_tree().create_timer(1.0), "timeout")
-	video_player.use_hw_decoder = true
-	video_player.stream = preload("res://Video/new_mp5.webm")
+#	video_player.use_hw_decoder = true
+#	video_player.stream = preload("res://Video/new_mp5.webm")
 	video_player.play()
 
 func _on_Button_pressed():

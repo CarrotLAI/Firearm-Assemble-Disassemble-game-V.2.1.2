@@ -195,7 +195,7 @@ func EnumsInstruction(e):
 	if(e == 3):
 		instruction.text = "unlock lock pin"
 	if(e == 4):
-		instruction.text = "remove grip"
+		instruction.text = "unlock lock pin and remove grip"
 	if(e == 5):
 		instruction.text = "remove stock"
 	if(e == 6):

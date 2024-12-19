@@ -27,6 +27,8 @@ func _on_Draggable_drag_move(node, cast):
 	nextPos = Vector3(x, y-3, z)
 	print(cast.position)
 	set_translation(nextPos)
+	
+onready var lock_area = $"%lock_area"
 
 func _process(delta):
 	var trigger = hovered
@@ -39,6 +41,7 @@ func _process(delta):
 		trigger.set_translation(next_position)
 		trigger.rotation_degrees = Vector3(0, 40, 0)
 		grip_area.set_visible(true)
+		lock_area.set_visible(false)
 #		rotating = true
 #		time_click =+ 1
 #		trigger.
