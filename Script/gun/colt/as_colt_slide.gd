@@ -93,3 +93,7 @@ func _on_Draggable_drag_stop(node):
 #		mag_area.set_visible(true)
 #		emit_signal("send_instruction", 6)
 #		set_process(false)
+
+
+func _on_colt_slide_area_area_entered(area):
+	print(area.name + "area Enter")
