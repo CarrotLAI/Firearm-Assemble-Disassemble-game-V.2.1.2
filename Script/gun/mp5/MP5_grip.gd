@@ -33,7 +33,7 @@ func _on_Draggable_drag_move(node, cast):
 		dragNode(node, cast)
 
 func _process(delta):
-	if Input.is_action_just_pressed("click"):
+	if Input.is_action_just_pressed("click") or Input.is_action_just_pressed("ui_touch"):
 		if remove_grip:
 			ToPosition(hovered)
 #		prev_mousePos = get_viewport().get_mouse_position()

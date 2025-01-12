@@ -59,6 +59,7 @@ func Barrel_outside(node, cast):
 func _on_barrel_area_area_entered(area):
 	if area.name == "colt_barrel_area":
 		print_debug(area.name)
+		print_debug("testtt")
 		ismove_barrel = false
 #		emit_signal("assemble_bolt", true)
 		nextPos = Vector3(0, 0, -0.2)

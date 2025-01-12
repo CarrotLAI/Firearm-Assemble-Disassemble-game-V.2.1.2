@@ -1,12 +1,9 @@
 extends Spatial
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+
 signal colt_barrel_area(value)
 signal spring_skeleton_area(value)
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -51,3 +48,6 @@ onready var colt_barrel = $"%colt_barrel"
 #		emit_signal("colt_barrel_area", 1)
 #		barrel_area.set_visible(false)
 #		barrel_area.disconnect("area_entered", self, "_on_barrel_area_area_entered")
+
+
+

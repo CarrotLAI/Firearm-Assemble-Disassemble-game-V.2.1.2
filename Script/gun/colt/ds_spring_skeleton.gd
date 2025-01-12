@@ -24,7 +24,7 @@ func _on_Draggable_drag_move(node, cast):
 func default_Spr_Skel(node, cast):
 	var x = get_node(".").transform.origin.z
 	var y = cast.position.y - 7
-	var z = -(cast.position.x) - 9
+	var z = -(cast.position.x) - 5
 	var nextPos = Vector3(0, y, z)
 #	print(nextPos)
 	set_translation(nextPos)

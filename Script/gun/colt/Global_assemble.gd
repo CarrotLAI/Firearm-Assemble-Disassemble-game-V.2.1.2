@@ -132,6 +132,7 @@ func _on_colt_barrel_send_instruction(val):
 	if(val == true):
 		if condition_to_win.barel_area != 1:
 			condition_to_win.barel_area = 1
+			EnumsInstruction(2)
 			print(condition_to_win)
 	
 func _on_slide_enter():
@@ -156,17 +157,17 @@ func EnumsInstruction(e):
 #		instruction.rect_position = Vector2(650, 50)
 		instruction.rect_size = Vector2(960, 200)
 	if(e == 2):
-		instruction.text = "close the barrel cap"
+		instruction.text = "click the barrel cap to close it"
 	if(e == 3):
 		instruction.text = "Insert spring"
 	if(e == 4):
-		instruction.text = "Insert spring cap"
+		instruction.text = "click spring cap to insert"
 	if(e == 5):
-		instruction.text = "position slide"
+		instruction.text = "click slide to position it to the body"
 	if(e == 6):
-		instruction.text = "clip back the slide"
+		instruction.text = "drag to right to position the lock"
 	if(e == 7):
-		instruction.text = "insert back slide lock"
+		instruction.text = "insert the slide lock"
 		mag_area.set_visible(true)
 	if(e == 8):
 		instruction.text = "insert the magazine"
@@ -207,3 +208,6 @@ func _on_colt_body_send_descript(val):
 	EnumsInstruction(8)
 
 
+func _on_colt_slide_instruction_click_slide(val):
+	if val == true:
+		EnumsInstruction(6)

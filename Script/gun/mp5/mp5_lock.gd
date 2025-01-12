@@ -15,6 +15,7 @@ var slide_lock_open = false
 var time_click = 0
 
 var trigger_lock = true
+var isClick = true
 
 # Called when the node enters the scene tree for the first time.
 onready var grip_area = $"%grip_area"
@@ -23,19 +24,20 @@ func _ready():
 	set_process(false)
 
 func _on_Draggable_drag_move(node, cast):
-	x = cast.position.x - 4
-	y = cast.position.y
-	z = get_node(".").transform.origin.z
-	nextPos = Vector3(x, y-3, z)
-	print(cast.position)
-	set_translation(nextPos)
+	if trigger_lock == false:
+		x = cast.position.x - 4
+		y = cast.position.y
+		z = get_node(".").transform.origin.z
+		nextPos = Vector3(x, y-3, z)
+		print(cast.position)
+		set_translation(nextPos)
 	
 onready var lock_area = $"%lock_area"
 
 func _process(delta):
 	var trigger = hovered
 #	var rotation = trigger.rotation_degrees
-	if Input.is_action_just_pressed("click"):
+	if Input.is_action_just_pressed("click") or Input.is_action_just_pressed("ui_touch"):
 		if trigger_lock == true:
 			var x = 9
 			var y = 0
